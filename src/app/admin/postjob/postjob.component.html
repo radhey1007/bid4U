@@ -1,0 +1,183 @@
+
+    <div class="container-fluid">
+        <div class="db-breadcrumb">
+            <h4 class="breadcrumb-title">Admin- Job Alert</h4>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12" >
+                <div class="widget-card widget-bg1" [ngClass]="{'this-is-a-class': id === 1 }" (click)="addClass(id=1)">
+                    <div class="wc-item" >
+                        <h4 class="wc-title">
+                            job alert
+                        </h4>
+                        <span class="wc-des">
+                            All Customs Value
+                        </span>
+                        <span class="wc-stats">
+                            $<span class="counter">18</span>M
+                        </span>
+                        <div class="progress wc-progress">
+                            <div class="progress-bar" role="progressbar" style="width: 78%;" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="wc-progress-bx">
+                            <span class="wc-change">
+                                Change
+                            </span>
+                            <span class="wc-number ml-auto">
+                                78%
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12" >
+                <div class="widget-card widget-bg2" [ngClass]="{'this-is-a-class': id === 2 }" (click)="addClass(id=2)">
+                    <div class="wc-item" >
+                        <h4 class="wc-title">
+                            Admit Card
+                        </h4>
+                        <span class="wc-des">
+                            Customer Review
+                        </span>
+                        <span class="wc-stats counter">
+                            120
+                        </span>
+                        <div class="progress wc-progress">
+                            <div class="progress-bar" role="progressbar" style="width: 88%;" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="wc-progress-bx">
+                            <span class="wc-change">
+                                Change
+                            </span>
+                            <span class="wc-number ml-auto">
+                                88%
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12"  >
+                <div class="widget-card widget-bg3" [ngClass]="{'this-is-a-class': id === 3 }" (click)="addClass(id=3)">
+                    <div class="wc-item">
+                        <h4 class="wc-title">
+                            Answer Key
+                        </h4>
+                        <span class="wc-des">
+                            Fresh Order Amount
+                        </span>
+                        <span class="wc-stats counter">
+                            772
+                        </span>
+                        <div class="progress wc-progress">
+                            <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="wc-progress-bx">
+                            <span class="wc-change">
+                                Change
+                            </span>
+                            <span class="wc-number ml-auto">
+                                65%
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12" >
+                <div class="widget-card widget-bg4"  [ngClass]="{'this-is-a-class': id === 4 }" (click)="addClass(id=4)">
+                    <div class="wc-item" >
+                        <h4 class="wc-title">
+                            Result
+                        </h4>
+                        <span class="wc-des">
+                            Joined New User
+                        </span>
+                        <span class="wc-stats counter">
+                            350
+                        </span>
+                        <div class="progress wc-progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="wc-progress-bx">
+                            <span class="wc-change">
+                                Change
+                            </span>
+                            <span class="wc-number ml-auto">
+                                90%
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <!-- Your Profile Views Chart -->
+            <div class="col-lg-12 m-b30">
+                <div class="widget-box">
+
+                    <div class="widget-inner">
+                        <div class="edit-profile m-b30">
+                            <div class="row">
+
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Title</label>
+                                        <div class="col-sm-7">
+                                            <input class="form-control" [(ngModel)]="Jobmodel.Jobtitle" type="text"
+                                                value="Title">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Url</label>
+                                        <div class="col-sm-7">
+                                            <input class="form-control" #site="ngModel" pattern="https?://.+" required
+                                                [(ngModel)]="Jobmodel.JobUrl" type="url">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="site.invalid">
+                                        <label class="col-sm-2 col-form-label"></label>
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> Invalid Url !
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">End Date</label>
+                                        <div class="col-sm-7">
+
+                                            <input class="form-control" [(ngModel)]="Jobmodel.JobEndDate" type="date">
+                                        </div>
+                                    </div>
+
+
+                                    <div style="text-align:center;"> <button [disabled]="site.invalid" (click)="postJob()" type="button"
+                                            class="btn-secondry add-item m-r5"><i
+                                                class="fa fa-fw fa-plus-circle"></i>Submit</button></div>
+
+
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="seperator"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Your Profile Views Chart END-->
+        </div>
+
+
+    </div>
+

@@ -1,0 +1,34 @@
+@charset "UTF-8";
+@import '~ngx-toastr/toastr';
+
+@import url("//fonts.googleapis.com/css?family=Pacifico&text=Pure");
+@import url("//fonts.googleapis.com/css?family=Roboto:700&text=css");
+@import url("//fonts.googleapis.com/css?family=Kaushan+Script&text=!");
+@import url("./assets/css/assets.css");
+@import url("./assets/css/style.css");
+@import url("./assets/css/typography");
+@import url("./assets/css/color/color-1.css");
+/* @import url("./assets/css/color/color-3.css"); */
+@import url("./assets/css/shortcodes/accordion.css");
+@import url("./assets/css/shortcodes/alert.css");
+@import url("./assets/css/shortcodes/breadcrumb.css");
+@import url("./assets/css/shortcodes/button.css");
+@import url("./assets/css/shortcodes/divider.css");
+@import url("./assets/css/shortcodes/form.css");
+@import url("./assets/css/shortcodes/icon-box.css");
+@import url("./assets/css/shortcodes/layout.css");
+@import url("./assets/css/shortcodes/list.css");
+@import url("./assets/css/shortcodes/overlay.css");
+@import url("./assets/css/shortcodes/owl.css");
+@import url("./assets/css/shortcodes/pagination.css");
+@import url("./assets/css/shortcodes/pricingtable.css");
+@import url("./assets/css/shortcodes/separator.css");
+@import url("./assets/css/shortcodes/shortcodes.css");
+@import url("./assets/css/shortcodes/widget.css");
+
+@import url("./assets/admin/css/asset.css");
+@import url("./assets/admin/css/dashboard.css");
+@import url("./assets/admin/css/style.css");
+@import url("./assets/admin/css/typography.css");
+
+
