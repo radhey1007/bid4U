@@ -33,7 +33,8 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="#" class="ttr-material-button"><span class="ttr-label">Material</span></a>
+                            <a href="javascript:void(0)"  [routerLink]="['./postmaterial']" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"  class="ttr-material-button"><span class="ttr-label">Material</span></a>
                         </li>
                         
                     </ul>
@@ -49,14 +50,14 @@
 
 
                 <li>
-                    <a href="courses.html" class="ttr-material-button">
+                    <a href="#" [routerLink]="['./postQuiz']" routerLinkActive="active" class="ttr-material-button">
                         <span class="ttr-icon"><i class="ti-book"></i></span>
                         <span class="ttr-label">Quiz</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="courses.html" class="ttr-material-button">
+                    <a href="#" [routerLink]="['./userRole']" routerLinkActive="active" class="ttr-material-button">
                         <span class="ttr-icon"><i class="ti-user"></i></span>
                         <span class="ttr-label">Manage User Role</span>
                     </a>

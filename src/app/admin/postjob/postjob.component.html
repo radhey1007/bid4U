@@ -1,7 +1,7 @@
 
     <div class="container-fluid">
         <div class="db-breadcrumb">
-            <h4 class="breadcrumb-title">Admin- Job Alert</h4>
+            <h4 class="breadcrumb-title">Admin- Post Job</h4>
 
         </div>
 
@@ -132,11 +132,17 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Title</label>
                                         <div class="col-sm-7">
-                                            <input class="form-control" [(ngModel)]="Jobmodel.Jobtitle" type="text"
+                                            <input class="form-control" #title="ngModel" [(ngModel)]="Jobmodel.Jobtitle" type="text"
                                                 value="Title">
                                         </div>
                                     </div>
-
+                                    <div class="form-group row" *ngIf="title.errors && (title.dirty || title.touched)">
+                                            <label class="col-sm-2 col-form-label"></label>
+        
+                                            <div class="col-sm-7 alert alert-danger">
+                                                <strong>Error !</strong> Please enter title
+                                            </div>
+                                        </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Url</label>
                                         <div class="col-sm-7">
@@ -144,7 +150,7 @@
                                                 [(ngModel)]="Jobmodel.JobUrl" type="url">
                                         </div>
                                     </div>
-                                    <div class="form-group row" *ngIf="site.invalid">
+                                    <div class="form-group row"*ngIf="site.errors && (site.dirty || site.touched)">
                                         <label class="col-sm-2 col-form-label"></label>
                                         <div class="col-sm-7 alert alert-danger">
                                             <strong>Error !</strong> Invalid Url !
@@ -161,7 +167,7 @@
                                     </div>
 
 
-                                    <div style="text-align:center;"> <button [disabled]="site.invalid" (click)="postJob()" type="button"
+                                    <div style="text-align:center;"> <button [disabled]="site.invalid || title.invalid" (click)="postJob()" type="button"
                                             class="btn-secondry add-item m-r5"><i
                                                 class="fa fa-fw fa-plus-circle"></i>Submit</button></div>
 

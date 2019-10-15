@@ -16,6 +16,9 @@ import { HeaderStComponent } from './student/header-st/header-st.component';
 import { FooterStComponent } from './student/footer-st/footer-st.component';
 import { SidebarStComponent } from './student/sidebar-st/sidebar-st.component';
 import { DashboardStComponent } from './student/dashboard-st/dashboard-st.component';
+import { MaterialComponent } from './admin/material/material.component';
+import { QuizComponent } from './admin/quiz/quiz.component';
+import { ManageuserRoleComponent } from './admin/manageuser-role/manageuser-role.component';
 
 
 
@@ -26,7 +29,10 @@ import { DashboardStComponent } from './student/dashboard-st/dashboard-st.compon
    HeaderStComponent,
    FooterStComponent,
    SidebarStComponent,
-   DashboardStComponent
+   DashboardStComponent,
+   
+   
+  
    
   ],
   imports: [

@@ -17,7 +17,7 @@ export class PostjobComponent implements OnInit {
     Jobtitle: '',
     JobEndDate:'',
     JobUrl: ''
-  }
+  } 
   id:any='';
   constructor(public sharedService: CommonService,
     public http: HttpClient,private datePipe: DatePipe,public storage:StorageService,
