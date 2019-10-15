@@ -132,8 +132,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Title</label>
                                         <div class="col-sm-7">
-                                            <input class="form-control" #title="ngModel" [(ngModel)]="Jobmodel.Jobtitle" type="text"
-                                                value="Title">
+                                            <input class="form-control" #title="ngModel" [(ngModel)]="Jobmodel.Jobtitle" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row" *ngIf="title.errors && (title.dirty || title.touched)">
