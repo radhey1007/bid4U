@@ -36,7 +36,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Upload File</label>
                                     <div class="col-sm-7">
-                                        <input required class="form-control" (change)="onFileChange($event)"
+                                        <input required class="form-control"  (change)="onFileChange($event)"
                                             #fileInput="ngModel" [(ngModel)]="material.file"
                                             placeholder="Please choose file.." required type="file">
                                     </div>

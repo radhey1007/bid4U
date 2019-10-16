@@ -40,7 +40,7 @@ export class CommonService {
   postMaterial=(data)=>{
     let header= new HttpHeaders();
     header.append('Content-Type', 'multipart/form-data');
-  
+   // header.append('Accept', 'application/json');
    
     return this.http.post(this.url + "StudyMaterials", data, {
       headers:header

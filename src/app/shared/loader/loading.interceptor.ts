@@ -32,7 +32,8 @@ export class LoadingScreenInterceptor implements HttpInterceptor {
     const headers = new HttpHeaders({
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': "GET,POST,OPTIONS,DELETE,PUT",
-      'Content-Type': content
+      'Content-Type': content,
+      'Accept': 'application/json'
     });
    
    req= req.clone({headers});

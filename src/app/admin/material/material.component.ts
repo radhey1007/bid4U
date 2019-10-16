@@ -34,9 +34,9 @@ export class MaterialComponent implements OnInit {
         size: sizedata + ' KB',
         type: fileData.type
       });
-      this.formData.append('file1', fileData, fileData.name);
-      console.log(this.formData.getAll('file'));
-      console.log(this.file)
+      this.formData.append('file1', fileData);
+      // console.log(this.formData.getAll('file1'));
+      // console.log(this.file)
     }
   }
   postMaterial = () => {
