@@ -1,69 +1,65 @@
 <div class="container-fluid">
-        <div class="db-breadcrumb">
-            <h4 class="breadcrumb-title">Admin- Post Quiz</h4>
-    
-        </div>
-    
-   
-    
+    <div class="db-breadcrumb">
+        <h4 class="breadcrumb-title">Admin- Post Quiz</h4>
+
+    </div>
+
+
+
     <form #myForm="ngForm">
         <div class="row">
             <!-- Your Profile Views Chart -->
             <div class="col-lg-12 m-b30">
                 <div class="widget-box">
-    
+
                     <div class="widget-inner">
                         <div class="edit-profile m-b30">
                             <div class="row">
-    
+
                                 <div class="col-md-2"></div>
                                 <div class="col-md-8">
-                                        <div class="form-group row">
-                                                <label class="col-sm-3  col-form-label">Select Subject</label>
-                                                <div class="col-sm-7">
-                                                    <select  name="subject" class="form-control" #subject="ngModel" [(ngModel)]="quiz.subject"
-                                                        type="text" value="" required placeholder="Select subject..">
-                                                    <option value="1">A</option>
-                                                    <option value="2">B</option>
-                                                    <option value="3">C</option>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3  col-form-label">Select Subject</label>
+                                        <div class="col-sm-7">
+                                            <select name="subject" class="form-control" #subject="ngModel" [(ngModel)]="quiz.subject" type="text" value="" required placeholder="Select subject..">
+                                                    <option *ngFor="let subject of subjectList" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
+                                                   
                                                     </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row" *ngIf="subject.errors && (subject.dirty || subject.touched)">
-                                                    <label class="col-sm-3  col-form-label"></label>
-                
-                                                    <div class="col-sm-7 alert alert-danger">
-                                                        <strong>Error !</strong> please select subject 
-                                                    </div>
-                                                </div>
-                                            <div class="form-group row">
-                                                    <label class="col-sm-3  col-form-label">Select Series</label>
-                                                    <div class="col-sm-7">
-                                                        <select name="series" class="form-control" #series="ngModel" [(ngModel)]="quiz.series"
-                                                            type="text" value="" required placeholder="Select subject..">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="subject.errors && (subject.dirty || subject.touched)">
+                                        <label class="col-sm-3  col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> please select subject
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3  col-form-label">Select Series</label>
+                                        <div class="col-sm-7">
+                                            <select name="series" class="form-control" #series="ngModel" [(ngModel)]="quiz.series" type="text" value="" required placeholder="Select subject..">
                                                         <option value="1">A</option>
                                                         <option value="2">B</option>
                                                         <option value="3">C</option>
                                                         </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row" *ngIf="series.errors && (series.dirty || series.touched)">
-                                                        <label class="col-sm-3  col-form-label"></label>
-                    
-                                                        <div class="col-sm-7 alert alert-danger">
-                                                            <strong>Error !</strong> please select series 
-                                                        </div>
-                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="series.errors && (series.dirty || series.touched)">
+                                        <label class="col-sm-3  col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> please select series
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3  col-form-label">Question</label>
                                         <div class="col-sm-7">
-                                            <textarea rows="2" name="question"  class="form-control" #question="ngModel" [(ngModel)]="quiz.question"
-                                                type="text" value="" required placeholder="Enter Question.."></textarea>
+                                            <textarea rows="2" name="question" class="form-control" #question="ngModel" [(ngModel)]="quiz.question" type="text" value="" required placeholder="Enter Question.."></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row" *ngIf="question.errors && (question.dirty || question.touched)">
                                         <label class="col-sm-3  col-form-label"></label>
-    
+
                                         <div class="col-sm-7 alert alert-danger">
                                             <strong>Error !</strong> please enter question
                                         </div>
@@ -72,97 +68,85 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3  col-form-label">Answer A</label>
                                         <div class="col-sm-7">
-                                                <input class="form-control" #answerA="ngModel" [(ngModel)]="quiz.answerA"
-                                                type="text" name="answerA"  value="" required placeholder="Enter Answer A..">
+                                            <input class="form-control" #answerA="ngModel" [(ngModel)]="quiz.answerA" type="text" name="answerA" value="" required placeholder="Enter Answer A..">
                                         </div>
                                     </div>
-                                    <div class="form-group row"  *ngIf="answerA.errors && (answerA.dirty || answerA.touched)">
+                                    <div class="form-group row" *ngIf="answerA.errors && (answerA.dirty || answerA.touched)">
                                         <label class="col-sm-3  col-form-label"></label>
-                                       
-                                        <div 
-                                            class="col-sm-7 alert alert-danger">
-                                            <strong>Error !</strong> Please enter  Answer A
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> Please enter Answer A
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                            <label class="col-sm-3  col-form-label">Answer B</label>
-                                            <div class="col-sm-7">
-                                                    <input class="form-control" #answerB="ngModel" [(ngModel)]="quiz.answerB"
-                                                    type="text" name="answerB" value="" required placeholder="Enter Answer B..">
-                                            </div>
+                                        <label class="col-sm-3  col-form-label">Answer B</label>
+                                        <div class="col-sm-7">
+                                            <input class="form-control" #answerB="ngModel" [(ngModel)]="quiz.answerB" type="text" name="answerB" value="" required placeholder="Enter Answer B..">
                                         </div>
-                                        <div class="form-group row"  *ngIf="answerB.errors && (answerB.dirty || answerB.touched)">
-                                            <label class="col-sm-3  col-form-label"></label>
-                                           
-                                            <div 
-                                                class="col-sm-7 alert alert-danger">
-                                                <strong>Error !</strong> Please enter  Answer B
-                                            </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="answerB.errors && (answerB.dirty || answerB.touched)">
+                                        <label class="col-sm-3  col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> Please enter Answer B
                                         </div>
+                                    </div>
 
-                                        <div class="form-group row">
-                                                <label class="col-sm-3  col-form-label">Answer C</label>
-                                                <div class="col-sm-7">
-                                                        <input name="answerC" class="form-control" #answerC="ngModel" [(ngModel)]="quiz.answerC"
-                                                        type="text" value="" required placeholder="Enter Answer C..">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row"  *ngIf="answerC.errors && (answerC.dirty || answerC.touched)">
-                                                <label class="col-sm-3  col-form-label"></label>
-                                               
-                                                <div 
-                                                    class="col-sm-7 alert alert-danger">
-                                                    <strong>Error !</strong> Please enter  Answer C
-                                                </div>
-                                            </div>
-                                            
-                                        <div class="form-group row">
-                                                <label class="col-sm-3  col-form-label">Answer D</label>
-                                                <div class="col-sm-7">
-                                                        <input name="answerD" class="form-control" #answerD="ngModel" [(ngModel)]="quiz.answerD"
-                                                        type="text" value="" required placeholder="Enter Answer D..">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row"  *ngIf="answerD.errors && (answerD.dirty || answerD.touched)">
-                                                <label class="col-sm-3  col-form-label"></label>
-                                               
-                                                <div 
-                                                    class="col-sm-7 alert alert-danger">
-                                                    <strong>Error !</strong> Please enter  Answer D
-                                                </div>
-                                            </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3  col-form-label">Answer C</label>
+                                        <div class="col-sm-7">
+                                            <input name="answerC" class="form-control" #answerC="ngModel" [(ngModel)]="quiz.answerC" type="text" value="" required placeholder="Enter Answer C..">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="answerC.errors && (answerC.dirty || answerC.touched)">
+                                        <label class="col-sm-3  col-form-label"></label>
 
-                                            <div class="form-group row">
-                                                    <label class="col-sm-3  col-form-label">Answer E</label>
-                                                    <div class="col-sm-7">
-                                                            <input name="answerE" class="form-control" #answerE="ngModel" [(ngModel)]="quiz.answerE"
-                                                            type="text" value="" required placeholder="Enter Answer E..">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row"  *ngIf="answerE.errors && (answerE.dirty || answerE.touched)">
-                                                    <label class="col-sm-3  col-form-label"></label>
-                                                   
-                                                    <div 
-                                                        class="col-sm-7 alert alert-danger">
-                                                        <strong>Error !</strong> Please enter  Answer E
-                                                    </div>
-                                                </div>
-                                   <!-- Answer Blog -->
-    
-    
-    
-    
-                                    <div style="text-align:center;"> <button
-                                             type="button" [disabled]="!myForm.valid"
-                                            (click)="postQuiz()" class="btns btn-block btn-secondry add-item m-r5"><i
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> Please enter Answer C
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3  col-form-label">Answer D</label>
+                                        <div class="col-sm-7">
+                                            <input name="answerD" class="form-control" #answerD="ngModel" [(ngModel)]="quiz.answerD" type="text" value="" required placeholder="Enter Answer D..">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="answerD.errors && (answerD.dirty || answerD.touched)">
+                                        <label class="col-sm-3  col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> Please enter Answer D
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3  col-form-label">Answer E</label>
+                                        <div class="col-sm-7">
+                                            <input name="answerE" class="form-control" #answerE="ngModel" [(ngModel)]="quiz.answerE" type="text" value="" required placeholder="Enter Answer E..">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="answerE.errors && (answerE.dirty || answerE.touched)">
+                                        <label class="col-sm-3  col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> Please enter Answer E
+                                        </div>
+                                    </div>
+                                    <!-- Answer Blog -->
+
+
+
+
+                                    <div style="text-align:center;"> <button type="button" [disabled]="!myForm.valid" (click)="postQuiz()" class="btns btn-block btn-secondry add-item m-r5"><i
                                                 class="fa fa-fw fa-plus-circle"></i>Submit</button></div>
-    
-    
+
+
                                 </div>
                                 <div class="col-md-2"></div>
                                 <div class="seperator"></div>
-    
+
                             </div>
                         </div>
                     </div>
@@ -171,5 +155,5 @@
             <!-- Your Profile Views Chart END-->
         </div>
     </form>
-    
-    </div>
+
+</div>
