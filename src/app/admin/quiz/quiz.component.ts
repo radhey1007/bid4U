@@ -37,7 +37,16 @@ export class QuizComponent implements OnInit {
   }
 
   postQuiz = () => {
+    const quiz = {};
     this.mytemplateForm.reset();
+    this.sharedService.postjob(quiz).subscribe(
+      _res => {
+        console.log(_res);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   };
 
   // getSubjectList = () => {

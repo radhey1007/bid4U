@@ -34,4 +34,7 @@ export class CommonService {
   getSubjectList = () => {
     return this.http.get(this.url + "Subjects");
   };
+  PoastQuiz = data => {
+    return this.http.post(this.url + "Quizs", data, {});
+  };
 }
