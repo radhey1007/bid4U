@@ -26,7 +26,7 @@ export class QuizComponent implements OnInit {
     private sharedService: CommonService,
     private actRoute: ActivatedRoute,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.actRoute.data.subscribe(data => {
@@ -39,19 +39,21 @@ export class QuizComponent implements OnInit {
   }
 
   postQuiz = () => {
-    const quiz = {
-      subjectID: this.quiz.subject,
-      quizID: this.quiz.series,
-      question: this.quiz.question,
-      option1: this.quiz.answerA,
-      option2: this.quiz.answerB,
-      option3: this.quiz.answerC,
-      option4: this.quiz.answerD,
-      answer: this.quiz.answerE
-    };
+
 
     if (this.quiz.answerE !== "") {
-      this.sharedService.postjob(quiz).subscribe(
+      const quiz = {
+        subjectID: this.quiz.subject,
+        quizID: this.quiz.series,
+        question: this.quiz.question,
+        option1: this.quiz.answerA,
+        option2: this.quiz.answerB,
+        option3: this.quiz.answerC,
+        option4: this.quiz.answerD,
+        answer: this.quiz.answerE
+      };
+      console.log(quiz)
+      this.sharedService.PoastQuiz(quiz).subscribe(
         _res => {
           console.log(_res);
           this.toastr.success("Success!", "Quiz successfully posted!", {
@@ -64,6 +66,7 @@ export class QuizComponent implements OnInit {
         }
       );
     } else {
+      this.boxselection('E');
       this.toastr.error("Error!", "Please select right answer!", {
         timeOut: 3000
       });

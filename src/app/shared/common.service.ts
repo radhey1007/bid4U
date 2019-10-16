@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { user } from "../Model/user.model";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 
 @Injectable({
@@ -37,4 +37,13 @@ export class CommonService {
   PoastQuiz = data => {
     return this.http.post(this.url + "Quizs", data, {});
   };
+  postMaterial=(data)=>{
+    let header= new HttpHeaders();
+    header.append('Content-Type', 'multipart/form-data');
+  
+   
+    return this.http.post(this.url + "StudyMaterials", data, {
+      headers:header
+    });
+  }
 }

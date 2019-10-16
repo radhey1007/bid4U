@@ -23,17 +23,23 @@ export class LoadingScreenInterceptor implements HttpInterceptor {
       .getElementsByClassName("loading")
       .item(0) as HTMLElement;
     loadingContainer.style.display = "block";
+    let content ='application/json';
+    if (req.body instanceof FormData) {
+      // we are sending a file here
+      content = 'multipart/form-data';
+    }
+    console.log('>>>>>>>>>>>**<<<<<<<<<<<< '+ content)
     const headers = new HttpHeaders({
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': "GET,POST,OPTIONS,DELETE,PUT",
-      'Content-Type': 'application/json'
+      'Content-Type': content
     });
    
    req= req.clone({headers});
-    console.table( environment.token);
+    
     if (this.storage.getUserSettings('token')) {
      let token =this.storage.getUserSettings('token');
-     console.table(token)
+    
      //console.log('*******************'+token.bearer+'*****************************')
       let userToken = 'Bearer ' + token.bearer
      req= req.clone({

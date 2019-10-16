@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/shared/common.service';
 
 @Component({
   selector: 'app-material',
@@ -13,7 +14,7 @@ export class MaterialComponent implements OnInit {
   }
   errMSG: any = ''
   formData: FormData = new FormData();
-  constructor() { }
+  constructor( private sharedService: CommonService) { }
 
   ngOnInit() {
   }
@@ -33,16 +34,23 @@ export class MaterialComponent implements OnInit {
         size: sizedata + ' KB',
         type: fileData.type
       });
-      this.formData.append('file', fileData, fileData.name);
+      this.formData.append('file1', fileData, fileData.name);
       console.log(this.formData.getAll('file'));
       console.log(this.file)
     }
   }
   postMaterial = () => {
+   // let _studyMaterial = this.material.label;
+    this.formData.append("_studyMaterial",this.material.label);
+    this.sharedService.postMaterial(this.formData).subscribe((_res)=>{
+      console.log(_res);
+    },err=>{
+      console.log(err);
+    })
 console.log('validate');
   }
   clearFile=(btn?)=>{
-    this.formData.delete('file');
+    this.formData.delete('file1');
     this.file.length = 0;
     if(btn=='is'){
       this.material.file='';
