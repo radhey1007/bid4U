@@ -41,7 +41,8 @@ export class MaterialComponent implements OnInit {
   }
   postMaterial = () => {
    // let _studyMaterial = this.material.label;
-    this.formData.append("_studyMaterial",this.material.label);
+    //this.formData.append("_studyMaterial",this.material.label);
+    debugger;
     this.sharedService.postMaterial(this.formData).subscribe((_res)=>{
       console.log(_res);
     },err=>{
