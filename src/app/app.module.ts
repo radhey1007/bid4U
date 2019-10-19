@@ -19,20 +19,13 @@ import { DashboardStComponent } from './student/dashboard-st/dashboard-st.compon
 import { MaterialComponent } from './admin/material/material.component';
 import { QuizComponent } from './admin/quiz/quiz.component';
 import { ManageuserRoleComponent } from './admin/manageuser-role/manageuser-role.component';
+import { CurrentaffairsComponent } from './admin/currentaffairs/currentaffairs.component';
 
 
 
 @NgModule({
   declarations: [
    ...componets,
-   StudentComponent,
-   HeaderStComponent,
-   FooterStComponent,
-   SidebarStComponent,
-   DashboardStComponent,
-   
-   
-  
    
   ],
   imports: [

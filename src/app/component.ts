@@ -11,6 +11,10 @@ import { HeaderAdComponent } from './admin/header-ad/header-ad.component';
 import { FooterAdComponent } from './admin/footer-ad/footer-ad.component';
 import { SidebarComponent } from './admin/sidebar/sidebar.component';
 import { PostjobComponent } from './admin/postjob/postjob.component';
+import { StudentComponent } from './student/student.component';
+import { HeaderStComponent } from './student/header-st/header-st.component';
+import { FooterStComponent } from './student/footer-st/footer-st.component';
+import { SidebarStComponent } from './student/sidebar-st/sidebar-st.component';
 
 
 
@@ -24,11 +28,15 @@ export const componets = [
   PageNotFoundComponent,
   HomeComponent,
   AdminComponent
-  ,HeaderAdComponent,FooterAdComponent,SidebarComponent 
+  ,HeaderAdComponent,FooterAdComponent,SidebarComponent ,StudentComponent,
+  HeaderStComponent,
+  FooterStComponent,
+  SidebarStComponent,
 ];
 
 export const commonroutes = [
   { path: "", component: HomeComponent, pathMatch: "full",data: { animation: 'heroes' }   },
   {path: "admin/dashboard",data: { animation: 'heroes' } , component: AdminComponent,loadChildren: () => import('./admin/admins/admins.module').then(m => m.AdminsModule)},
+  {path: "student/dashboard",data: { animation: 'heroes' } , component: StudentComponent,loadChildren: () => import('./student/students/students.module').then(m => m.StudentsModule)},
   { path: "**",data: { animation: 'heroes' } , component: PageNotFoundComponent }
 ];

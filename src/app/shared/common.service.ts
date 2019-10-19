@@ -37,9 +37,10 @@ export class CommonService {
   PoastQuiz = data => {
     return this.http.post(this.url + "Quizs", data, {});
   };
-  postMaterial=(data)=>{
-   
-   
-    return this.http.post(this.url + "StudyMaterials?_studyMaterial='aa'", data);
+  postMaterial=(data,label)=>{
+    return this.http.post(this.url + `StudyMaterials?_studyMaterial=${label}`, data);
+  }
+  postGK=(data)=>{
+    return this.http.post(this.url + `StudyMaterials`, data);
   }
 }

@@ -1,3 +1,4 @@
+import { CurrentaffairsComponent } from './../currentaffairs/currentaffairs.component';
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
@@ -19,7 +20,8 @@ import { QuizresolverService } from "../resolver/quizresolver.service";
     PostjobComponent,
     MaterialComponent,
     QuizComponent,
-    ManageuserRoleComponent
+    ManageuserRoleComponent,
+    CurrentaffairsComponent
   ],
   imports: [CommonModule, RouterModule.forChild(AdminRoute), FormsModule],
   providers: [QuizresolverService]
