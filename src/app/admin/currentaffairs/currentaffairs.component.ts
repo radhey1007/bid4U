@@ -10,7 +10,8 @@ import { CommonService } from "src/app/shared/common.service";
 export class CurrentaffairsComponent implements OnInit {
   gk = {
     title: "",
-    des: ""
+    des: "",
+    cdate:""
   };
   @ViewChild("myForm", { static: false }) mytemplateForm: NgForm;
   constructor(
@@ -21,7 +22,12 @@ export class CurrentaffairsComponent implements OnInit {
   ngOnInit() {}
   postGK = () => {
     if (this.mytemplateForm.valid) {
-      this.sharedService.postGK(this.gk).subscribe(
+      const obj={
+        "title":this.gk.title,
+        "content":this.gk.des,
+        "contentDate":new Date(this.gk.cdate)
+      }
+      this.sharedService.postGK(obj).subscribe(
         _res => {
           this.reset();
           this.toastr.success(

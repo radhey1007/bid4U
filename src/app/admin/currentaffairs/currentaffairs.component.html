@@ -37,15 +37,22 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Description</label>
                                         <div class="col-sm-7">
-                                            <input name="des" class="form-control" #des="ngModel" [(ngModel)]="gk.des"
-                                                placeholder="Please enter Description.." required type="text">
+                                            <textarea rows="2" name="des" class="form-control" #des="ngModel" [(ngModel)]="gk.des"
+                                                placeholder="Please enter Description.." required type="text"></textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group row" *ngIf="des.errors && (des.dirty || des.touched)">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Content Published</label>
+                                        <div class="col-sm-7">
+                                            <input  name="cdate" class="form-control" #cdate="ngModel" [(ngModel)]="gk.cdate"
+                                                placeholder="Please enter Content Date.." required type="date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="cdate.errors && (cdate.dirty || cdate.touched)">
                                         <label class="col-sm-2 col-form-label"></label>
 
                                         <div class="col-sm-7 alert alert-danger">
-                                            <strong>Error !</strong> Please Enter Description
+                                            <strong>Error !</strong> Please Enter content date
                                         </div>
                                     </div>
 

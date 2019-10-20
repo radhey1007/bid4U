@@ -1,3 +1,4 @@
+import { HomeresolverService } from './resolvers/homeresolver.service';
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./Account/login/login.component";
 import { SignupComponent } from "./Account/signup/signup.component";
@@ -35,7 +36,9 @@ export const componets = [
 ];
 
 export const commonroutes = [
-  { path: "", component: HomeComponent, pathMatch: "full",data: { animation: 'heroes' }   },
+  { path: "", component: HomeComponent, pathMatch: "full",data: { animation: 'heroes' } , resolve: {
+    routeResolver: HomeresolverService
+  }  },
   {path: "admin/dashboard",data: { animation: 'heroes' } , component: AdminComponent,loadChildren: () => import('./admin/admins/admins.module').then(m => m.AdminsModule)},
   {path: "student/dashboard",data: { animation: 'heroes' } , component: StudentComponent,loadChildren: () => import('./student/students/students.module').then(m => m.StudentsModule)},
   { path: "**",data: { animation: 'heroes' } , component: PageNotFoundComponent }

@@ -41,6 +41,9 @@ export class CommonService {
     return this.http.post(this.url + `StudyMaterials?_studyMaterial=${label}`, data);
   }
   postGK=(data)=>{
-    return this.http.post(this.url + `StudyMaterials`, data);
+    return this.http.post(this.url + `CurrentAffairs`, data);
+  }
+  getJobData=()=>{
+    return this.http.get(this.url + `Jobs`);
   }
 }

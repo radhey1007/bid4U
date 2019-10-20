@@ -1,0 +1,8 @@
+/* ul li:before {
+    content: "\f058";
+    font-family: fontawesome;
+    font-size: 14px;
+} */
+.card{
+    padding-bottom: 0px ! important;
+}
