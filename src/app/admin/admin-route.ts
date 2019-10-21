@@ -1,3 +1,4 @@
+import { CurrentaffairsComponent } from './currentaffairs/currentaffairs.component';
 import { QuizresolverService } from "./resolver/quizresolver.service";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { PostjobComponent } from "./postjob/postjob.component";
@@ -9,6 +10,7 @@ export const AdminRoute = [
   { path: "", component: DashboardComponent, pathMatch: "full" },
   { path: "postjob", component: PostjobComponent },
   { path: "postmaterial", component: MaterialComponent },
+  { path: "postGK", component: CurrentaffairsComponent },
   {
     path: "postQuiz",
     component: QuizComponent,

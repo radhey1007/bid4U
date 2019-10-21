@@ -3,7 +3,7 @@
         <!-- side menu logo start -->
         <div class="ttr-sidebar-logo">
             <a href="#"><img alt="" src="assets/images/logo.png" width="122" height="27"></a>
-            
+
             <div class="ttr-sidebar-toggle-button">
                 <i class="ti-arrow-left"></i>
             </div>
@@ -13,8 +13,8 @@
         <nav class="ttr-sidebar-navi">
             <ul>
                 <li>
-                    <a href="#"  routerLink="./" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }" class="ttr-material-button">
+                    <a href="#" routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                        class="ttr-material-button">
                         <span class="ttr-icon"><i class="ti-home"></i></span>
                         <span class="ttr-label">Dashborad</span>
                     </a>
@@ -33,10 +33,16 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="javascript:void(0)"  [routerLink]="['./postmaterial']" routerLinkActive="active"
-                            [routerLinkActiveOptions]="{ exact: true }"  class="ttr-material-button"><span class="ttr-label">Material</span></a>
+                            <a href="javascript:void(0)" [routerLink]="['./postmaterial']" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{ exact: true }" class="ttr-material-button"><span
+                                    class="ttr-label">Material</span></a>
                         </li>
-                        
+                        <li>
+                            <a href="javascript:void(0)" [routerLink]="['./postGK']" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{ exact: true }" class="ttr-material-button"><span
+                                    class="ttr-label">Current Affairs</span></a>
+                        </li>
+
                     </ul>
                 </li>
 
@@ -62,9 +68,9 @@
                         <span class="ttr-label">Manage User Role</span>
                     </a>
                 </li>
-                
-                
-                
+
+
+
                 <li class="ttr-seperate"></li>
             </ul>
             <!-- sidebar menu end -->

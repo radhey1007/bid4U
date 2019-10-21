@@ -82,18 +82,19 @@ export class PostjobComponent implements OnInit {
   postJob = () => {
     if (this.validateJobModel()) {
       if (this.id !== "") {
+        let title = "";
+        if (this.id == 3) {
+          title = "AnswerKey - " + this.Jobmodel.Jobtitle;
+        } else if (this.id == 4) {
+          title = "Result - " + this.Jobmodel.Jobtitle;
+        } else {
+          title = this.Jobmodel.Jobtitle;
+        }
         const jobdata = {
-          Jobtitle: this.Jobmodel.Jobtitle,
+          Jobtitle: title,
           JobUrl: this.Jobmodel.JobUrl,
           JobEndDate: new Date(this.Jobmodel.JobEndDate),
-          JobAlertFlag: 1,
-          PostedDate: new Date(),
-          CreatedBy: 1,
-          CreatedIP: "1.1.1.1",
-          CreatedDate: new Date(),
-          UpdatedBy: 0,
-          UpdatedIP: "null",
-          UpdatedDate: "null"
+          JobAlertFlag: this.id
         };
 
         this.sharedService.postjob(jobdata).subscribe(
