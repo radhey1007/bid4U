@@ -47,7 +47,7 @@
         </div>
     </div>
 
-
+    <form #myForm="ngForm">
     <div class="row">
         <!-- Your Profile Views Chart -->
         <div class="col-lg-12 m-b30">
@@ -63,7 +63,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Title</label>
                                     <div class="col-sm-7">
-                                        <input class="form-control" #title="ngModel" [(ngModel)]="Jobmodel.Jobtitle" type="text" required>
+                                        <input class="form-control" #title="ngModel" [(ngModel)]="Jobmodel.Jobtitle" name="Jobtitle" type="text" required>
                                     </div>
                                 </div>
                                 <div class="form-group row" *ngIf="title.errors && (title.dirty || title.touched)">
@@ -76,7 +76,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Url</label>
                                     <div class="col-sm-7">
-                                        <input class="form-control" #site="ngModel" pattern="https?://.+" required [(ngModel)]="Jobmodel.JobUrl" type="url">
+                                        <input class="form-control" #site="ngModel" pattern="https?://.+" required [(ngModel)]="Jobmodel.JobUrl" name="JobUrl" type="url">
                                     </div>
                                 </div>
                                 <div class="form-group row" *ngIf="site.errors && (site.dirty || site.touched)">
@@ -91,7 +91,7 @@
                                     <label class="col-sm-2 col-form-label">End Date</label>
                                     <div class="col-sm-7">
 
-                                        <input class="form-control" #endDate="ngModel" [(ngModel)]="Jobmodel.JobEndDate" required type="date">
+                                        <input class="form-control" #endDate="ngModel" name="JobEndDate" [(ngModel)]="Jobmodel.JobEndDate" required type="date">
                                     </div>
                                 </div>
 
@@ -117,6 +117,6 @@
         </div>
         <!-- Your Profile Views Chart END-->
     </div>
-
+</form>
 
 </div>

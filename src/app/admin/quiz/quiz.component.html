@@ -22,7 +22,8 @@
                                         <label class="col-sm-3  col-form-label">Select Subject</label>
                                         <div class="col-sm-7">
                                             <select name="subject" class="form-control" #subject="ngModel" [(ngModel)]="quiz.subject" type="text" value="" required placeholder="Select subject..">
-                                                    <option *ngFor="let subject of subjectList" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
+                                                    <option  value="">Please select subject</option>  
+                                                <option *ngFor="let subject of subjectList" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
                                                    
                                                     </select>
                                         </div>
@@ -38,7 +39,8 @@
                                         <label class="col-sm-3  col-form-label">Select Series</label>
                                         <div class="col-sm-7">
                                             <select name="series" class="form-control" #series="ngModel" [(ngModel)]="quiz.series" type="text" value="" required placeholder="Select subject..">
-                                                        <option value="1">A</option>
+                                                    <option  value="">Please select series</option>         
+                                                <option value="1">A</option>
                                                         <option value="2">B</option>
                                                         <option value="3">C</option>
                                                         </select>

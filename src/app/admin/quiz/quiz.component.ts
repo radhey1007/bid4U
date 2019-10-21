@@ -59,6 +59,7 @@ export class QuizComponent implements OnInit {
           this.toastr.success("Success!", "Quiz successfully posted!", {
             timeOut: 3000
           });
+          this.quiz.answerE="";
           this.mytemplateForm.reset();
         },
         err => {

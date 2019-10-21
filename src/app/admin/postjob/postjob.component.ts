@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { CommonService } from "src/app/shared/common.service";
 import { HttpClient } from "@angular/common/http";
 import { DatePipe } from "@angular/common";
 import { environment } from "src/environments/environment";
 import { StorageService } from "src/app/shared/storage.service";
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: "app-postjob",
@@ -12,6 +13,7 @@ import { StorageService } from "src/app/shared/storage.service";
   styleUrls: ["./postjob.component.css"]
 })
 export class PostjobComponent implements OnInit {
+  @ViewChild("myForm", { static: false }) mytemplateForm: NgForm;
   user: any = [];
   Jobmodel = {
     Jobtitle: "",
@@ -76,7 +78,7 @@ export class PostjobComponent implements OnInit {
       //console.log("FALSE");
     }
   };
-
+  
   ngOnInit(): void {}
 
   postJob = () => {
@@ -99,6 +101,8 @@ export class PostjobComponent implements OnInit {
 
         this.sharedService.postjob(jobdata).subscribe(
           (_res: any) => {
+            this.mytemplateForm.reset();
+            this.id="";
             this.toastr.success("Error!", "Job created successfully!", {
               timeOut: 1000
             });
