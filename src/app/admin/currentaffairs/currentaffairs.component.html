@@ -1,1 +1,76 @@
-<p>currentaffairs works!</p>
+<div class="container-fluid">
+    <div class="db-breadcrumb">
+        <h4 class="breadcrumb-title">Admin- Post Current Affairs</h4>
+
+    </div>
+
+
+
+    <form #myForm="ngForm">
+        <div class="row">
+            <!-- Your Profile Views Chart -->
+            <div class="col-lg-12 m-b30">
+                <div class="widget-box">
+
+                    <div class="widget-inner">
+                        <div class="edit-profile m-b30">
+                            <div class="row">
+
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Title</label>
+                                        <div class="col-sm-7">
+                                            <input class="form-control" name="title" #title="ngModel" [(ngModel)]="gk.title" type="text" value="" required placeholder="Enter title..">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="title.errors && (title.dirty || title.touched)">
+                                        <label class="col-sm-2 col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> Please enter title
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Description</label>
+                                        <div class="col-sm-7">
+                                            <textarea rows="2" name="des" class="form-control" #des="ngModel" [(ngModel)]="gk.des" placeholder="Please enter Description.." required type="text"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Content Published</label>
+                                        <div class="col-sm-7">
+                                            <input name="cdate" class="form-control" #cdate="ngModel" [(ngModel)]="gk.cdate" placeholder="Please enter Content Date.." required type="date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="cdate.errors && (cdate.dirty || cdate.touched)">
+                                        <label class="col-sm-2 col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> Please Enter content date
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div style="text-align:center;"> <button [disabled]="!myForm.valid" type="button" (click)="postGK()" class="btn-secondry btn-block add-item m-r5"><i
+                                                class="fa fa-fw fa-plus-circle"></i>Submit</button></div>
+
+
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="seperator"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Your Profile Views Chart END-->
+        </div>
+    </form>
+
+</div>

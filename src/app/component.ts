@@ -1,6 +1,4 @@
-import { StudentComponent } from "./student/student.component";
-import { FooterStComponent } from "./student/footer-st/footer-st.component";
-import { SidebarStComponent } from "./student/sidebar-st/sidebar-st.component";
+import { HomeresolverService } from "./resolvers/homeresolver.service";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./Account/login/login.component";
 import { SignupComponent } from "./Account/signup/signup.component";
@@ -14,7 +12,10 @@ import { HeaderAdComponent } from "./admin/header-ad/header-ad.component";
 import { FooterAdComponent } from "./admin/footer-ad/footer-ad.component";
 import { SidebarComponent } from "./admin/sidebar/sidebar.component";
 import { PostjobComponent } from "./admin/postjob/postjob.component";
+import { StudentComponent } from "./student/student.component";
 import { HeaderStComponent } from "./student/header-st/header-st.component";
+import { FooterStComponent } from "./student/footer-st/footer-st.component";
+import { SidebarStComponent } from "./student/sidebar-st/sidebar-st.component";
 
 export const componets = [
   AppComponent,
@@ -29,10 +30,10 @@ export const componets = [
   HeaderAdComponent,
   FooterAdComponent,
   SidebarComponent,
+  StudentComponent,
   HeaderStComponent,
-  SidebarStComponent,
   FooterStComponent,
-  StudentComponent
+  SidebarStComponent
 ];
 
 export const commonroutes = [
@@ -40,7 +41,10 @@ export const commonroutes = [
     path: "",
     component: HomeComponent,
     pathMatch: "full",
-    data: { animation: "heroes" }
+    data: { animation: "heroes" },
+    resolve: {
+      routeResolver: HomeresolverService
+    }
   },
   {
     path: "admin/dashboard",
