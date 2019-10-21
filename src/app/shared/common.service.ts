@@ -46,4 +46,10 @@ export class CommonService {
   getJobData=()=>{
     return this.http.get(this.url + `Jobs`);
   }
+  getQuizList=(data)=>{
+    return this.http.post(this.url + `ParticipateQuiz/StartQuiz`,data);
+  }
+  getQuizListbyid=(qID)=>{
+    return this.http.get(this.url + `ParticipateQuiz/QuistionList/${qID}`);
+  }
 }
