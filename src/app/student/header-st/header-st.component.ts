@@ -27,6 +27,6 @@ export class HeaderStComponent implements OnInit {
     this.storage.clearUserSettings("token");
     this.storage.clearUserSettings("user");
     this.storage.cleanAll();
-    this.route.navigate(["/admin/dashboard/"]);
+    this.route.navigate(["/"]);
   };
 }
