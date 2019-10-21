@@ -88,4 +88,4 @@ export class QuizComponent implements OnInit {
     this.quiz.answerE = rightAnswer;
     this.boxselection("V");
   }
-}
+} 
