@@ -10,10 +10,19 @@ declare var jQuery: any;
   styleUrls: ["./header-ad.component.css"]
 })
 export class HeaderAdComponent implements OnInit {
-  constructor(public route: Router, public storage: StorageService) {}
+  user:any='';
+  constructor(public route: Router, public storage: StorageService) {
+    let userData=this.storage.getUserSettings('user');
+    
+    this.user=this.jsUcfirst(userData.userName);
+  }
 
   ngOnInit() {
     this.toggel();
+  }
+  jsUcfirst(str) 
+  {
+      return str.charAt(0).toUpperCase() + str.slice(1);
   }
   toggel() {
     jQuery(window).width() < 760 && jQuery("body").addClass("ttr-body-fixed"),

@@ -10,8 +10,16 @@ declare var jQuery: any;
   styleUrls: ["./header-st.component.css"]
 })
 export class HeaderStComponent implements OnInit {
-  constructor(public route: Router, public storage: StorageService) {}
-
+  user:'';
+  constructor(public route: Router, public storage: StorageService) {
+    let userData=this.storage.getUserSettings('user');
+    
+    this.user=this.jsUcfirst(userData.userName);
+  }
+   jsUcfirst(str) 
+  {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   ngOnInit() {
     this.toggel();
   }
