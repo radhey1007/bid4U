@@ -1,3 +1,5 @@
+import { Component } from '@angular/core';
+import { SeriesComponent } from './series/series.component';
 import { SubjectresolverService } from "./subjectst/subjectresolver.service";
 import { componets } from "./../component";
 import { QuizstComponent } from "./quizst/quizst.component";
@@ -20,5 +22,8 @@ export const studentRoutes = [
     resolve: {
       routeResolver: SubjectresolverService
     }
+  },{
+    path:":subject/series",
+    component:SeriesComponent
   }
 ];

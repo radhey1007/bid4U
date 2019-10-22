@@ -1,6 +1,6 @@
 import { SubjectresolverService } from "./subjectresolver.service";
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { CommonService } from "src/app/shared/common.service";
 
 @Component({
@@ -12,12 +12,19 @@ import { CommonService } from "src/app/shared/common.service";
 export class SubjectstComponent implements OnInit {
   subjectList: any = [];
   constructor(
+    public route: Router,
     private actRoute: ActivatedRoute,
+    
     private sharedService: CommonService
   ) {}
 
   ngOnInit() {
     this.bindSubjectList();
+  }
+  getSeries=(subject:any)=>{
+   
+    let routeUrl:any=`../${subject.subjectName}/series`
+ this.route.navigate([routeUrl], {relativeTo: this.actRoute, state: subject});
   }
   bindSubjectList = () => {
     this.actRoute.data.subscribe(data => {

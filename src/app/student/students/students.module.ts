@@ -6,9 +6,10 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { studentRoutes } from "../students-route";
+import { SeriesComponent } from '../series/series.component';
 
 @NgModule({
-  declarations: [DashboardStComponent, QuizstComponent, SubjectstComponent],
+  declarations: [DashboardStComponent, QuizstComponent, SubjectstComponent,SeriesComponent],
   imports: [CommonModule, RouterModule.forChild(studentRoutes), FormsModule]
 })
 export class StudentsModule {}
