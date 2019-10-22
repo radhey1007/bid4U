@@ -16,7 +16,7 @@ export const studentRoutes = [
   },
   {
     path: "subject",
-    componets: SubjectstComponent,
+    component: SubjectstComponent,
     resolve: {
       routeResolver: SubjectresolverService
     }
