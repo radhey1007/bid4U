@@ -1,1 +1,17 @@
-<p>series works!</p>
+<div class="container-fluid">
+    <div class="db-breadcrumb">
+        <h4 class="breadcrumb-title">Student -{{subjectInfo.subjectName}} | Series</h4>
+    </div>
+    <div class="row">
+        <div *ngFor="let subject of seriesList" class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
+            <div (click)="getSeries(subject)" [ngStyle]="{'background-color':subject.color}" class="widget-card">
+                <div class="wc-item">
+                    <h4 class="wc-title">
+                        {{subject.subjectName}}
+                    </h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

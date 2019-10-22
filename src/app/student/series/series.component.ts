@@ -1,6 +1,7 @@
 import { SeriersresolverService } from './seriersresolver.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { StorageService } from 'src/app/shared/storage.service';
 
 @Component({
   selector: 'app-series',
@@ -10,10 +11,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SeriesComponent implements OnInit {
 subjectInfo={}
-  constructor(public route: Router, private actRoute: ActivatedRoute,) {
+seriesList:any=[];
+  constructor(public route: Router, private actRoute: ActivatedRoute,public storage: StorageService,) {
     console.log('****** Compoentnt***********');
     console.log(this.route.getCurrentNavigation().extras.state);
-    this.subjectInfo=this.route.getCurrentNavigation().extras.state;
+    let subjectData=this.storage.getUserSettings('subject');
+    if(subjectData){
+      this.subjectInfo=subjectData;
+    }
    }
 
   ngOnInit() {
