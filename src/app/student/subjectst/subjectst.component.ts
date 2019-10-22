@@ -22,6 +22,9 @@ export class SubjectstComponent implements OnInit {
   bindSubjectList = () => {
     this.actRoute.data.subscribe(data => {
       this.subjectList = data.routeResolver;
+      this.subjectList.forEach(el => {
+        el.color = this.getRandomColor();
+      });
       console.log(data);
     });
   };

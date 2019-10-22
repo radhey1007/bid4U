@@ -4,7 +4,7 @@
     </div>
     <div class="row">
         <div *ngFor="let subject of subjectList" class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
-            <div [ngStyle]="{'background-color': getRandomColor()}" class="widget-card">
+            <div [ngStyle]="{'background-color':subject.color}" class="widget-card">
                 <div class="wc-item">
                     <h4 class="wc-title">
                         {{subject.subjectName}}

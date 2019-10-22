@@ -60,6 +60,7 @@ export class QuizstComponent implements OnInit {
           _res.forEach(el => {
             el.answer = "";
           });
+          debugger;
           this.Quizlist = _res;
           this.Quiz = _res[0];
           this.totalQuestion = this.Quizlist.length;
