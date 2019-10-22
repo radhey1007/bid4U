@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 import { DatePipe } from "@angular/common";
 import { environment } from "src/environments/environment";
 import { StorageService } from "src/app/shared/storage.service";
-import { NgForm } from '@angular/forms';
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-postjob",
@@ -29,7 +29,7 @@ export class PostjobComponent implements OnInit {
     private toastr: ToastrService
   ) {
     let userData = this.storage.getUserSettings("user");
-    //console.log(userData);
+
     this.user.push(userData);
   }
   isValideformat = date => {
@@ -71,14 +71,12 @@ export class PostjobComponent implements OnInit {
   isValidUrl = () => {
     var expression = `/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi`;
     var regex = new RegExp(expression);
-    //console.log(regex + '*****reguar exression ')
+
     if (this.Jobmodel.JobUrl.match(regex)) {
-      //console.log('True')
     } else {
-      //console.log("FALSE");
     }
   };
-  
+
   ngOnInit(): void {}
 
   postJob = () => {
@@ -102,7 +100,7 @@ export class PostjobComponent implements OnInit {
         this.sharedService.postjob(jobdata).subscribe(
           (_res: any) => {
             this.mytemplateForm.reset();
-            this.id="";
+            this.id = "";
             this.toastr.success("Error!", "Job created successfully!", {
               timeOut: 1000
             });

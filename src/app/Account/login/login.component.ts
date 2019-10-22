@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit {
     if (this.validate()) {
       this.sharedService.login(this.credentials).subscribe(
         (res: any) => {
-          //console.log(res);
           if (res.token) {
             environment.token.push({ bearer: res.token });
             this.storage.setSettings("token", { bearer: res.token });
@@ -78,10 +77,9 @@ export class LoginComponent implements OnInit {
     this.sharedService.GetUserProfile().subscribe(
       (res: any) => {
         if (res) {
-          debugger;
           environment.loggeduser.push(res);
           this.storage.setSettings("user", res);
-          //console.log(this.storage.getUserSettings('token'));
+
           if (res.roleName == "student") {
             this.route.navigate(["/student/dashboard/"]);
           } else if (res.roleName == "admin") {

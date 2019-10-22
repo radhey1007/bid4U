@@ -69,6 +69,5 @@ export class QuizstComponent implements OnInit {
   };
   clickradio = (answer: any) => {
     this.Quiz.answer = answer;
-    console.log(this.Quizlist);
   };
 }

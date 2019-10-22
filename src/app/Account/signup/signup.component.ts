@@ -38,10 +38,8 @@ export class SignupComponent implements OnInit {
             if (res.succeeded) {
               this.mytemplateForm.reset();
               this.toastr.success("Success!", "Register Successfully.!");
-              //console.log(res);
             } else {
               this.toastr.error("Error!", res.errors[0].description);
-              //console.log(res);
             }
           },
           err => {
@@ -49,7 +47,6 @@ export class SignupComponent implements OnInit {
               "Error!",
               "Error occured.Please try again later.!"
             );
-            //console.log(err);
           }
         );
       } else {
@@ -64,7 +61,6 @@ export class SignupComponent implements OnInit {
     }
   };
   validatePassword = () => {
-    console.log("fire change event");
     if (this.password !== this.signUp.Password) {
       this.isMatched = false;
       this.toastr.error("Error!", "Password not macthed!", {

@@ -2,18 +2,19 @@ import { Injectable } from "@angular/core";
 import {
   HttpEvent,
   HttpHandler,
-  HttpInterceptor, HttpResponse,
+  HttpInterceptor,
+  HttpResponse,
   HttpRequest,
   HttpHeaders
 } from "@angular/common/http";
-import { Observable } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
-import { StorageService } from '../storage.service';
+import { Observable } from "rxjs";
+import { tap, map } from "rxjs/operators";
+import { environment } from "src/environments/environment";
+import { StorageService } from "../storage.service";
 
 @Injectable()
 export class LoadingScreenInterceptor implements HttpInterceptor {
-  constructor(public storage:StorageService) { }
+  constructor(public storage: StorageService) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -23,30 +24,28 @@ export class LoadingScreenInterceptor implements HttpInterceptor {
       .getElementsByClassName("loading")
       .item(0) as HTMLElement;
     loadingContainer.style.display = "block";
-   
-    
-    if (this.storage.getUserSettings('token')) {
-     let token =this.storage.getUserSettings('token');
-    
-     //console.log('*******************'+token.bearer+'*****************************')
-      let userToken = 'Bearer ' + token.bearer
-     req= req.clone({
-        headers: req.headers.set('Authorization', userToken),
-      })
+
+    if (this.storage.getUserSettings("token")) {
+      let token = this.storage.getUserSettings("token");
+
+      let userToken = "Bearer " + token.bearer;
+      req = req.clone({
+        headers: req.headers.set("Authorization", userToken)
+      });
     }
-   
-   //console.log( req);
+
     return next.handle(req).pipe(
-      tap(event => {
-        if (event instanceof HttpResponse) {
+      tap(
+        event => {
+          if (event instanceof HttpResponse) {
+            loadingContainer.style.display = "none";
+          }
+        },
+        error => {
           loadingContainer.style.display = "none";
+          console.error("NICE ERROR", error);
         }
-      }, error => {
-        loadingContainer.style.display = "none";
-        console.error('NICE ERROR', error)
-      })
-    )
-
-
+      )
+    );
   }
 }

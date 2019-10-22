@@ -1,3 +1,4 @@
+import { SubjectstComponent } from "./../subjectst/subjectst.component";
 import { QuizstComponent } from "./../quizst/quizst.component";
 import { DashboardStComponent } from "./../dashboard-st/dashboard-st.component";
 import { NgModule } from "@angular/core";
@@ -7,7 +8,7 @@ import { FormsModule } from "@angular/forms";
 import { studentRoutes } from "../students-route";
 
 @NgModule({
-  declarations: [DashboardStComponent, QuizstComponent],
+  declarations: [DashboardStComponent, QuizstComponent, SubjectstComponent],
   imports: [CommonModule, RouterModule.forChild(studentRoutes), FormsModule]
 })
 export class StudentsModule {}
