@@ -2,6 +2,7 @@ import { CommonService } from "src/app/shared/common.service";
 import { Component, OnInit, Renderer2 } from "@angular/core";
 import { QuizresolverService } from "./quizresolver.service";
 import { ActivatedRoute } from "@angular/router";
+import { StorageService } from "src/app/shared/storage.service";
 
 @Component({
   selector: "app-quizst",
@@ -11,14 +12,23 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class QuizstComponent implements OnInit {
   isLodader: Boolean = false;
-  constructor(
-    private actRoute: ActivatedRoute,
-    private sharedService: CommonService
-  ) {}
   Quiz: any = {};
   Quizlist: any = [];
   totalQuestion = 0;
   i: number = 0;
+  duration: any = 0;
+  constructor(
+    private actRoute: ActivatedRoute,
+    private sharedService: CommonService,
+    public storage: StorageService
+  ) {
+    let seriesData: any = this.storage.getUserSettings("series");
+    this.duration = Number(seriesData.durationInSeconds);
+    console.log(
+      "***********Duration ***************" + seriesData.durationInSeconds
+    );
+  }
+
   ngOnInit() {
     this.bindQuizList();
   }
@@ -30,6 +40,17 @@ export class QuizstComponent implements OnInit {
     this.Quiz = this.Quizlist[this.i];
     this.animateDiv();
   }
+  secondsToHms = d => {
+    d = Number(d);
+    var h = Math.floor(d / 3600);
+    var m = Math.floor((d % 3600) / 60);
+    var s = Math.floor((d % 3600) % 60);
+
+    var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours ") : "";
+    var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes ") : "";
+    var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+    return hDisplay + mDisplay + sDisplay;
+  };
   animateDiv = () => {
     let loadingContainer: HTMLElement = document
       .getElementsByClassName("quiz")

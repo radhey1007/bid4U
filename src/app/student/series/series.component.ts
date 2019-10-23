@@ -12,6 +12,8 @@ import { StorageService } from "src/app/shared/storage.service";
 export class SeriesComponent implements OnInit {
   subjectInfo: any = {};
   seriesList: any = [];
+  totalSeries: any = [];
+  limitto: any = 12;
   constructor(
     public route: Router,
     private actRoute: ActivatedRoute,
@@ -27,15 +29,16 @@ export class SeriesComponent implements OnInit {
   getQuizSeriesList = () => {
     this.actRoute.data.subscribe(data => {
       if (data.routeResolver) {
-        this.seriesList = data.routeResolver;
-        this.seriesList.forEach(el => {
+        this.totalSeries = data.routeResolver;
+        this.totalSeries.forEach(el => {
           el.color = this.getRandomColor();
         });
+        this.seriesList = this.totalSeries.slice(0, this.limitto);
         let subjectData = this.storage.getUserSettings("subject");
         if (subjectData) {
           this.subjectInfo = subjectData == undefined ? {} : subjectData;
         }
-        console.table(this.seriesList);
+        // console.table(this.seriesList);
       }
     });
   };
@@ -45,6 +48,9 @@ export class SeriesComponent implements OnInit {
   };
 
   getSeries = (series: any) => {
+    console.log("**************series Data****************");
+    console.table(series);
+     console.log("**************series Data****************");
     this.storage.clearUserSettings("series");
     this.storage.setSettings("series", series);
     let routeUrl: any = `../${series.quizID}/quizExam`;
@@ -60,9 +66,13 @@ export class SeriesComponent implements OnInit {
     var m = Math.floor((d % 3600) / 60);
     var s = Math.floor((d % 3600) % 60);
 
-    var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
-    var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+    var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours : ") : "";
+    var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes : ") : "";
     var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
     return hDisplay + mDisplay + sDisplay;
+  };
+  loadMore = () => {
+    this.limitto += this.limitto;
+    this.seriesList = this.totalSeries.slice(0, this.limitto);
   };
 }

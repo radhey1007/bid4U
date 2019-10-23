@@ -8,7 +8,12 @@ import { AdminRoute } from "./admin/admin-route";
 const routes: Routes = [...accountRoute, ...commonroutes];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: false })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      enableTracing: false,
+      onSameUrlNavigation: "reload"
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

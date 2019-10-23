@@ -15,8 +15,9 @@ export class QuizresolverService implements Resolve<any> {
   resolve() {
     // let subjectData: any = this.storage.getUserSettings("subject");
     let seriesData: any = this.storage.getUserSettings("series");
+    let userData = this.storage.getUserSettings("user");
     let param = {
-      participaintsID: 1,
+      participaintsID: userData.loginUserID,
       quizID: seriesData.quizID,
       duration: seriesData.quizDureation,
       subjectId: seriesData.subjectID
