@@ -7,9 +7,19 @@ import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { studentRoutes } from "../students-route";
 import { SeriesComponent } from '../series/series.component';
-
+import { CountdownModule } from "ngx-countdown";
 @NgModule({
-  declarations: [DashboardStComponent, QuizstComponent, SubjectstComponent,SeriesComponent],
-  imports: [CommonModule, RouterModule.forChild(studentRoutes), FormsModule]
+  declarations: [
+    DashboardStComponent,
+    QuizstComponent,
+    SubjectstComponent,
+    SeriesComponent
+  ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(studentRoutes),
+    FormsModule,
+    CountdownModule
+  ]
 })
 export class StudentsModule {}

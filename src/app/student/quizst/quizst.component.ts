@@ -24,7 +24,7 @@ export class QuizstComponent implements OnInit {
   }
 
   next() {
-    this.Quizlist[this.i].answer = this.Quiz.answer;
+    // this.Quizlist[this.i].answer = this.Quiz.answer;
     ++this.i;
     this.Quiz = {};
     this.Quiz = this.Quizlist[this.i];
@@ -60,11 +60,10 @@ export class QuizstComponent implements OnInit {
           _res.forEach(el => {
             el.answer = "";
           });
-          debugger;
           this.Quizlist = _res;
           this.Quiz = _res[0];
           this.totalQuestion = this.Quizlist.length;
-          console.table(this.Quizlist);
+          console.table(this.Quiz);
         });
     });
   };

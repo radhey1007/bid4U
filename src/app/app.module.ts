@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { ToastrModule } from "ngx-toastr";
 import { DatePipe } from "@angular/common";
-import { SeriesComponent } from './student/series/series.component';
+import { CountdownModule } from "ngx-countdown";
 
 @NgModule({
   declarations: [...componets],
@@ -21,7 +21,8 @@ import { SeriesComponent } from './student/series/series.component';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CountdownModule
   ],
   providers: [
     {

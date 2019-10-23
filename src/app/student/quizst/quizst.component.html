@@ -1,12 +1,23 @@
 <div class="container-fluid">
     <div class="db-breadcrumb">
-        <h4 class="breadcrumb-title">Student | Exam</h4>
-        <h5 class="pull-right"> Questins {{i+1}} of {{totalQuestion}}</h5>
+        <div class="row" style="width:100% !important">
+            <div class="col-lg-4 col-md-4 col-sm-4 ">
+                <h4 class="breadcrumb-title">Student | Exam</h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <p class="pull-right"> Questins {{i+1}} of {{totalQuestion}}</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <countdown [config]="{leftTime: 1200}"></countdown>
+            </div>
+        </div>
+
+
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="alert alert-success">
-                <strong>Q {{i + 1}}:</strong> {{Quiz.questionID}}
+                <strong>Q {{i + 1}}:</strong> {{Quiz.question}}
             </div>
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -28,22 +39,22 @@
                         <div class="quiz" id="quiz" data-toggle="buttons">
                             <label (click)="clickradio(Quiz.option1)" class="element-animation1 btn btn-lg btn-primary btn-block"><span
                                     class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
-                                    type="radio" name="q_answer"  [checked]="Quiz.option1 === Quiz.answer">{{Quiz.option1}}</label>
+                                    type="radio" name="q_answer" >{{Quiz.qa.option1}}</label>
                             <label (click)="clickradio(Quiz.option2)" class="element-animation2 btn btn-lg btn-primary btn-block"><span
                                     class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
-                                    type="radio" name="q_answer" value="2"  [checked]="Quiz.option2 === Quiz.answer">{{Quiz.option2}}</label>
+                                    type="radio" name="q_answer" value="" >{{Quiz.qa.option2}}</label>
                             <label (click)="clickradio(Quiz.option3)" class="element-animation3 btn btn-lg btn-primary btn-block"><span
                                     class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
-                                    type="radio" name="q_answer" value="3"  [checked]="Quiz.option3 === Quiz.answer"> {{Quiz.option3}}</label>
+                                    type="radio" name="q_answer" value=""  > {{Quiz.qa.option3}}</label>
                             <label (click)="clickradio(Quiz.option4)" class="element-animation4 btn btn-lg btn-primary btn-block"><span
                                     class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
-                                    type="radio" name="q_answer" value="4"  [checked]="Quiz.option4 === Quiz.answer"> {{Quiz.option4}}</label>
+                                    type="radio" name="q_answer" value="" > {{Quiz.qa.option4}}</label>
                         </div>
                     </div>
                     <div class="modal-footer text-muted">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left" *ngIf="i > 0"><button (click)="pre()" class="btn btn-sm">Pre</button></div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right" *ngIf="i < totalQuestion"><button (click)="next()" class="btn btn-sm">Next</button></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right" *ngIf="(i+1) < totalQuestion"><button (click)="next()" class="btn btn-sm">Next</button></div>
                         </div>
                     </div>
                 </div>

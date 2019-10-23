@@ -37,20 +37,26 @@ export class CommonService {
   PoastQuiz = data => {
     return this.http.post(this.url + "Quizs", data, {});
   };
-  postMaterial=(data,label)=>{
-    return this.http.post(this.url + `StudyMaterials?_studyMaterial=${label}`, data);
-  }
-  postGK=(data)=>{
+  postMaterial = (data, label) => {
+    return this.http.post(
+      this.url + `StudyMaterials?_studyMaterial=${label}`,
+      data
+    );
+  };
+  postGK = data => {
     return this.http.post(this.url + `CurrentAffairs`, data);
-  }
-  getJobData=()=>{
+  };
+  getJobData = () => {
     return this.http.get(this.url + `Jobs`);
-  }
-  getQuizList=(data)=>{
+  };
+  getQuizList = data => {
     console.log(data);
-    return this.http.post(this.url + `ParticipateQuiz/StartQuiz`,data);
-  }
-  getQuizListbyid=(qID)=>{
+    return this.http.post(this.url + `ParticipateQuiz/StartQuiz`, data);
+  };
+  getQuizListbyid = qID => {
     return this.http.get(this.url + `ParticipateQuiz/QuistionList/${qID}`);
-  }
+  };
+  GetQuizseries = (SID: any) => {
+    return this.http.get(this.url + `QuizMasters/SujectQuizTittle/${SID}`);
+  };
 }
