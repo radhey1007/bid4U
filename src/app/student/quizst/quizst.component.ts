@@ -1,8 +1,9 @@
 import { CommonService } from "src/app/shared/common.service";
-import { Component, OnInit, Renderer2 } from "@angular/core";
+import { Component, OnInit, Renderer2, ViewChild } from "@angular/core";
 import { QuizresolverService } from "./quizresolver.service";
 import { ActivatedRoute } from "@angular/router";
 import { StorageService } from "src/app/shared/storage.service";
+import { CountdownComponent } from 'ngx-countdown';
 
 @Component({
   selector: "app-quizst",
@@ -11,6 +12,7 @@ import { StorageService } from "src/app/shared/storage.service";
   providers: [QuizresolverService]
 })
 export class QuizstComponent implements OnInit {
+  @ViewChild('countdown', {static: false}) counter: CountdownComponent;
   isLodader: Boolean = false;
   Quiz: any = {};
   Quizlist: any = [];
@@ -32,13 +34,20 @@ export class QuizstComponent implements OnInit {
   ngOnInit() {
     this.bindQuizList();
   }
-
+  finishTest() {
+    console.log("count down", this.counter);
+    this.counter.pause();
+  }
   next() {
     // this.Quizlist[this.i].answer = this.Quiz.answer;
+    console.log(this.counter.i.text)
+    
+    this.counter.pause();
     ++this.i;
     this.Quiz = {};
     this.Quiz = this.Quizlist[this.i];
     this.animateDiv();
+    this.counter.begin();
   }
   secondsToHms = d => {
     d = Number(d);

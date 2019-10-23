@@ -9,7 +9,7 @@
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5 float-right">
                 <h4 class="float-left breadcrumb-title"> Left Time:
-                    <countdown [config]="{leftTime: duration}"></countdown>
+                    <countdown #countdown [config]="{leftTime: duration}" (finished)="finishTest()"></countdown>
                 </h4>
                 <h4>Duration: {{secondsToHms(duration)}}</h4>
             </div>
@@ -37,7 +37,7 @@
                                 <div class="blockG" id="rotateG_07"></div>
                                 <div class="blockG" id="rotateG_08"></div>
                             </div>
-                        </div>
+                        </div>  
 
                         <div class="quiz" id="quiz" data-toggle="buttons">
                             <label (click)="clickradio(Quiz.option1)" class="element-animation1 btn btn-lg btn-primary btn-block"><span
