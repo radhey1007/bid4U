@@ -101,6 +101,7 @@ export class QuizstComponent implements OnInit {
     this.animateDiv();
   }
   bindQuizList = () => {
+    this.storage.clearUserSettings("examinfo");
     this.actRoute.data.subscribe(data => {
       this.QuizsessionID = data.routeResolver.id;
       this.sharedService
@@ -112,6 +113,14 @@ export class QuizstComponent implements OnInit {
           this.Quizlist = _res;
           this.Quiz = _res[0];
           this.totalQuestion = this.Quizlist.length;
+          let subjectData = this.storage.getUserSettings("subject");
+          let series = this.storage.getUserSettings("series");
+          let info = {
+            Qlenth: this.totalQuestion,
+            subject: subjectData.subjectName,
+            series: series.quizName
+          };
+          this.storage.setSettings("examinfo", info);
           //  console.table(this.Quiz);
         });
     });

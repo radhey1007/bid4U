@@ -21,6 +21,7 @@ export class QuizComponent implements OnInit {
     series: "",
     subject: ""
   };
+  seriesList: any = [];
   @ViewChild("myForm", { static: false }) mytemplateForm: NgForm;
   constructor(
     private sharedService: CommonService,
@@ -84,4 +85,16 @@ export class QuizComponent implements OnInit {
     this.quiz.answerE = rightAnswer;
     this.boxselection("V");
   }
+  onSubjectSelected = () => {
+    debugger;
+    this.sharedService.GetQuizseries(this.quiz.subject).subscribe(
+      _res => {
+        console.log(_res);
+        this.seriesList = _res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  };
 }

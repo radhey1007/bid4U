@@ -21,7 +21,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3  col-form-label">Select Subject</label>
                                         <div class="col-sm-7">
-                                            <select name="subject" class="form-control" #subject="ngModel" [(ngModel)]="quiz.subject" type="text" value="" required placeholder="Select subject..">
+                                            <select name="subject" class="form-control" #subject="ngModel" [(ngModel)]="quiz.subject" type="text" (change)='onSubjectSelected()' required placeholder="Select subject..">
                                                     <option  value="">Please select subject</option>  
                                                 <option *ngFor="let subject of subjectList" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
                                                    
@@ -40,9 +40,8 @@
                                         <div class="col-sm-7">
                                             <select name="series" class="form-control" #series="ngModel" [(ngModel)]="quiz.series" type="text" value="" required placeholder="Select subject..">
                                                     <option  value="">Please select series</option>         
-                                                <option value="1">A</option>
-                                                        <option value="2">B</option>
-                                                        <option value="3">C</option>
+                                                <option *ngFor="let seriesValue of seriesList" value="{{seriesValue.quizID}}">{{seriesValue.quizName}}</option>
+                                                        
                                                         </select>
                                         </div>
                                     </div>
@@ -139,7 +138,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                   
+
 
 
 
