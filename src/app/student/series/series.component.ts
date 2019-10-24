@@ -11,6 +11,7 @@ import { StorageService } from "src/app/shared/storage.service";
 })
 export class SeriesComponent implements OnInit {
   subjectInfo: any = {};
+  showMore: boolean = false;
   seriesList: any = [];
   totalSeries: any = [];
   limitto: any = 12;
@@ -34,6 +35,15 @@ export class SeriesComponent implements OnInit {
           el.color = this.getRandomColor();
         });
         this.seriesList = this.totalSeries.slice(0, this.limitto);
+        if (this.totalSeries.length > 0) {
+          this.showMore = true;
+          if (
+            this.limitto > this.totalSeries.length ||
+            this.limitto == this.totalSeries.length
+          ) {
+            this.showMore = false;
+          }
+        }
         let subjectData = this.storage.getUserSettings("subject");
         if (subjectData) {
           this.subjectInfo = subjectData == undefined ? {} : subjectData;
@@ -48,9 +58,6 @@ export class SeriesComponent implements OnInit {
   };
 
   getSeries = (series: any) => {
-    console.log("**************series Data****************");
-    console.table(series);
-     console.log("**************series Data****************");
     this.storage.clearUserSettings("series");
     this.storage.setSettings("series", series);
     let routeUrl: any = `../${series.quizID}/quizExam`;

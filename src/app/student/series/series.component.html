@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="showMore">
         <div class="col-lg-4 col-md-4   col-sm-4"></div>
         <div class="col-lg-4 col-md-4   col-sm-4"><button (click)="loadMore()" class="btn btn-block btn-secondary">Load More Records</button></div>
         <div class="col-lg-4 col-md-4   col-sm-4"></div>

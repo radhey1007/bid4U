@@ -2,7 +2,7 @@ import { SubjectresolverService } from "./subjectresolver.service";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CommonService } from "src/app/shared/common.service";
-import { StorageService } from 'src/app/shared/storage.service';
+import { StorageService } from "src/app/shared/storage.service";
 
 @Component({
   selector: "app-subjectst",
@@ -22,13 +22,16 @@ export class SubjectstComponent implements OnInit {
   ngOnInit() {
     this.bindSubjectList();
   }
-  getSeries=(subject:any)=>{
+  getSeries = (subject: any) => {
     this.storage.clearUserSettings("subject");
     this.storage.setSettings("subject", subject);
-    let routeUrl:any=`../${subject.subjectName}/series`;
+    let routeUrl: any = `../${subject.subjectName}/series`;
 
- this.route.navigate([routeUrl], {relativeTo: this.actRoute, state: subject});
-  }
+    this.route.navigate([routeUrl], {
+      relativeTo: this.actRoute,
+      state: subject
+    });
+  };
   bindSubjectList = () => {
     this.actRoute.data.subscribe(data => {
       this.subjectList = data.routeResolver;
