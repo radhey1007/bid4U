@@ -48,9 +48,6 @@ export class SeriesComponent implements OnInit {
   };
 
   getSeries = (series: any) => {
-    console.log("**************series Data****************");
-    console.table(series);
-     console.log("**************series Data****************");
     this.storage.clearUserSettings("series");
     this.storage.setSettings("series", series);
     let routeUrl: any = `../${series.quizID}/quizExam`;

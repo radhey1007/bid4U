@@ -59,4 +59,29 @@ export class CommonService {
   GetQuizseries = (SID: any) => {
     return this.http.get(this.url + `QuizMasters/SujectQuizTittle/${SID}`);
   };
+  QuestionwiseAnswerSubmit = (question: any) => {
+    return this.http.post(
+      this.url + `ParticipateQuiz/Answer/${question.QuizID}/${question.answer}`,
+      {}
+    );
+  };
+  updateTimebyAnswer = (QuizTime: any) => {
+    return this.http.post(
+      this.url +
+        `ParticipateQuiz/UpdateTime/${QuizTime.sessionID}/${QuizTime.updatetime}`,
+      {}
+    );
+  };
+  finalSubmit = sessionID => {
+    return this.http.get(
+      this.url + `ParticipateQuiz/PrticipateQuiz/${sessionID}`
+    );
+  };
+  completeQuizExam = (QuizTime: any) => {
+    return this.http.post(
+      this.url +
+        `ParticipateQuiz/CompleteQuiz/${QuizTime.sessionID}/${QuizTime.updatetime}`,
+      {}
+    );
+  };
 }

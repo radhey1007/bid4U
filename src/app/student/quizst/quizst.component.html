@@ -37,27 +37,29 @@
                                 <div class="blockG" id="rotateG_07"></div>
                                 <div class="blockG" id="rotateG_08"></div>
                             </div>
-                        </div>  
-
-                        <div class="quiz" id="quiz" data-toggle="buttons">
-                            <label (click)="clickradio(Quiz.option1)" class="element-animation1 btn btn-lg btn-primary btn-block"><span
-                                    class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
-                                    type="radio" name="q_answer" >{{Quiz?.qa.option1}}</label>
-                            <label (click)="clickradio(Quiz.option2)" class="element-animation2 btn btn-lg btn-primary btn-block"><span
-                                    class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
-                                    type="radio" name="q_answer" value="" >{{Quiz?.qa.option2}}</label>
-                            <label (click)="clickradio(Quiz.option3)" class="element-animation3 btn btn-lg btn-primary btn-block"><span
-                                    class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
-                                    type="radio" name="q_answer" value=""  > {{Quiz?.qa.option3}}</label>
-                            <label (click)="clickradio(Quiz.option4)" class="element-animation4 btn btn-lg btn-primary btn-block"><span
-                                    class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
-                                    type="radio" name="q_answer" value="" > {{Quiz?.qa.option4}}</label>
                         </div>
+                        <form #userForm="ngForm">
+                            <div class="quiz" id="quiz" data-toggle="buttons">
+                                <label (click)="clickradio('A')" class="element-animation1 btn btn-lg btn-primary btn-block"><span
+                                    class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
+                                    type="radio" name="q_answer" [checked]="Quiz?.answer=='A'" [(ngModel)]="answerValue" value="A" >{{Quiz?.qa?.option1}}</label>
+                                <label (click)="clickradio('B')" class="element-animation2 btn btn-lg btn-primary btn-block"><span
+                                    class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
+                                    type="radio" name="q_answer" [checked]="Quiz?.answer=='B'" value="B" [(ngModel)]="answerValue">{{Quiz?.qa?.option2}}</label>
+                                <label (click)="clickradio('C')" class="element-animation3 btn btn-lg btn-primary btn-block"><span
+                                    class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
+                                    type="radio" name="q_answer" [checked]="Quiz?.answer=='C'" value="C" [(ngModel)]="answerValue" > {{Quiz?.qa?.option3}}</label>
+                                <label (click)="clickradio('D')" class="element-animation4 btn btn-lg btn-primary btn-block"><span
+                                    class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input
+                                    type="radio" name="q_answer" [checked]="Quiz?.answer=='D'" value="D" [(ngModel)]="answerValue"> {{Quiz?.qa?.option4}}</label>
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer text-muted">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left" *ngIf="i > 0"><button (click)="pre()" class="btn btn-sm">Pre</button></div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right" *ngIf="(i+1) < totalQuestion"><button (click)="next()" class="btn btn-sm">Next</button></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right" *ngIf="(i+1) == totalQuestion"><button (click)="next()" class="btn btn-sm btn-success">Finish</button></div>
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,8 @@ import { DashboardStComponent } from "./dashboard-st/dashboard-st.component";
 import { QuizresolverService } from "./quizst/quizresolver.service";
 import { SubjectstComponent } from "./subjectst/subjectst.component";
 import { SeriersresolverService } from "./series/seriersresolver.service";
+import { ReportComponent } from "./report/report.component";
+import { ResportResolverService } from "./report/resport-resolver.service";
 
 export const studentRoutes = [
   { path: "", component: DashboardStComponent, pathMatch: "full" },
@@ -29,6 +31,13 @@ export const studentRoutes = [
     component: SeriesComponent,
     resolve: {
       routeResolver: SeriersresolverService
+    }
+  },
+  {
+    path: ":subject/:series/report/:sessionID",
+    component: ReportComponent,
+    resolve: {
+      routeResolver: ResportResolverService
     }
   }
 ];

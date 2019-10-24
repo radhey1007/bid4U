@@ -6,14 +6,16 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { studentRoutes } from "../students-route";
-import { SeriesComponent } from '../series/series.component';
+import { SeriesComponent } from "../series/series.component";
 import { CountdownModule } from "ngx-countdown";
+import { ReportComponent } from "../report/report.component";
 @NgModule({
   declarations: [
     DashboardStComponent,
     QuizstComponent,
     SubjectstComponent,
-    SeriesComponent
+    SeriesComponent,
+    ReportComponent
   ],
   imports: [
     CommonModule,
