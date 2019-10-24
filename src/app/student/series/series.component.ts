@@ -11,6 +11,7 @@ import { StorageService } from "src/app/shared/storage.service";
 })
 export class SeriesComponent implements OnInit {
   subjectInfo: any = {};
+  showMore: boolean = false;
   seriesList: any = [];
   totalSeries: any = [];
   limitto: any = 12;
@@ -34,6 +35,15 @@ export class SeriesComponent implements OnInit {
           el.color = this.getRandomColor();
         });
         this.seriesList = this.totalSeries.slice(0, this.limitto);
+        if (this.totalSeries.length > 0) {
+          this.showMore = true;
+          if (
+            this.limitto > this.totalSeries.length ||
+            this.limitto == this.totalSeries.length
+          ) {
+            this.showMore = false;
+          }
+        }
         let subjectData = this.storage.getUserSettings("subject");
         if (subjectData) {
           this.subjectInfo = subjectData == undefined ? {} : subjectData;

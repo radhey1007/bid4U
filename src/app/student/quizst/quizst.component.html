@@ -17,7 +17,7 @@
 
 
     </div>
-    <div class="row">
+    <div class="row" *ngIf="Quizlist.length>0">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="alert alert-success">
                 <strong>Q {{i + 1}}:</strong> {{Quiz?.question}}
@@ -66,4 +66,13 @@
             </div>
         </div>
     </div>
+
+    <div class="row db-breadcrumb" *ngIf="Quizlist.length==0">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="alert alert-danger text-center">
+                <a href="javascript:void(0)" (click)="goBack()"><strong>Question list not available for this series.please click to go back. Thank you</strong></a>
+            </div>
+        </div>
+    </div>
+
 </div>

@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { StorageService } from "src/app/shared/storage.service";
 import { CountdownComponent } from "ngx-countdown";
 import { NgForm } from "@angular/forms";
-
+import { Location } from "@angular/common";
 @Component({
   selector: "app-quizst",
   templateUrl: "./quizst.component.html",
@@ -27,7 +27,8 @@ export class QuizstComponent implements OnInit {
     private actRoute: ActivatedRoute,
     private sharedService: CommonService,
     public storage: StorageService,
-    public route: Router
+    public route: Router,
+    private _location: Location
   ) {
     let seriesData: any = this.storage.getUserSettings("series");
     this.duration = Number(seriesData.durationInSeconds);
@@ -171,5 +172,8 @@ export class QuizstComponent implements OnInit {
     this.route.navigate([routeUrl], {
       relativeTo: this.actRoute
     });
+  };
+  goBack = () => {
+    this._location.back();
   };
 }
