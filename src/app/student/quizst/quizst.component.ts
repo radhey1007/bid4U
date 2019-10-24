@@ -150,7 +150,7 @@ export class QuizstComponent implements OnInit {
         console.log(_res);
         this.resetTemplate();
 
-        if (this.i + 1 == this.totalQuestion) {
+        if (this.i == this.totalQuestion) {
           this.sharedService.completeQuizExam(updateTime).subscribe(
             _res => {
               this.finishQuiz();
