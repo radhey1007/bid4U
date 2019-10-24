@@ -121,7 +121,6 @@ export class QuizstComponent implements OnInit {
             series: series.quizName
           };
           this.storage.setSettings("examinfo", info);
-          //  console.table(this.Quiz);
         });
     });
   };
