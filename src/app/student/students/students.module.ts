@@ -9,13 +9,15 @@ import { studentRoutes } from "../students-route";
 import { SeriesComponent } from "../series/series.component";
 import { CountdownModule } from "ngx-countdown";
 import { ReportComponent } from "../report/report.component";
+import { MaterialstComponent } from '../materialst/materialst.component';
 @NgModule({
   declarations: [
     DashboardStComponent,
     QuizstComponent,
     SubjectstComponent,
     SeriesComponent,
-    ReportComponent
+    ReportComponent,
+    MaterialstComponent
   ],
   imports: [
     CommonModule,

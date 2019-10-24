@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
 import { DatePipe } from "@angular/common";
 import { CountdownModule } from "ngx-countdown";
+import { MaterialstComponent } from './student/materialst/materialst.component';
+
 
 @NgModule({
   declarations: [...componets],
