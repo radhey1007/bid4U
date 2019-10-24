@@ -86,10 +86,10 @@ export class QuizComponent implements OnInit {
     this.boxselection("V");
   }
   onSubjectSelected = () => {
-    debugger;
+    
     this.sharedService.GetQuizseries(this.quiz.subject).subscribe(
       _res => {
-        console.log(_res);
+       
         this.seriesList = _res;
       },
       err => {

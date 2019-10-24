@@ -77,8 +77,7 @@ export class LoginComponent implements OnInit {
     this.sharedService.GetUserProfile().subscribe(
       (res: any) => {
         if (res) {
-          console.log("**************User Profile Data************");
-          console.table(res);
+       
           environment.loggeduser.push(res);
           this.storage.setSettings("user", res);
 

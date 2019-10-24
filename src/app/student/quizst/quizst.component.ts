@@ -32,21 +32,19 @@ export class QuizstComponent implements OnInit {
   ) {
     let seriesData: any = this.storage.getUserSettings("series");
     this.duration = Number(seriesData.durationInSeconds);
-    console.log(
-      "***********Duration ***************" + seriesData.durationInSeconds
-    );
+    
   }
 
   ngOnInit() {
     this.bindQuizList();
   }
   finishTest() {
-    console.log("count down", this.counter);
+    
     this.counter.pause();
   }
   next() {
     // this.Quizlist[this.i].answer = this.Quiz.answer;
-    console.log(this.counter.i.text);
+   
 
     /***************Answer Submittion Begin**********************************/
     let data = {
@@ -125,7 +123,7 @@ export class QuizstComponent implements OnInit {
     });
   };
   QuizAnswerSubmit = (question: any, timedata: any) => {
-    console.log(question);
+   
     if (this.answerValue !== null) {
       let questionData = {
         QuizID: question.qa.id,
@@ -133,7 +131,7 @@ export class QuizstComponent implements OnInit {
       };
       this.sharedService.QuestionwiseAnswerSubmit(questionData).subscribe(
         (_res: any) => {
-          console.log(_res);
+         
           this.updateTimeByAnswer(timedata);
         },
         err => {
@@ -147,7 +145,7 @@ export class QuizstComponent implements OnInit {
   updateTimeByAnswer = (updateTime: any) => {
     this.sharedService.updateTimebyAnswer(updateTime).subscribe(
       (_res: any) => {
-        console.log(_res);
+      
         this.resetTemplate();
 
         if (this.i == this.totalQuestion) {
@@ -172,7 +170,7 @@ export class QuizstComponent implements OnInit {
     // this.Quiz.answer = answer;
     this.Quizlist[this.i].answer = answer;
     this.answerValue = answer;
-    console.log(this.Quizlist);
+  
   };
   finishQuiz = () => {
     let routeUrl: any = `../report/${this.QuizsessionID}`;

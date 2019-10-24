@@ -38,7 +38,7 @@ export class SubjectstComponent implements OnInit {
       this.subjectList.forEach(el => {
         el.color = this.getRandomColor();
       });
-      console.log(data);
+      
     });
   };
   getRandomColor = () => {

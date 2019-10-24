@@ -22,7 +22,7 @@ export class ReportComponent implements OnInit {
   }
   GetFinalDataforQuizExam = () => {
     this.actRoute.data.subscribe(data => {
-      console.log(data.routeResolver);
+     
       let examdata = this.storage.getUserSettings("examinfo");
       this.examInfo = examdata;
       this.getFinalData = data.routeResolver;

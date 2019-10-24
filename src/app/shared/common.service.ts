@@ -50,7 +50,7 @@ export class CommonService {
     return this.http.get(this.url + `Jobs`);
   };
   getQuizList = data => {
-    console.log(data);
+    
     return this.http.post(this.url + `ParticipateQuiz/StartQuiz`, data);
   };
   getQuizListbyid = qID => {

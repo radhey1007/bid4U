@@ -20,8 +20,8 @@ export class SeriesComponent implements OnInit {
     private actRoute: ActivatedRoute,
     public storage: StorageService
   ) {
-    console.log("****** Compoentnt***********");
-    console.log(this.route.getCurrentNavigation().extras.state);
+   
+    //console.log(this.route.getCurrentNavigation().extras.state);
   }
 
   ngOnInit() {
