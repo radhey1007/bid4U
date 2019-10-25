@@ -13,6 +13,7 @@ import { ToastrModule } from "ngx-toastr";
 import { DatePipe } from "@angular/common";
 import { CountdownModule } from "ngx-countdown";
 import { MaterialstComponent } from './student/materialst/materialst.component';
+import { MaterialListComponent } from './admin/material-list/material-list.component';
 
 
 @NgModule({

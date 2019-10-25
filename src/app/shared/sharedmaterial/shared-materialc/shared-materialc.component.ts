@@ -10,7 +10,7 @@ import { StorageService } from "../../storage.service";
   styleUrls: ["./shared-materialc.component.css"]
 })
 export class SharedMaterialcComponent implements OnInit {
-  @Input() role: string;
+  @Input() role: string='';
   materialList: any = [];
   url: any = environment.apiurl;
   constructor(
@@ -20,12 +20,13 @@ export class SharedMaterialcComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log(this.role)
     this.getUploadedMaterials();
   }
 
   getUploadedMaterials = () => {
     this.sharedService.getMatrialList().subscribe(data => {
-      console.log(data);
+     
       this.materialList = data;
     });
   };

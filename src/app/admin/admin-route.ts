@@ -5,6 +5,7 @@ import { PostjobComponent } from "./postjob/postjob.component";
 import { MaterialComponent } from "./material/material.component";
 import { QuizComponent } from "./quiz/quiz.component";
 import { ManageuserRoleComponent } from "./manageuser-role/manageuser-role.component";
+import { MaterialListComponent } from './material-list/material-list.component';
 
 export const AdminRoute = [
   { path: "", component: DashboardComponent, pathMatch: "full" },
@@ -18,5 +19,8 @@ export const AdminRoute = [
       routeResolver: QuizresolverService
     }
   },
-  { path: "userRole", component: ManageuserRoleComponent }
+  { path: "userRole", component: ManageuserRoleComponent },
+  {
+    path:":post/material-list",component:MaterialListComponent
+  }
 ];

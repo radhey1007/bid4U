@@ -1,5 +1,5 @@
 <div class="container">
-    <h3>Student-Download latest Uploaded Study Material</h3>
+    <h3> {{role =='admin' ? 'Admin - Material List' : 'Student - Download latest Uploaded Study Material'}}</h3>
     <hr>
 
     <div class="row">
@@ -11,7 +11,8 @@
                         <th><input type="text" class="form-control" placeholder="##S.No." disabled></th>
                         <th><input type="text" class="form-control" placeholder="Title" disabled></th>
 
-                        <th><input type="text" class="form-control" placeholder="Upload Date" disabled></th>
+                        <th ><input type="text" class="form-control" placeholder="Upload Date" disabled></th>
+                        <th class="text-center" *ngIf="role =='admin'"><input type="text" class="form-control" placeholder="Action" disabled></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,6 +22,7 @@
                             <a href="{{url+material.url}}" target="_blank">{{material.title}}</a></td>
 
                         <td>{{material.createdDate}}</td>
+                        <td *ngIf="role =='admin'" class="text-center"><a href="javascript:void(0)" class="btn btn-danger btn-md">Delete</a></td>
                     </tr>
                 </tbody>
             </table>

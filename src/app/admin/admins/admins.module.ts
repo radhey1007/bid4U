@@ -13,6 +13,8 @@ import { MaterialComponent } from "../material/material.component";
 import { QuizComponent } from "../quiz/quiz.component";
 import { ManageuserRoleComponent } from "../manageuser-role/manageuser-role.component";
 import { QuizresolverService } from "../resolver/quizresolver.service";
+import { SharedmaterialModule } from 'src/app/shared/sharedmaterial/sharedmaterial.module';
+import { MaterialListComponent } from '../material-list/material-list.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,10 @@ import { QuizresolverService } from "../resolver/quizresolver.service";
     MaterialComponent,
     QuizComponent,
     ManageuserRoleComponent,
-    CurrentaffairsComponent
+    CurrentaffairsComponent,
+    MaterialListComponent 
   ],
-  imports: [CommonModule, RouterModule.forChild(AdminRoute), FormsModule],
+  imports: [CommonModule, RouterModule.forChild(AdminRoute), FormsModule,SharedmaterialModule],
   providers: [QuizresolverService]
 })
 export class AdminsModule {}

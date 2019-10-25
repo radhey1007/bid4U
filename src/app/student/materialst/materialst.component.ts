@@ -16,7 +16,7 @@ export class MaterialstComponent implements OnInit {
   constructor(private actRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.getUploadedMaterials();
+   
   }
 
   getUploadedMaterials = () => {
