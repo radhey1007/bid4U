@@ -23,7 +23,7 @@ export class QuizstComponent implements OnInit {
   totalQuestion = 0;
   i: number = 0;
   duration: any = 0;
-  titleInfo:any={}
+  titleInfo: any = {};
   constructor(
     private actRoute: ActivatedRoute,
     private sharedService: CommonService,
@@ -42,8 +42,6 @@ export class QuizstComponent implements OnInit {
     this.next("T");
   }
   next(timeout?) {
-    // this.Quizlist[this.i].answer = this.Quiz.answer;
-
     /***************Answer Submittion Begin**********************************/
     let data = {
       sessionID: this.QuizsessionID,
@@ -55,7 +53,6 @@ export class QuizstComponent implements OnInit {
     } else {
       this.QuizAnswerSubmit(this.Quiz, data);
     }
-
     /**************Answer Submition CLose***********************************/
   }
   resetTemplate = () => {
@@ -120,7 +117,7 @@ export class QuizstComponent implements OnInit {
             subject: subjectData.subjectName,
             series: series.quizName
           };
-          this.titleInfo=info;
+          this.titleInfo = info;
           this.storage.setSettings("examinfo", info);
         });
     });
