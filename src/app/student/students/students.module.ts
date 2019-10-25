@@ -1,3 +1,4 @@
+import { SharedmaterialModule } from "./../../shared/sharedmaterial/sharedmaterial.module";
 import { SubjectstComponent } from "./../subjectst/subjectst.component";
 import { QuizstComponent } from "./../quizst/quizst.component";
 import { DashboardStComponent } from "./../dashboard-st/dashboard-st.component";
@@ -9,7 +10,8 @@ import { studentRoutes } from "../students-route";
 import { SeriesComponent } from "../series/series.component";
 import { CountdownModule } from "ngx-countdown";
 import { ReportComponent } from "../report/report.component";
-import { MaterialstComponent } from '../materialst/materialst.component';
+import { MaterialstComponent } from "../materialst/materialst.component";
+
 @NgModule({
   declarations: [
     DashboardStComponent,
@@ -21,6 +23,7 @@ import { MaterialstComponent } from '../materialst/materialst.component';
   ],
   imports: [
     CommonModule,
+    SharedmaterialModule,
     RouterModule.forChild(studentRoutes),
     FormsModule,
     CountdownModule
