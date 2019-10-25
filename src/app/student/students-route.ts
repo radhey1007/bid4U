@@ -1,5 +1,4 @@
-import { MaterialResolverComponent } from './material/material-resolver/material-resolver.component';
-import { MaterialstComponent } from './materialst/materialst.component';
+import { MaterialstComponent } from "./materialst/materialst.component";
 import { Component } from "@angular/core";
 import { SeriesComponent } from "./series/series.component";
 import { SubjectresolverService } from "./subjectst/subjectresolver.service";
@@ -11,6 +10,7 @@ import { SubjectstComponent } from "./subjectst/subjectst.component";
 import { SeriersresolverService } from "./series/seriersresolver.service";
 import { ReportComponent } from "./report/report.component";
 import { ResportResolverService } from "./report/resport-resolver.service";
+import { MaterialstResolverService } from "./materialst/materialst-resolver.service";
 export const studentRoutes = [
   { path: "", component: DashboardStComponent, pathMatch: "full" },
   {
@@ -40,11 +40,12 @@ export const studentRoutes = [
     resolve: {
       routeResolver: ResportResolverService
     }
-  },{
-    path:"material",
-    component:MaterialstComponent,
-    resolve:{
-      routeResolver:MaterialResolverComponent
+  },
+  {
+    path: "material",
+    component: MaterialstComponent,
+    resolve: {
+      routeResolver: MaterialstResolverService
     }
   }
 ];
