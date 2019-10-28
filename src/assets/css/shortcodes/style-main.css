@@ -4538,7 +4538,7 @@ table.no-border td {
  * -----------------------------------------------
 */
 /* -------- Btn-Default ---------- */
-.btn-default {
+/* .btn-default {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
@@ -4598,9 +4598,9 @@ fieldset[disabled] .btn-default.focus {
 .btn-default:hover {
   background-color: #eeeeee;
   border-color: #eeeeee;
-}
+} */
 /* -------- Btn-Border ---------- */
-.btn-border {
+/* .btn-border {
   color: #222222;
   background-color: #fff;
   border-color: #222222;
@@ -4666,9 +4666,9 @@ fieldset[disabled] .btn-border.focus {
   background-color: #222222;
   border-color: #222222;
   color: #fff;
-}
+} */
 /* -------- Btn-Dark ---------- */
-.btn-dark {
+/* .btn-dark {
   color: #fff;
   background-color: #222222;
   border-color: #222222;
@@ -4724,9 +4724,9 @@ fieldset[disabled] .btn-dark.focus {
 .btn-dark .badge {
   color: #222222;
   background-color: #fff;
-}
+} */
 /* -------- Btn-Gray ---------- */
-.btn-gray {
+/* .btn-gray {
   color: #333333;
   background-color: #eeeeee;
   border-color: #eeeeee;
@@ -4788,9 +4788,9 @@ fieldset[disabled] .btn-gray.focus {
 }
 .btn-flat {
   border-radius: 0;
-}
+} */
 /* -------- Btn-Default ---------- */
-.btn {
+/* .btn {
   font-size: 14px;
   padding: 8px 22px;
   line-height: 1.38;
@@ -4809,9 +4809,9 @@ caption {text-align:left;
   background: linear-gradient(45deg, #3131b8 0%, #f9b0b8 100%);
   color: white ! important;
   border: 1px solid #b38cb8;
-}
+} */
 /* -------- Btn-xs ---------- */
-.btn-xs {
+/* .btn-xs {
   font-size: 14px;
    padding: 5px 8px;
 }
@@ -4826,30 +4826,30 @@ caption {text-align:left;
 .btn-xs:hover {
   font-size: 14px;
    padding: 5px 8px;
-}
+} */
 /* -------- Btn-sm ---------- */
-.btn-sm {
+/* .btn-sm {
   font-size: 12px;
   padding: 5px 17px;
-}
+} */
 /* -------- Btn-lg ---------- */
-.btn-lg {
+/* .btn-lg {
   font-size: 14px;
   padding: 10px 26px;
-}
+} */
 /* -------- Btn-xl ---------- */
-.btn-xl {
+/* .btn-xl {
   font-size: 16px;
   padding: 13px 32px;
-}
+} */
 /* -------- Btn-transparent ---------- */
-.btn-transparent {
+/* .btn-transparent {
   background-color: transparent;
   color: #fff;
-}
-.hvr-shutter-out-horizontal::before {
+} */
+/* .hvr-shutter-out-horizontal::before {
   background: #000;
-}
+} */
 /*
  * Blockquote.less
  * -----------------------------------------------

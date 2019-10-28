@@ -10,6 +10,7 @@
         <a style="color: white !important;" [routerLink]="['./material-list']" class="btn btn-success float-right">Go Material List</a>    
         </div>
             </div>
+<div class="clerifix"><br></div>
 
 
     <form #myForm="ngForm">
@@ -42,8 +43,9 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Upload File</label>
                                     <div class="col-sm-7">
-                                        <input required class="form-control"  (change)="onFileChange($event)"
-                                            #fileInput="ngModel" [(ngModel)]="material.file"
+                                        <input required class="form-control" 
+                                        accept=".jpg,.jpeg,.png,.xlsx,.pdf,.docx,.doc,.xls,.ppt,.pptx" (change)="onFileChange($event)"
+                                            #fileInput="ngModel" [(ngModel)]="material.file" name="file"
                                             placeholder="Please choose file.." required type="file">
                                     </div>
                                 </div>
@@ -82,7 +84,7 @@
 
                                 <div style="text-align:center;"> <button
                                         [disabled]="( !fileInput.valid ||  !name.valid)" type="button"
-                                        (click)="postMaterial()" class="btn-secondry add-item m-r5"><i
+                                        (click)="postMaterial()" class="btn btn-block btn-success"><i
                                             class="fa fa-fw fa-plus-circle"></i>Submit</button></div>
 
 
