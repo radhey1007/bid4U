@@ -5,6 +5,12 @@ import { user } from "src/app/Model/user.model";
 import { ToastrService } from "ngx-toastr";
 import { environment } from "src/environments/environment";
 import {
+  AuthService,
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  SocialUser
+} from "angularx-social-login";
+import {
   CanActivate,
   Router,
   ActivatedRouteSnapshot,
@@ -20,6 +26,8 @@ import { StorageService } from "src/app/shared/storage.service";
 })
 export class LoginComponent implements OnInit {
   user: [];
+  users: SocialUser;
+  loggedIn: boolean;
   credentials: any = {
     UserName: "",
     password: ""
@@ -28,13 +36,19 @@ export class LoginComponent implements OnInit {
     public route: Router,
     public sharedService: CommonService,
     private toastr: ToastrService,
-    public storage: StorageService
+    public storage: StorageService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
     environment.loggeduser.length = 0;
     environment.token.length = 0;
     this.storage.cleanAll();
+    this.authService.authState.subscribe(user => {
+      this.users = user;
+      this.loggedIn = user != null;
+      console.log(this.user);
+    });
   }
   Login = () => {
     if (this.validate()) {
@@ -77,7 +91,6 @@ export class LoginComponent implements OnInit {
     this.sharedService.GetUserProfile().subscribe(
       (res: any) => {
         if (res) {
-       
           environment.loggeduser.push(res);
           this.storage.setSettings("user", res);
 
@@ -95,4 +108,15 @@ export class LoginComponent implements OnInit {
       }
     );
   };
+  signInWithGoogle(): void {
+    this.authService
+      .signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then(x => console.log(x));
+  }
+
+  signInWithFB(): void {
+    this.authService
+      .signIn(FacebookLoginProvider.PROVIDER_ID)
+      .then(x => console.log(x));
+  }
 }

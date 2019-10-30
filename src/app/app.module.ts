@@ -12,13 +12,33 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
 import { DatePipe } from "@angular/common";
 import { CountdownModule } from "ngx-countdown";
-import { MaterialstComponent } from './student/materialst/materialst.component';
-import { MaterialListComponent } from './admin/material-list/material-list.component';
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  FacebookLoginProvider,
+  GoogleLoginProvider
+} from "angularx-social-login";
 
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider(
+      "528961187921-ld24b25466u4t2lacn9r35asg000lfis.apps.googleusercontent.com"
+    )
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("523663061523910")
+  }
+]);
 
+export function provideConfig() {
+  return config;
+}
 @NgModule({
   declarations: [...componets],
   imports: [
+    SocialLoginModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FormsModule,
@@ -33,6 +53,7 @@ import { MaterialListComponent } from './admin/material-list/material-list.compo
       useClass: LoadingScreenInterceptor,
       multi: true
     },
+    { provide: AuthServiceConfig, useFactory: provideConfig },
     DatePipe
   ],
   bootstrap: [AppComponent]
