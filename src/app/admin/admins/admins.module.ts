@@ -1,4 +1,5 @@
-import { CurrentaffairsComponent } from './../currentaffairs/currentaffairs.component';
+import { CpasswordmodModule } from "./../../shared/changepassword/cpasswordmod/cpasswordmod.module";
+import { CurrentaffairsComponent } from "./../currentaffairs/currentaffairs.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
@@ -13,8 +14,9 @@ import { MaterialComponent } from "../material/material.component";
 import { QuizComponent } from "../quiz/quiz.component";
 import { ManageuserRoleComponent } from "../manageuser-role/manageuser-role.component";
 import { QuizresolverService } from "../resolver/quizresolver.service";
-import { SharedmaterialModule } from 'src/app/shared/sharedmaterial/sharedmaterial.module';
-import { MaterialListComponent } from '../material-list/material-list.component';
+import { SharedmaterialModule } from "src/app/shared/sharedmaterial/sharedmaterial.module";
+import { MaterialListComponent } from "../material-list/material-list.component";
+import { ChangepasswordAComponent } from "../changepassword-a/changepassword-a.component";
 
 @NgModule({
   declarations: [
@@ -24,9 +26,16 @@ import { MaterialListComponent } from '../material-list/material-list.component'
     QuizComponent,
     ManageuserRoleComponent,
     CurrentaffairsComponent,
-    MaterialListComponent 
+    MaterialListComponent,
+    ChangepasswordAComponent
   ],
-  imports: [CommonModule, RouterModule.forChild(AdminRoute), FormsModule,SharedmaterialModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(AdminRoute),
+    FormsModule,
+    SharedmaterialModule,
+    CpasswordmodModule
+  ],
   providers: [QuizresolverService]
 })
 export class AdminsModule {}

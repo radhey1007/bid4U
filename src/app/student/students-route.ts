@@ -11,6 +11,7 @@ import { SeriersresolverService } from "./series/seriersresolver.service";
 import { ReportComponent } from "./report/report.component";
 import { ResportResolverService } from "./report/resport-resolver.service";
 import { MaterialstResolverService } from "./materialst/materialst-resolver.service";
+import { ChangepasswordSComponent } from "./changepassword-s/changepassword-s.component";
 export const studentRoutes = [
   { path: "", component: DashboardStComponent, pathMatch: "full" },
   {
@@ -47,5 +48,9 @@ export const studentRoutes = [
     resolve: {
       routeResolver: MaterialstResolverService
     }
+  },
+  {
+    path: "change-password",
+    component: ChangepasswordSComponent
   }
 ];

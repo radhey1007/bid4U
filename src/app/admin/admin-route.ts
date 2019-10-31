@@ -1,11 +1,12 @@
-import { CurrentaffairsComponent } from './currentaffairs/currentaffairs.component';
+import { ChangepasswordAComponent } from "./changepassword-a/changepassword-a.component";
+import { CurrentaffairsComponent } from "./currentaffairs/currentaffairs.component";
 import { QuizresolverService } from "./resolver/quizresolver.service";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { PostjobComponent } from "./postjob/postjob.component";
 import { MaterialComponent } from "./material/material.component";
 import { QuizComponent } from "./quiz/quiz.component";
 import { ManageuserRoleComponent } from "./manageuser-role/manageuser-role.component";
-import { MaterialListComponent } from './material-list/material-list.component';
+import { MaterialListComponent } from "./material-list/material-list.component";
 
 export const AdminRoute = [
   { path: "", component: DashboardComponent, pathMatch: "full" },
@@ -21,6 +22,11 @@ export const AdminRoute = [
   },
   { path: "userRole", component: ManageuserRoleComponent },
   {
-    path:":post/material-list",component:MaterialListComponent
+    path: ":post/material-list",
+    component: MaterialListComponent
+  },
+  {
+    path: "change-password",
+    component: ChangepasswordAComponent
   }
 ];
