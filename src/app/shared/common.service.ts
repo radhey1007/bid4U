@@ -87,4 +87,7 @@ export class CommonService {
   getMatrialList = () => {
     return this.http.get(this.url + `StudyMaterials`);
   };
+  sendOtp = (userName: string) => {
+    return this.http.post(this.url + `ChangePasswordReqest/${userName}`, {});
+  };
 }
