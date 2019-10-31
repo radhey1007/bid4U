@@ -23,12 +23,12 @@ const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
     provider: new GoogleLoginProvider(
-      "528961187921-ld24b25466u4t2lacn9r35asg000lfis.apps.googleusercontent.com"
+      "26944555896-5chu47rn1sgklrdc4onbj1okefmhk5eu.apps.googleusercontent.com"
     )
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("523663061523910")
+    provider: new FacebookLoginProvider("735731803559600")
   }
 ]);
 
