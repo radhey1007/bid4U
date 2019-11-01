@@ -66,26 +66,36 @@ export class ForgotpasswordComponent implements OnInit {
   };
 
   changePasswordRequest = () => {
-    let raw = {
-      NewPassword: this.user.password,
-      smsOTP: this.user.otp,
-      UserName: this.user.uname
-    };
-    this.shared.changePassword(raw).subscribe(
-      (_res: any) => {
-        console.log(_res);
-        this.toastr.success("Success !", "Password changed successfully.", {
-          timeOut: 3000
-        });
-        this.resetFields();
-      },
-      err => {
-        console.log(err);
-        this.toastr.error("Error !", "Error occurred please try again later.", {
-          timeOut: 3000
-        });
-      }
-    );
+    if (this.user.password == this.user.cpassword) {
+      let raw = {
+        NewPassword: this.user.password,
+        smsOTP: this.user.otp,
+        UserName: this.user.uname
+      };
+      this.shared.changePassword(raw).subscribe(
+        (_res: any) => {
+          console.log(_res);
+          this.toastr.success("Success !", "Password changed successfully.", {
+            timeOut: 3000
+          });
+          this.resetFields();
+        },
+        err => {
+          console.log(err);
+          this.toastr.error(
+            "Error !",
+            "Error occurred please try again later.",
+            {
+              timeOut: 3000
+            }
+          );
+        }
+      );
+    } else {
+      this.toastr.error("Error!", "Password not macthed!", {
+        timeOut: 2000
+      });
+    }
   };
   resetFields = () => {
     this.step = 1;
@@ -93,17 +103,5 @@ export class ForgotpasswordComponent implements OnInit {
     this.user.password = "";
     this.user.otp = "";
     this.otp = "";
-  };
-
-  validatePassword = () => {
-    if (this.user.password !== this.user.cpassword) {
-      this.isMatched = false;
-      this.toastr.error("Error!", "Password not macthed!", {
-        timeOut: 1000
-      });
-    } else {
-      this.isMatched = true;
-      this.toastr.success("Success!", "Password matched!");
-    }
   };
 }
