@@ -88,6 +88,12 @@ export class CommonService {
     return this.http.get(this.url + `StudyMaterials`);
   };
   sendOtp = (userName: string) => {
-    return this.http.post(this.url + `ChangePasswordReqest/${userName}`, {});
+    return this.http.post(
+      this.url + `UserDetails/ChangePasswordReqest/${userName}`,
+      {}
+    );
+  };
+  changePassword = (data: any) => {
+    return this.http.post(this.url + `UserDetails/ChangePassword/`, data);
   };
 }
