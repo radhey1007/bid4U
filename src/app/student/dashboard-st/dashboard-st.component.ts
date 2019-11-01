@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Chart } from "chart.js";
+import { ActivatedRoute } from '@angular/router';
+import { DashboardResolverService } from './dashboard-resolver.service';
 @Component({
   selector: "app-dashboard-st",
   templateUrl: "./dashboard-st.component.html",
-  styleUrls: ["./dashboard-st.component.css"]
+  styleUrls: ["./dashboard-st.component.css"],
+  providers: [DashboardResolverService]
 })
 export class DashboardStComponent implements OnInit {
   @ViewChild("chart", { static: true }) private chartRef;
@@ -48,9 +51,15 @@ export class DashboardStComponent implements OnInit {
   chart = [];
   price = [];
   month = [];
-  constructor() {}
+  constructor( private actRoute: ActivatedRoute) {
+   
+  }
 
   ngOnInit() {
+    this.actRoute.data.subscribe(data => {
+      console.log('********************Dash Board Data****************');
+      console.log(data);
+    });
     this.results.forEach(y => {
       this.month.push(y.month);
       this.price.push(y.price);

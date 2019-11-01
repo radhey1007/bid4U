@@ -12,8 +12,11 @@ import { ReportComponent } from "./report/report.component";
 import { ResportResolverService } from "./report/resport-resolver.service";
 import { MaterialstResolverService } from "./materialst/materialst-resolver.service";
 import { ChangepasswordSComponent } from "./changepassword-s/changepassword-s.component";
+import { DashboardResolverService } from './dashboard-st/dashboard-resolver.service';
 export const studentRoutes = [
-  { path: "", component: DashboardStComponent, pathMatch: "full" },
+  { path: "", component: DashboardStComponent, pathMatch: "full" , resolve: {
+    routeResolver: DashboardResolverService
+  }},
   {
     path: ":subject/:series/quizExam",
     component: QuizstComponent,

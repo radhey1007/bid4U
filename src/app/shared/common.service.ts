@@ -96,4 +96,9 @@ export class CommonService {
   changePassword = (data: any) => {
     return this.http.post(this.url + `UserDetails/ChangePassword/`, data);
   };
+  studentGraph=(stID:any)=>{
+    return this.http.get(
+      this.url + `ParticipateQuiz/studentGraph/${stID}`
+    );
+  }
 }
