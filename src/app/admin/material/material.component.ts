@@ -48,7 +48,7 @@ export class MaterialComponent implements OnInit {
           _res => {
             if (_res) {
               this.mytemplateForm.reset();
-              this.clearFile('is');
+              this.clearFile("is");
               this.toastr.success(
                 "Success !",
                 "Material Data saved successfully."
@@ -67,12 +67,10 @@ export class MaterialComponent implements OnInit {
     }
   };
   clearFile = (btn?) => {
-    debugger;
     this.formData.delete("file1");
     this.file.length = 0;
     if (btn == "is") {
       this.material.file = "";
     }
   };
- 
 }

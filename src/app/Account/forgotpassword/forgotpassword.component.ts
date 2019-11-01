@@ -14,7 +14,7 @@ export class ForgotpasswordComponent implements OnInit {
     password: "",
     cpassword: ""
   };
-  step: Number = 1;
+  step: any = 1;
   otp = "";
   isMatched: boolean = false;
   constructor(private shared: CommonService, private toastr: ToastrService) {}
