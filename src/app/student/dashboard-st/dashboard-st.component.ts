@@ -58,11 +58,12 @@ export class DashboardStComponent implements OnInit {
   ngOnInit() {
     this.actRoute.data.subscribe(data => {
       console.log('********************Dash Board Data****************');
-      console.log(data);
+      console.log(data.routeResolver);
+      this.results=data.routeResolver;
     });
     this.results.forEach(y => {
-      this.month.push(y.month);
-      this.price.push(y.price);
+      this.month.push(y.quizID);
+      this.price.push(y.markObtained);
     });
     this.createchart(this.month, this.price);
   }

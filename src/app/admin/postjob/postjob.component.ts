@@ -6,7 +6,7 @@ import { DatePipe } from "@angular/common";
 import { environment } from "src/environments/environment";
 import { StorageService } from "src/app/shared/storage.service";
 import { NgForm } from "@angular/forms";
-
+import * as moment from 'moment';
 @Component({
   selector: "app-postjob",
   templateUrl: "./postjob.component.html",
@@ -77,9 +77,10 @@ export class PostjobComponent implements OnInit {
     }
   };
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   postJob = () => {
+if(this.validateDate()){
     if (this.validateJobModel()) {
       if (this.id !== "") {
         let title = "";
@@ -126,6 +127,11 @@ export class PostjobComponent implements OnInit {
         timeOut: 3000
       });
     }
+  }else{
+    this.toastr.error("Error!", "Please select valid date!", {
+      timeOut: 3000
+    });
+  }
   };
 
   validateJobModel = (): boolean => {
@@ -155,5 +161,16 @@ export class PostjobComponent implements OnInit {
   addClass(id: any) {
     this.id = id;
     this.boxselection("V");
+  }
+
+  validateDate = () => {
+    var date = moment(this.Jobmodel.JobEndDate)
+    var now = moment();
+
+    if (date > now) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
