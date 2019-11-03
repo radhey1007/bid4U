@@ -17,13 +17,13 @@
                             <div class="card-body">
                                 <ul class="list-group">
                                     <li class="list-group-item active">Report card for {{examInfo?.subject}}-{{examInfo?.series}} quiz exam</li>
-                                    <a class="list-group-item disabled"><strong class="float-left">Subject:</strong>  {{examInfo?.subject}}</a>
-                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Series:</strong>  {{examInfo?.series}} </a>
-                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Duration:</strong> {{getFinalData[0]?.duration}}</a>
-                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Time Taken:</strong> {{getFinalData[0]?.timeTaken }}</a>
-                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Total Questions:</strong> {{examInfo?.Qlenth}}</a>
-                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Total Answered:</strong> {{getFinalData[0]?.totalAnswered }}</a>
-                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Correct Answered:</strong> {{getFinalData[0]?.correctAnswered }}</a>
+                                    <a class="list-group-item disabled"><strong class="float-left">Subject:</strong>  <strong class="float-right">{{examInfo?.subject}}</strong></a>
+                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Series:</strong>  <strong class="float-right">{{examInfo?.series}} </strong></a>
+                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Duration:</strong><strong class="float-right"> {{getFinalData[0]?.duration}}</strong></a>
+                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Time Taken:</strong> <strong class="float-right">{{getFinalData[0]?.timeTaken }}</strong></a>
+                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Total Questions:</strong> <strong class="float-right">{{examInfo?.Qlenth}}</strong></a>
+                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Total Answered:</strong><strong class="float-right"> {{getFinalData[0]?.totalAnswered }}</strong></a>
+                                    <a class="list-group-item list-group-item-action"><strong class="float-left">Correct Answered:</strong> <strong class="float-right">{{getFinalData[0]?.correctAnswered }}</strong></a>
                                 </ul>
 
                             </div>

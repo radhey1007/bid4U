@@ -18,9 +18,7 @@ import {
   FacebookLoginProvider,
   GoogleLoginProvider
 } from "angularx-social-login";
-import { ChangepasswordComponent } from "./shared/changepassword/changepassword.component";
-import { ChangepasswordAComponent } from "./admin/changepassword-a/changepassword-a.component";
-import { ChangepasswordSComponent } from "./student/changepassword-s/changepassword-s.component";
+
 
 const config = new AuthServiceConfig([
   {

@@ -4,7 +4,12 @@
 
     <div class="row">
         <div class="panel panel-primary filterable">
-
+            <ul class="pagination">
+                <li class="page-item"><button class="btn btn-primary" [disabled] ="curPage == 1" (click)="curPage = curPage - 1">Previous</button></li>
+                <li class="page-item"><a class="page-link" href="#">Page {{curPage}} of {{ numberOfPages() }}</a></li>
+                
+                <li class="page-item"><button [disabled] = "curPage >= materialList.length/pageSize" class="btn btn-primary" (click) ="curPage = curPage + 1">Next</button></li>
+              </ul>
             <table class="table ">
                 <thead class="bg-info">
                     <tr class="filters">
@@ -16,8 +21,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let material of materialList;let i=index;">
-                        <td>{{i+1}}</td>
+                    <tr *ngFor="let material of materialList | slice: (curPage * pageSize) - pageSize :curPage * pageSize;let i=index;">
+                        <td>{{material.sr}}</td>
                         <td class="outline-primary">
                             <a href="{{url+material.url}}" target="_blank">{{material.title}}</a></td>
 
@@ -26,6 +31,12 @@
                     </tr>
                 </tbody>
             </table>
+            <ul class="pagination">
+                <li class="page-item"><button class="btn btn-primary" [disabled] ="curPage == 1" (click)="curPage = curPage - 1">Previous</button></li>
+                <li class="page-item"><a class="page-link" href="#">Page {{curPage}} of {{ numberOfPages() }}</a></li>
+                
+                <li class="page-item"><button [disabled] = "curPage >= materialList.length/pageSize" class="btn btn-primary" (click) ="curPage = curPage + 1">Next</button></li>
+              </ul>
         </div>
     </div>
 </div>

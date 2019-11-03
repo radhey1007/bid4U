@@ -44,11 +44,11 @@ export class LoginComponent implements OnInit {
     environment.loggeduser.length = 0;
     environment.token.length = 0;
     this.storage.cleanAll();
-    this.authService.authState.subscribe(user => {
-      this.users = user;
-      this.loggedIn = user != null;
-      console.log(this.user);
-    });
+    // this.authService.authState.subscribe(user => {
+    //   this.users = user;
+    //   this.loggedIn = user != null;
+    //   console.log(this.user);
+    // });
   }
   Login = () => {
     if (this.validate()) {

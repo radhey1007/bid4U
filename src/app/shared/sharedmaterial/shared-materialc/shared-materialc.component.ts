@@ -12,12 +12,18 @@ import { StorageService } from "../../storage.service";
 export class SharedMaterialcComponent implements OnInit {
   @Input() role: string='';
   materialList: any = [];
+  curPage : number;
+  pageSize : number;
+  totalpageSize : number;
   url: any = environment.apiurl;
   constructor(
     private actRoute: ActivatedRoute,
     public sharedService: CommonService,
     public storage: StorageService
-  ) {}
+  ) {
+    this.curPage = 1;
+    this.pageSize = 10; 
+  }
 
   ngOnInit() {
     console.log(this.role)
@@ -28,6 +34,16 @@ export class SharedMaterialcComponent implements OnInit {
     this.sharedService.getMatrialList().subscribe(data => {
      
       this.materialList = data;
+      this.materialList.forEach((element,i) => {
+        element.sr=i+1;
+      });
+      this.totalpageSize=this.numberOfPages();
     });
   };
+  numberOfPages(){
+    return Math.ceil(this.materialList.length / this.pageSize);
+  };
+//   loadRecords=(pageNumber:any)=>{
+// this.curPage=this.curPage+pageNumber;
+//   }
 }
