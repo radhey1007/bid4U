@@ -101,4 +101,7 @@ export class CommonService {
       this.url + `ParticipateQuiz/studentGraph/${stID}`
     );
   }
+  subject=(data:any)=>{
+    return this.http.post(this.url + `Subject`, data);
+  }
 }

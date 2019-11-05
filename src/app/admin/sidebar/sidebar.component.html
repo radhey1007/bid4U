@@ -48,10 +48,26 @@
 
 
                 <li>
-                    <a href="#" [routerLink]="['./postQuiz']" routerLinkActive="active" class="ttr-material-button a">
+                    <a href="javascript:void(0)"  class="ttr-material-button">
                         <span class="ttr-icon"><i class="ti-book"></i></span>
-                        <span class="ttr-label">Quiz</span>
+                        <span class="ttr-label">Quiz Master</span>
+                        <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
                     </a>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" [routerLink]="['./subject']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="ttr-material-button a"><span
+                                    class="ttr-label">Subject</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" [routerLink]="['./series']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="ttr-material-button a"><span
+                                    class="ttr-label">Series</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" [routerLink]="['./postQuiz']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="ttr-material-button a"><span
+                                    class="ttr-label">Quiz</span></a>
+                        </li>
+                    </ul>
+
                 </li>
 
                 <li>

@@ -1,0 +1,107 @@
+<div class="container-fluid">
+    <div class="db-breadcrumb">
+        <h4 class="breadcrumb-title">Admin- Subject Master</h4>
+
+    </div>
+
+   
+
+
+    <form #myForm="ngForm">
+        <div class="row">
+
+            <div class="col-lg-12 m-b30">
+                <div class="widget-box">
+
+                    <div class="widget-inner">
+                        <div class="edit-profile m-b30">
+                            <div class="row">
+
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2  col-form-label">Select Subject</label>
+                                        <div class="col-sm-7">
+                                            <select name="subject" class="form-control" #subject="ngModel" [(ngModel)]="model.subject" type="text"  required placeholder="Select subject..">
+                                                    <option  value="">Please select subject</option>  
+                                                <option *ngFor="let subject of subjectList" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
+                                                   
+                                                    </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="subject.errors && (subject.dirty || subject.touched)">
+                                        <label class="col-sm-2  col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> please select subject
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Series Name</label>
+                                        <div class="col-sm-7">
+                                            <input class="form-control" pattern="^[A-Za-z -]+$" name="seriess" #seriess="ngModel" [(ngModel)]="model.series" type="text" value="" required placeholder="Enter subject Name..">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="seriess.errors && (seriess.dirty || seriess.touched)">
+                                        <label class="col-sm-2 col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> Please enter series name
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Duration</label>
+                                        <div class="col-sm-7">
+                                            <input class="form-control"  name="durations" #durations="ngModel" [(ngModel)]="model.duration" type="text" value="" required placeholder="Enter duration 00:00:00">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-warning">
+                                            <strong>Note !</strong> Duration format must be in form of 00:00:00
+                                          </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="durations.errors && (durations.dirty || durations.touched)">
+                                        <label class="col-sm-2 col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> Please enter duration in format of 00:00:00
+                                          </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Duration in seconds</label>
+                                        <div class="col-sm-7">
+                                            <input class="form-control"  name="durationssec" #durationssec="ngModel" [(ngModel)]="model.durationsec" type="number" value="" required placeholder="Enter duration in second 00000">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" *ngIf="durationssec.errors && (durationssec.dirty || durationssec.touched)">
+                                        <label class="col-sm-2 col-form-label"></label>
+
+                                        <div class="col-sm-7 alert alert-danger">
+                                            <strong>Error !</strong> Please enter duration in seconds of 00000
+                                          </div>
+                                    </div>
+                                    <div style="text-align:center;"> <button [disabled]="!myForm.valid" type="button" (click)="postSeries()" class="btn btn-block btn-success"><i
+                                            class="fa fa-fw fa-plus-circle"></i>Submit</button></div>
+
+
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="seperator"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>
+

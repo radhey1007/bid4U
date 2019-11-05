@@ -17,6 +17,8 @@ import { QuizresolverService } from "../resolver/quizresolver.service";
 import { SharedmaterialModule } from "src/app/shared/sharedmaterial/sharedmaterial.module";
 import { MaterialListComponent } from "../material-list/material-list.component";
 import { ChangepasswordAComponent } from "../changepassword-a/changepassword-a.component";
+import { SubjectMasterComponent } from '../subject-master/subject-master.component';
+import { SeriesMasterComponent } from '../series-master/series-master.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ChangepasswordAComponent } from "../changepassword-a/changepassword-a.c
     ManageuserRoleComponent,
     CurrentaffairsComponent,
     MaterialListComponent,
-    ChangepasswordAComponent
+    ChangepasswordAComponent,
+    SubjectMasterComponent,
+    SeriesMasterComponent
   ],
   imports: [
     CommonModule,

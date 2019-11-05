@@ -18,6 +18,8 @@ import {
   FacebookLoginProvider,
   GoogleLoginProvider
 } from "angularx-social-login";
+import { SubjectMasterComponent } from './admin/subject-master/subject-master.component';
+import { SeriesMasterComponent } from './admin/series-master/series-master.component';
 
 
 const config = new AuthServiceConfig([

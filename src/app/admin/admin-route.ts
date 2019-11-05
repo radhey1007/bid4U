@@ -7,6 +7,8 @@ import { MaterialComponent } from "./material/material.component";
 import { QuizComponent } from "./quiz/quiz.component";
 import { ManageuserRoleComponent } from "./manageuser-role/manageuser-role.component";
 import { MaterialListComponent } from "./material-list/material-list.component";
+import { SubjectMasterComponent } from './subject-master/subject-master.component';
+import { SeriesMasterComponent } from './series-master/series-master.component';
 
 export const AdminRoute = [
   { path: "", component: DashboardComponent, pathMatch: "full" },
@@ -28,5 +30,13 @@ export const AdminRoute = [
   {
     path: "change-password",
     component: ChangepasswordAComponent
+  },
+  {
+    path: "subject",
+    component: SubjectMasterComponent
+  },
+  {
+    path: "series",
+    component: SeriesMasterComponent
   }
 ];
