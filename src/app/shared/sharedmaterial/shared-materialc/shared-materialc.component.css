@@ -6,7 +6,11 @@
 .row {
     width: 100% !important;
 }
-
+.disabled {
+    color: gray;
+    cursor: not-allowed;
+   
+}
 .outline-primary {
     color: #007bff;
     background-color: transparent;

@@ -10,40 +10,39 @@ import { StorageService } from "../../storage.service";
   styleUrls: ["./shared-materialc.component.css"]
 })
 export class SharedMaterialcComponent implements OnInit {
-  @Input() role: string='';
+  @Input() role: string = "";
   materialList: any = [];
-  curPage : number;
-  pageSize : number;
-  totalpageSize : number;
-  url: any = environment.apiurl;
+  curPage: number;
+  pageSize: number;
+  totalpageSize: number;
+  url: any = environment.docUrl;
   constructor(
     private actRoute: ActivatedRoute,
     public sharedService: CommonService,
     public storage: StorageService
   ) {
     this.curPage = 1;
-    this.pageSize = 10; 
+    this.pageSize = 10;
   }
 
   ngOnInit() {
-    console.log(this.role)
+    console.log(this.role);
     this.getUploadedMaterials();
   }
 
   getUploadedMaterials = () => {
     this.sharedService.getMatrialList().subscribe(data => {
-     
       this.materialList = data;
-      this.materialList.forEach((element,i) => {
-        element.sr=i+1;
+      this.materialList.forEach((element, i) => {
+        element.sr = i + 1;
       });
-      this.totalpageSize=this.numberOfPages();
+      this.totalpageSize = this.numberOfPages();
     });
   };
-  numberOfPages(){
+  numberOfPages() {
     return Math.ceil(this.materialList.length / this.pageSize);
-  };
-//   loadRecords=(pageNumber:any)=>{
-// this.curPage=this.curPage+pageNumber;
-//   }
+  }
+  //   loadRecords=(pageNumber:any)=>{
+  // this.curPage=this.curPage+pageNumber;
+  //   }
 }

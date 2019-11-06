@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="db-breadcrumb">
-        <h4 class="breadcrumb-title">Admin- Subject Master</h4>
+        <h4 class="breadcrumb-title">Admin- Series Master</h4>
 
     </div>
 
@@ -43,40 +43,40 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Series Name</label>
                                         <div class="col-sm-7">
-                                            <input class="form-control" pattern="^[A-Za-z -]+$" name="seriess" #seriess="ngModel" [(ngModel)]="model.series" type="text" value="" required placeholder="Enter subject Name..">
+                                            <input class="form-control" pattern="^[A-Za-z - 0-9 -]+$" name="seriess" #seriess="ngModel" [(ngModel)]="model.series" type="text" value="" required placeholder="Enter series Name..">
                                         </div>
                                     </div>
                                     <div class="form-group row" *ngIf="seriess.errors && (seriess.dirty || seriess.touched)">
                                         <label class="col-sm-2 col-form-label"></label>
 
                                         <div class="col-sm-7 alert alert-danger">
-                                            <strong>Error !</strong> Please enter series name
+                                            <strong>Error !</strong> Please enter  valid series name
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Duration</label>
                                         <div class="col-sm-7">
-                                            <input class="form-control"  name="durations" #durations="ngModel" [(ngModel)]="model.duration" type="text" value="" required placeholder="Enter duration 00:00:00">
+                                            <input class="form-control" (blur)="hhmmTOss()" pattern="^(24:00)|((0[1-9]|1\d|2[0-3]):([0-5]\d))|(00:(0[1-5]|[1-9]0|[1-5][1-9]))$" name="durations" #durations="ngModel" [(ngModel)]="model.duration" type="text" value="" required placeholder="Enter duration 00:00:00">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label"></label>
 
                                         <div class="col-sm-7 alert alert-warning">
-                                            <strong>Note !</strong> Duration format must be in form of 00:00:00
+                                            <strong>Note !</strong> Duration format must be in form of hh:mm
                                           </div>
                                     </div>
                                     <div class="form-group row" *ngIf="durations.errors && (durations.dirty || durations.touched)">
                                         <label class="col-sm-2 col-form-label"></label>
 
                                         <div class="col-sm-7 alert alert-danger">
-                                            <strong>Error !</strong> Please enter duration in format of 00:00:00
+                                            <strong>Error !</strong> Please enter valid duration in format of hh:mm
                                           </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Duration in seconds</label>
                                         <div class="col-sm-7">
-                                            <input class="form-control"  name="durationssec" #durationssec="ngModel" [(ngModel)]="model.durationsec" type="number" value="" required placeholder="Enter duration in second 00000">
+                                            <input class="form-control" [disabled]="true"  name="durationssec" #durationssec="ngModel" [(ngModel)]="model.durationsec" type="number" value="" required placeholder="Enter duration in second 00000">
                                         </div>
                                     </div>
                                     <div class="form-group row" *ngIf="durationssec.errors && (durationssec.dirty || durationssec.touched)">

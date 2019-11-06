@@ -10,7 +10,7 @@ import { ToastrService } from "ngx-toastr";
 })
 export class QuizComponent implements OnInit {
   subjectList: any = [];
-
+  quetsionsArray: any = [];
   quiz = {
     answerE: "",
     answerD: "",
@@ -21,6 +21,8 @@ export class QuizComponent implements OnInit {
     series: "",
     subject: ""
   };
+  updatedItem: any = "";
+  IsForUpdate: any = "N";
   seriesList: any = [];
   @ViewChild("myForm", { static: false }) mytemplateForm: NgForm;
   constructor(
@@ -49,19 +51,12 @@ export class QuizComponent implements OnInit {
         option4: this.quiz.answerD,
         answer: this.quiz.answerE
       };
+      this.quetsionsArray.push(quiz);
+      this.quiz.answerE = "";
+      this.mytemplateForm.reset();
+      this.quiz.subject = "";
+      this.quiz.series = "";
 
-      this.sharedService.PoastQuiz(quiz).subscribe(
-        _res => {
-          this.toastr.success("Success!", "Quiz successfully posted!", {
-            timeOut: 3000
-          });
-          this.quiz.answerE = "";
-          this.mytemplateForm.reset();
-        },
-        err => {
-          console.log(err);
-        }
-      );
     } else {
       this.boxselection("E");
       this.toastr.error("Error!", "Please select right answer!", {
@@ -69,6 +64,64 @@ export class QuizComponent implements OnInit {
       });
     }
   };
+
+  UpdateItem() {
+    let data = this.updatedItem;
+    for (let i = 0; i < this.quetsionsArray.length; i++) {
+      if (i == data) {
+        (this.quetsionsArray[i].quizID = this.quiz.series),
+          (this.quetsionsArray[i].subjectID = this.quiz.subject),
+          (this.quetsionsArray[i].question = this.quiz.question),
+          (this.quetsionsArray[i].option1 = this.quiz.answerA),
+          (this.quetsionsArray[i].option2 = this.quiz.answerB),
+          (this.quetsionsArray[i].option3 = this.quiz.answerC),
+          (this.quetsionsArray[i].option4 = this.quiz.answerD),
+          (this.quetsionsArray[i].answer = this.quiz.answerE);
+      }
+    }
+    this.IsForUpdate = "N";
+    this.quiz.answerE = "";
+    this.mytemplateForm.reset();
+    this.quiz.subject = "";
+    this.quiz.series = "";
+  }
+  EditItem(i) {
+    let item = this.quetsionsArray[i];
+    this.quiz.subject = item.subjectID;
+    this.quiz.series = item.quizID;
+    this.quiz.question = item.question;
+    this.quiz.answerA = item.option1;
+    this.quiz.answerB = item.option2;
+    this.quiz.answerC = item.option3;
+    this.quiz.answerD = item.option4;
+    this.quiz.answerE = item.answer;
+    this.updatedItem = i;
+    this.IsForUpdate = "Y";
+  }
+  DeleteItem(i) {
+    this.quetsionsArray.splice(i, 1);
+  }
+  BulkInsert = () => {
+    this.sharedService.PoastQuiz(this.quetsionsArray).subscribe(
+      _res => {
+        this.toastr.success("Success!", "Quiz successfully posted!", {
+          timeOut: 3000
+        });
+        // this.quiz.answerE = "";
+        // this.mytemplateForm.reset();
+        this.quetsionsArray.length = 0;
+        this.quiz.subject = "";
+        this.quiz.series = "";
+      },
+      err => {
+        console.log(err);
+        this.toastr.error("Error!", "Error Occured please try again later!", {
+          timeOut: 3000
+        });
+      }
+    );
+  };
+
   boxselection = (I: any) => {
     let boxs = document.querySelectorAll(".foo");
     if (I == "E") {
@@ -86,10 +139,8 @@ export class QuizComponent implements OnInit {
     this.boxselection("V");
   }
   onSubjectSelected = () => {
-    
     this.sharedService.GetQuizseries(this.quiz.subject).subscribe(
       _res => {
-       
         this.seriesList = _res;
       },
       err => {

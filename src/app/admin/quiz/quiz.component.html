@@ -142,14 +142,61 @@
 
 
 
-                                    <div style="text-align:center;"> <button type="button" [disabled]="!myForm.valid" (click)="postQuiz()" class="btn btn-block btn-success"><i
-                                                class="fa fa-fw fa-plus-circle"></i>Submit</button></div>
+                                    <div style="text-align:center;"> <button *ngIf="IsForUpdate=='N'" type="button" [disabled]="!myForm.valid" (click)="postQuiz()" class="btn btn-block btn-success"><i
+                                                class="fa fa-fw fa-plus-circle"></i>ADD</button>
+                                        <button *ngIf="IsForUpdate=='Y'" type="button" [disabled]="!myForm.valid" (click)="UpdateItem()" class="btn btn-block btn-success"><i
+                                                    class="fa fa-fw fa-plus-circle"></i>Update</button>
+                                    </div>
 
 
                                 </div>
                                 <div class="col-md-2"></div>
                                 <div class="seperator"></div>
 
+                            </div>
+                            <div class="clearfix"><br/></div>
+                            <div *ngIf="quetsionsArray.length>0" class="row">
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 m-b30">
+                                    <button style="color: white !important;" (click)="BulkInsert()" class="btn btn-success float-right">Final Submit</button>
+                                </div>
+                            </div>
+                            <div class="clearfix"><br/></div>
+                            <div *ngIf="quetsionsArray.length>0" class="row">
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 m-b30">
+                                    <table class="table table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-md-4">Question</th>
+                                                <th class="col-md-3">Answer A</th>
+                                                <th class="col-md-3">Answer B</th>
+                                                <th class="col-md-3">Answer C</th>
+                                                <th class="col-md-2">Answer D</th>
+                                                <th class="col-md-1">Correct</th>
+                                                <th class="col-md-2 text-center">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let ques of quetsionsArray;let i=index;">
+                                                <td>{{ques.question}}</td>
+                                                <td>{{ques.option1}}</td>
+                                                <td>{{ques.option2}}</td>
+                                                <td>{{ques.option3}}</td>
+                                                <td>{{ques.option4}}</td>
+                                                <td>{{ques.answer}}</td>
+                                                <td>
+                                                    <button (click)="EditItem(i)" class="btn btn-warning float-left">
+                                                       Edit 
+                                                    </button>
+                                                    <button (click)="DeleteItem(i)" class="btn btn-danger float-right">
+                                                         Delete
+                                              </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

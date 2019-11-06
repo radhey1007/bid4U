@@ -6,7 +6,7 @@
         <div class="panel panel-primary filterable">
             <ul class="pagination">
                 <li class="page-item"><button class="btn btn-primary" [disabled] ="curPage == 1" (click)="curPage = curPage - 1">Previous</button></li>
-                <li class="page-item"><a class="page-link" href="#">Page {{curPage}} of {{ numberOfPages() }}</a></li>
+                <li class="page-item"><a class="page-link disabled" href="javascript:void(0)">Page {{curPage}} of {{ numberOfPages() }}</a></li>
                 
                 <li class="page-item"><button [disabled] = "curPage >= materialList.length/pageSize" class="btn btn-primary" (click) ="curPage = curPage + 1">Next</button></li>
               </ul>
@@ -33,7 +33,7 @@
             </table>
             <ul class="pagination">
                 <li class="page-item"><button class="btn btn-primary" [disabled] ="curPage == 1" (click)="curPage = curPage - 1">Previous</button></li>
-                <li class="page-item"><a class="page-link" href="#">Page {{curPage}} of {{ numberOfPages() }}</a></li>
+                <li class="page-item"><a class="page-link disabled" href="#">Page {{curPage}} of {{ numberOfPages() }}</a></li>
                 
                 <li class="page-item"><button [disabled] = "curPage >= materialList.length/pageSize" class="btn btn-primary" (click) ="curPage = curPage + 1">Next</button></li>
               </ul>

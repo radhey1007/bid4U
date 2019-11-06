@@ -6,7 +6,7 @@ import { DatePipe } from "@angular/common";
 import { environment } from "src/environments/environment";
 import { StorageService } from "src/app/shared/storage.service";
 import { NgForm } from "@angular/forms";
-import * as moment from 'moment';
+import * as moment from "moment";
 @Component({
   selector: "app-postjob",
   templateUrl: "./postjob.component.html",
@@ -77,11 +77,64 @@ export class PostjobComponent implements OnInit {
     }
   };
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   postJob = () => {
-if(this.validateDate()){
-    if (this.validateJobModel()) {
+    if(this.id==1){
+
+      if (this.validateDate()) {
+        if (this.validateJobModel()) {
+          if (this.id !== "") {
+            let title = "";
+            if (this.id == 3) {
+              title = "AnswerKey - " + this.Jobmodel.Jobtitle;
+            } else if (this.id == 4) {
+              title = "Result - " + this.Jobmodel.Jobtitle;
+            } else {
+              title = this.Jobmodel.Jobtitle;
+            }
+            const jobdata = {
+              Jobtitle: title,
+              JobUrl: this.Jobmodel.JobUrl,
+              JobEndDate: new Date(this.Jobmodel.JobEndDate),
+              JobAlertFlag: this.id
+            };
+  
+            this.sharedService.postjob(jobdata).subscribe(
+              (_res: any) => {
+                this.mytemplateForm.reset();
+                this.id = "";
+                this.toastr.success("Success!", "Job created successfully!", {
+                  timeOut: 1000
+                });
+              },
+              err => {
+                this.toastr.error(
+                  "Error!",
+                  "Error occureed please try again later!",
+                  {
+                    timeOut: 2000
+                  }
+                );
+              }
+            );
+          } else {
+            this.boxselection("E");
+            this.toastr.error("Error!", "Please select a job type!", {
+              timeOut: 2000
+            });
+          }
+        } else {
+          this.toastr.error("Error!", "Please fill all fields!", {
+            timeOut: 3000
+          });
+        }
+      } else {
+        this.toastr.error("Error!", "Please select valid date!", {
+          timeOut: 3000
+        });
+      }
+    }else{
       if (this.id !== "") {
         let title = "";
         if (this.id == 3) {
@@ -94,15 +147,16 @@ if(this.validateDate()){
         const jobdata = {
           Jobtitle: title,
           JobUrl: this.Jobmodel.JobUrl,
-          JobEndDate: new Date(this.Jobmodel.JobEndDate),
+          JobEndDate: new Date(),
           JobAlertFlag: this.id
         };
 
         this.sharedService.postjob(jobdata).subscribe(
           (_res: any) => {
-            this.mytemplateForm.reset();
             this.id = "";
-            this.toastr.success("Error!", "Job created successfully!", {
+            this.mytemplateForm.reset();
+           
+            this.toastr.success("Success!", "Job created successfully!", {
               timeOut: 1000
             });
           },
@@ -122,16 +176,7 @@ if(this.validateDate()){
           timeOut: 2000
         });
       }
-    } else {
-      this.toastr.error("Error!", "Please fill all fields!", {
-        timeOut: 3000
-      });
     }
-  }else{
-    this.toastr.error("Error!", "Please select valid date!", {
-      timeOut: 3000
-    });
-  }
   };
 
   validateJobModel = (): boolean => {
@@ -164,7 +209,7 @@ if(this.validateDate()){
   }
 
   validateDate = () => {
-    var date = moment(this.Jobmodel.JobEndDate)
+    var date = moment(this.Jobmodel.JobEndDate);
     var now = moment();
 
     if (date > now) {
@@ -172,5 +217,5 @@ if(this.validateDate()){
     } else {
       return false;
     }
-  }
+  };
 }

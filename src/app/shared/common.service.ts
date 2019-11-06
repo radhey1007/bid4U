@@ -96,12 +96,13 @@ export class CommonService {
   changePassword = (data: any) => {
     return this.http.post(this.url + `UserDetails/ChangePassword/`, data);
   };
-  studentGraph=(stID:any)=>{
-    return this.http.get(
-      this.url + `ParticipateQuiz/studentGraph/${stID}`
-    );
-  }
-  subject=(data:any)=>{
-    return this.http.post(this.url + `Subject`, data);
-  }
+  studentGraph = (data: any) => {
+    return this.http.post(this.url + `ParticipateQuiz/studentGraph/`, data);
+  };
+  subject = (data: any) => {
+    return this.http.post(this.url + `Subjects`, data);
+  };
+  series = (data: any) => {
+    return this.http.post(this.url + "QuizMasters", data);
+  };
 }
