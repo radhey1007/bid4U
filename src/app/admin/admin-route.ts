@@ -9,6 +9,8 @@ import { ManageuserRoleComponent } from "./manageuser-role/manageuser-role.compo
 import { MaterialListComponent } from "./material-list/material-list.component";
 import { SubjectMasterComponent } from './subject-master/subject-master.component';
 import { SeriesMasterComponent } from './series-master/series-master.component';
+import { ContentComponent } from './content/content.component';
+import { ContentresolverService } from './content/contentresolver.service';
 
 export const AdminRoute = [
   { path: "", component: DashboardComponent, pathMatch: "full" },
@@ -20,6 +22,13 @@ export const AdminRoute = [
     component: QuizComponent,
     resolve: {
       routeResolver: QuizresolverService
+    }
+  },
+  {
+    path: "content",
+    component: ContentComponent,
+    resolve: {
+      routeResolver: ContentresolverService
     }
   },
   { path: "userRole", component: ManageuserRoleComponent },

@@ -19,6 +19,7 @@ import { MaterialListComponent } from "../material-list/material-list.component"
 import { ChangepasswordAComponent } from "../changepassword-a/changepassword-a.component";
 import { SubjectMasterComponent } from '../subject-master/subject-master.component';
 import { SeriesMasterComponent } from '../series-master/series-master.component';
+import { ContentComponent } from '../content/content.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SeriesMasterComponent } from '../series-master/series-master.component'
     MaterialListComponent,
     ChangepasswordAComponent,
     SubjectMasterComponent,
-    SeriesMasterComponent
+    SeriesMasterComponent,
+    ContentComponent
   ],
   imports: [
     CommonModule,

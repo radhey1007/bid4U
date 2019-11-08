@@ -34,6 +34,10 @@ export class CommonService {
   getSubjectList = () => {
     return this.http.get(this.url + "Subjects");
   };
+  getcontentPage = () => {
+    return this.http.get(this.url + "PageContentUploads/ContentType");
+    //http://localhost:54462/api/PageContentUploads/ContentType
+  };
   PoastQuiz = data => {
     return this.http.post(this.url + "Quizs", data, {});
   };
@@ -105,4 +109,8 @@ export class CommonService {
   series = (data: any) => {
     return this.http.post(this.url + "QuizMasters", data);
   };
+  content = (data: any) => {
+    return this.http.post(this.url + "PageContentUploads/", data);
+  };
+  //for upload content :- http://localhost:54462/api/PageContentUploads/
 }
