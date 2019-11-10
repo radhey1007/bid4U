@@ -112,5 +112,10 @@ export class CommonService {
   content = (data: any) => {
     return this.http.post(this.url + "PageContentUploads/", data);
   };
+  GetQuizseriesst = (SID: any, stuID: any) => {
+    return this.http.get(
+      this.url + `ParticipateQuiz/TestSeriesLists/${stuID}/${SID}`
+    );
+  };
   //for upload content :- http://localhost:54462/api/PageContentUploads/
 }

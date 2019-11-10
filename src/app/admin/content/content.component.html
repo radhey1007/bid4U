@@ -43,7 +43,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Content</label>
                                         <div class="col-sm-7">
-                                                <textarea rows="2" name="contents" class="form-control" #contents="ngModel" [(ngModel)]="model.content" placeholder="Please enter content. Max 800 char allow" required type="text" maxlength="800"></textarea>
+                                                <textarea rows="2" name="contents" class="form-control" #contents="ngModel" [(ngModel)]="model.content" placeholder="Please enter content." required type="text" ></textarea>
                                             <!-- <input class="form-control" pattern="^[A-Za-z -]+$" name="contents" #contents="ngModel" [(ngModel)]="model.content" type="text" value="" required placeholder="Enter content.."> -->
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
                                         <label class="col-sm-2 col-form-label"></label>
 
                                         <div class="col-sm-7 alert alert-danger">
-                                            <strong>Error !</strong> Please enter  valid series name
+                                            <strong>Error !</strong> Please enter  content
                                         </div>
                                     </div>
                                    

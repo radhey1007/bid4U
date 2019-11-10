@@ -40,22 +40,29 @@ export class QuizComponent implements OnInit {
   }
 
   postQuiz = () => {
+    debugger;
     if (this.quiz.answerE !== "") {
       const quiz = {
         subjectID: this.quiz.subject,
-        quizID: this.quiz.series,
-        question: this.quiz.question,
-        option1: this.quiz.answerA,
-        option2: this.quiz.answerB,
-        option3: this.quiz.answerC,
-        option4: this.quiz.answerD,
-        answer: this.quiz.answerE
+        quizID:    this.quiz.series,
+        question:  this.quiz.question,
+        option1:   this.quiz.answerA,
+        option2:   this.quiz.answerB,
+        option3:   this.quiz.answerC,
+        option4:   this.quiz.answerD,
+        answer:    this.quiz.answerE
       };
       this.quetsionsArray.push(quiz);
       this.quiz.answerE = "";
-      this.mytemplateForm.reset();
-      this.quiz.subject = "";
-      this.quiz.series = "";
+    
+     // console.log(this.mytemplateForm);
+      this.mytemplateForm.controls['question'].reset();
+      this.mytemplateForm.controls['answerA'].reset()
+      this.mytemplateForm.controls['answerB'].reset()
+      this.mytemplateForm.controls['answerC'].reset()
+      this.mytemplateForm.controls['answerD'].reset()
+     // this.mytemplateForm.reset();
+      
 
     } else {
       this.boxselection("E");

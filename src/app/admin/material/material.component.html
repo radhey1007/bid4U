@@ -29,7 +29,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Label</label>
                                         <div class="col-sm-7">
-                                            <input class="form-control" pattern="^[A-Za-z -]+$" name="label" #name="ngModel" [(ngModel)]="material.label" type="text" value="" required placeholder="Enter label Name..">
+                                            <input class="form-control" pattern="^[A-Z a-z 0-9 _ - @ , . = '' $ # ! % ( ) + ;{ } ]+$" name="label" #name="ngModel" [(ngModel)]="material.label" type="text" value="" required placeholder="Enter label Name..">
                                         </div>
                                     </div>
                                     <div class="form-group row" *ngIf="name.errors && (name.dirty || name.touched)">

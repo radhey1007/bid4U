@@ -23,7 +23,7 @@
                                         <div class="col-sm-7">
                                             <select name="subject" class="form-control" #subject="ngModel" [(ngModel)]="quiz.subject" type="text" (change)='onSubjectSelected()' required placeholder="Select subject..">
                                                     <option  value="">Please select subject</option>  
-                                                <option *ngFor="let subject of subjectList" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
+                                                <option *ngFor="let subject of subjectList" [value]="subject.subjectID">{{subject.subjectName}}</option>
                                                    
                                                     </select>
                                         </div>

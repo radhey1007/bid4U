@@ -3,7 +3,7 @@ import { Component, OnInit, Renderer2, ViewChild } from "@angular/core";
 import { QuizresolverService } from "./quizresolver.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { StorageService } from "src/app/shared/storage.service";
-import { CountdownComponent } from "ngx-countdown";
+import { CountdownComponent, CountdownEvent, CountdownConfig } from "ngx-countdown";
 import { NgForm } from "@angular/forms";
 import { Location } from "@angular/common";
 @Component({
@@ -24,6 +24,8 @@ export class QuizstComponent implements OnInit {
   i: number = 0;
   duration: any = 0;
   titleInfo: any = {};
+  notify:boolean=false;
+  notifyMSG:any='';
   constructor(
     private actRoute: ActivatedRoute,
     private sharedService: CommonService,
@@ -33,14 +35,27 @@ export class QuizstComponent implements OnInit {
   ) {
     let seriesData: any = this.storage.getUserSettings("series");
     this.duration = Number(seriesData.durationInSeconds);
+    
   }
 
   ngOnInit() {
     this.bindQuizList();
+   
   }
-  finishTest() {
+ 
+  finishTest(ev:CountdownEvent) {
+    debugger;
+  if(ev.action === 'notify'){
+    this.notify=true;
+    this.notifyMSG = ` Please hurry up.${ev.left/1000} seconds are left.`;
+  }else if(ev.action=='done'){
     this.next("T");
+
+  }else{
+    this.notify=false;
+    return false;
   }
+      }
   next(timeout?) {
     /***************Answer Submittion Begin**********************************/
     let data = {
@@ -49,7 +64,7 @@ export class QuizstComponent implements OnInit {
     };
     if (timeout == "T") {
       this.i = this.totalQuestion;
-      this.updateTimeByAnswer(data);
+      this.updateTimeByAnswer(data,'T');
     } else {
       this.QuizAnswerSubmit(this.Quiz, data);
     }
@@ -140,12 +155,12 @@ export class QuizstComponent implements OnInit {
       this.updateTimeByAnswer(timedata);
     }
   };
-  updateTimeByAnswer = (updateTime: any) => {
+  updateTimeByAnswer = (updateTime: any,timeout?) => {
     this.sharedService.updateTimebyAnswer(updateTime).subscribe(
       (_res: any) => {
         this.resetTemplate();
 
-        if (this.i == this.totalQuestion) {
+        if (this.i == this.totalQuestion || timeout=='T') {
           this.sharedService.completeQuizExam(updateTime).subscribe(
             _res => {
               this.finishQuiz();

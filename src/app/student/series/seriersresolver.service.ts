@@ -18,7 +18,8 @@ export class SeriersresolverService implements Resolve<any> {
 
   resolve() {
     let subjectData: any = this.storage.getUserSettings("subject");
-
-    return this.sharedService.GetQuizseries(subjectData.subjectID);
+    let userData = this.storage.getUserSettings("user");
+    let studentID = userData.loginUserID;
+    return this.sharedService.GetQuizseriesst(subjectData.subjectID, studentID);
   }
 }

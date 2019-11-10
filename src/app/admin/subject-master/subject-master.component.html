@@ -23,7 +23,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Subject</label>
                                         <div class="col-sm-7">
-                                            <input class="form-control" pattern="^[A-Za-z -]+$" name="subjects" #subjects="ngModel" [(ngModel)]="subject" type="text" value="" required placeholder="Enter subject Name..">
+                                            <input class="form-control" pattern="^[A-Z a-z 0-9 _ - @ , . = '' $ # ! % ( ) + ;{ } ]+$" name="subjects" #subjects="ngModel" [(ngModel)]="subject" type="text" value="" required placeholder="Enter subject Name..">
                                         </div>
                                     </div>
                                     <div class="form-group row" *ngIf="subjects.errors && (subjects.dirty || subjects.touched)">
