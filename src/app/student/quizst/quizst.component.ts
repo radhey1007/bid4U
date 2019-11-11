@@ -44,7 +44,7 @@ export class QuizstComponent implements OnInit {
   }
  
   finishTest(ev:CountdownEvent) {
-    debugger;
+  
   if(ev.action === 'notify'){
     this.notify=true;
     this.notifyMSG = ` Please hurry up.${ev.left/1000} seconds are left.`;
@@ -57,6 +57,7 @@ export class QuizstComponent implements OnInit {
   }
       }
   next(timeout?) {
+    debugger;
     /***************Answer Submittion Begin**********************************/
     let data = {
       sessionID: this.QuizsessionID,
@@ -66,7 +67,12 @@ export class QuizstComponent implements OnInit {
       this.i = this.totalQuestion;
       this.updateTimeByAnswer(data,'T');
     } else {
-      this.QuizAnswerSubmit(this.Quiz, data);
+      if(timeout!==undefined && timeout=='F'){
+        this.QuizAnswerSubmit(this.Quiz, data,timeout);
+      }else{
+        this.QuizAnswerSubmit(this.Quiz, data);
+      }
+      
     }
     /**************Answer Submition CLose***********************************/
   }
@@ -137,7 +143,7 @@ export class QuizstComponent implements OnInit {
         });
     });
   };
-  QuizAnswerSubmit = (question: any, timedata: any) => {
+  QuizAnswerSubmit = (question: any, timedata: any,finish?) => {
     if (this.answerValue !== null) {
       let questionData = {
         QuizID: question.qa.id,
@@ -145,7 +151,12 @@ export class QuizstComponent implements OnInit {
       };
       this.sharedService.QuestionwiseAnswerSubmit(questionData).subscribe(
         (_res: any) => {
-          this.updateTimeByAnswer(timedata);
+          if(finish!==undefined){
+            this.updateTimeByAnswer(timedata,finish);
+          }else{
+            this.updateTimeByAnswer(timedata);
+          }
+        
         },
         err => {
           console.log(err);
@@ -160,7 +171,7 @@ export class QuizstComponent implements OnInit {
       (_res: any) => {
         this.resetTemplate();
 
-        if (this.i == this.totalQuestion || timeout=='T') {
+        if (this.i == this.totalQuestion || timeout=='T' || timeout=='F') {
           this.sharedService.completeQuizExam(updateTime).subscribe(
             _res => {
               this.finishQuiz();

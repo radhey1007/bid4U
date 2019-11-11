@@ -2,7 +2,9 @@
     margin-top: 15px;
     width: 100% !important;
 }
-
+a{
+    text-decoration: none;
+}
 .row {
     width: 100% !important;
 }

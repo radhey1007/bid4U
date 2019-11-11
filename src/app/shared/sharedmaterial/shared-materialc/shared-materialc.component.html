@@ -23,7 +23,7 @@
                 <tbody>
                     <tr *ngFor="let material of materialList | slice: (curPage * pageSize) - pageSize :curPage * pageSize;let i=index;">
                         <td>{{material.sr}}</td>
-                        <td class="outline-primary">
+                        <td >
                             <a href="{{url+material.url}}" target="_blank">{{material.title}}</a></td>
 
                         <td>{{material.createdDate}}</td>

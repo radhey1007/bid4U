@@ -56,11 +56,7 @@ export class QuizComponent implements OnInit {
       this.quiz.answerE = "";
     
      // console.log(this.mytemplateForm);
-      this.mytemplateForm.controls['question'].reset();
-      this.mytemplateForm.controls['answerA'].reset()
-      this.mytemplateForm.controls['answerB'].reset()
-      this.mytemplateForm.controls['answerC'].reset()
-      this.mytemplateForm.controls['answerD'].reset()
+      this.resetControls();
      // this.mytemplateForm.reset();
       
 
@@ -71,7 +67,13 @@ export class QuizComponent implements OnInit {
       });
     }
   };
-
+resetControls=()=>{
+  this.mytemplateForm.controls['question'].reset();
+  this.mytemplateForm.controls['answerA'].reset()
+  this.mytemplateForm.controls['answerB'].reset()
+  this.mytemplateForm.controls['answerC'].reset()
+  this.mytemplateForm.controls['answerD'].reset()
+}
   UpdateItem() {
     let data = this.updatedItem;
     for (let i = 0; i < this.quetsionsArray.length; i++) {
@@ -88,9 +90,7 @@ export class QuizComponent implements OnInit {
     }
     this.IsForUpdate = "N";
     this.quiz.answerE = "";
-    this.mytemplateForm.reset();
-    this.quiz.subject = "";
-    this.quiz.series = "";
+    this.resetControls();
   }
   EditItem(i) {
     let item = this.quetsionsArray[i];
@@ -117,8 +117,8 @@ export class QuizComponent implements OnInit {
         // this.quiz.answerE = "";
         // this.mytemplateForm.reset();
         this.quetsionsArray.length = 0;
-        this.quiz.subject = "";
-        this.quiz.series = "";
+        // this.quiz.subject = "";
+        // this.quiz.series = "";
       },
       err => {
         console.log(err);
