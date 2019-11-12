@@ -57,7 +57,7 @@ export class QuizstComponent implements OnInit {
   }
       }
   next(timeout?) {
-   
+   debugger;
     /***************Answer Submittion Begin**********************************/
     let data = {
       sessionID: this.QuizsessionID,
@@ -76,12 +76,16 @@ export class QuizstComponent implements OnInit {
     }
     /**************Answer Submition CLose***********************************/
   }
-  resetTemplate = () => {
+  resetTemplate = (timeout?) => {
     this.mytemplateForm.reset();
     this.counter.pause();
-    ++this.i;
-    this.Quiz = {};
-    this.Quiz = this.Quizlist[this.i];
+    if(timeout==undefined){
+
+      ++this.i;
+      this.Quiz = {};
+      this.Quiz = this.Quizlist[this.i];
+      this.answerValue=this.Quiz.answer;
+    }
   };
   secondsToHms = d => {
     d = Number(d);
@@ -104,7 +108,7 @@ export class QuizstComponent implements OnInit {
     loadingContainer.style.display = "none";
     loading.style.display = "block";
     this.counter.begin();
-    this.answerValue = null;
+   // this.answerValue = null;
     setTimeout(function() {
       loading.style.display = "none";
       loadingContainer.style.display = "block";
@@ -119,6 +123,7 @@ export class QuizstComponent implements OnInit {
     //console.log(this.i);
     this.Quiz = {};
     this.Quiz = this.Quizlist[this.i];
+    this.answerValue=this.Quiz.answer;
     this.animateDiv();
   }
   bindQuizList = () => {
@@ -172,7 +177,7 @@ export class QuizstComponent implements OnInit {
   updateTimeByAnswer = (updateTime: any,timeout?) => {
     this.sharedService.updateTimebyAnswer(updateTime).subscribe(
       (_res: any) => {
-        this.resetTemplate();
+        this.resetTemplate(timeout);
 
         if (this.i == this.totalQuestion || timeout=='T' || timeout=='F') {
           this.sharedService.completeQuizExam(updateTime).subscribe(
