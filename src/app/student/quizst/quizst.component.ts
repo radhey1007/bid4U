@@ -57,7 +57,7 @@ export class QuizstComponent implements OnInit {
   }
       }
   next(timeout?) {
-    debugger;
+   
     /***************Answer Submittion Begin**********************************/
     let data = {
       sessionID: this.QuizsessionID,
@@ -113,7 +113,10 @@ export class QuizstComponent implements OnInit {
     }, 1000);
   };
   pre() {
+   
+   // console.log(this.i);
     --this.i;
+    //console.log(this.i);
     this.Quiz = {};
     this.Quiz = this.Quizlist[this.i];
     this.animateDiv();
@@ -191,8 +194,9 @@ export class QuizstComponent implements OnInit {
   };
   clickradio = (answer: any) => {
     // this.Quiz.answer = answer;
-    this.Quizlist[this.i].answer = answer;
     this.answerValue = answer;
+    this.Quizlist[this.i].answer = answer;
+   
   };
   finishQuiz = () => {
     let routeUrl: any = `../report/${this.QuizsessionID}`;
