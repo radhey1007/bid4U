@@ -152,7 +152,7 @@ export class QuizstComponent implements OnInit {
     });
   };
   QuizAnswerSubmit = (question: any, timedata: any,finish?) => {
-    if (this.answerValue !== null) {
+    if (this.answerValue !== "") {
       let questionData = {
         QuizID: question.qa.id,
         answer: this.answerValue
@@ -199,8 +199,15 @@ export class QuizstComponent implements OnInit {
   };
   clickradio = (answer: any) => {
     // this.Quiz.answer = answer;
-    this.answerValue = answer;
-    this.Quizlist[this.i].answer = answer;
+    if(this.Quizlist[this.i].answer == answer){
+      this.answerValue = '';
+      this.Quizlist[this.i].answer='';
+    
+    }else{
+      this.answerValue = answer;
+      this.Quizlist[this.i].answer = answer;
+    }
+    
    
   };
   finishQuiz = () => {
