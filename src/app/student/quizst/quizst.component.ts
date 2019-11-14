@@ -57,7 +57,7 @@ export class QuizstComponent implements OnInit {
   }
       }
   next(timeout?) {
-   debugger;
+   
     /***************Answer Submittion Begin**********************************/
     let data = {
       sessionID: this.QuizsessionID,
