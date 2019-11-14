@@ -63,7 +63,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Title</label>
                                     <div class="col-sm-7">
-                                        <input class="form-control" pattern="^[A-Z a-z 0-9 _ - @ , . = '' $ # ! % ( ) + ;{ } ]+$" #title="ngModel" [(ngModel)]="Jobmodel.Jobtitle" name="Jobtitle" type="text" required>
+                                        <input class="form-control" pattern="^[A-Z a-z 0-9 _  @ , . = '' $ # ! % ( ) + ;{ } \- ]+$" #title="ngModel" [(ngModel)]="Jobmodel.Jobtitle" name="Jobtitle" type="text" required>
                                     </div>
                                 </div>
                                 <div class="form-group row" *ngIf="title.errors && (title.dirty || title.touched)">
