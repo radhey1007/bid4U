@@ -58,6 +58,7 @@ export class QuizstComponent implements OnInit {
   }
   next(timeout?) {
     /***************Answer Submittion Begin**********************************/
+    this.counter.pause();
     let data = {
       sessionID: this.QuizsessionID,
       updatetime: this.counter.i.text
@@ -65,6 +66,8 @@ export class QuizstComponent implements OnInit {
     if (timeout == "T") {
       this.i = this.totalQuestion;
       this.updateTimeByAnswer(data, "T");
+    } else if (timeout == "P") {
+      this.updateTimeByAnswer(data);
     } else {
       if (timeout !== undefined && timeout == "F") {
         this.QuizAnswerSubmit(this.Quiz, data, timeout);
@@ -169,7 +172,7 @@ export class QuizstComponent implements OnInit {
     this.sharedService.updateTimebyAnswer(updateTime).subscribe(
       (_res: any) => {
         // this.resetTemplate(timeout);
-        this.counter.pause();
+        this.counter.resume();
         if (this.i == this.totalQuestion || timeout == "T" || timeout == "F") {
           this.sharedService.completeQuizExam(updateTime).subscribe(
             _res => {
@@ -179,9 +182,10 @@ export class QuizstComponent implements OnInit {
               console.log(err);
             }
           );
-        } else {
-          this.animateDiv();
         }
+        //else {
+        //   this.animateDiv();
+        // }
       },
       err => {
         console.log(err);
@@ -189,13 +193,14 @@ export class QuizstComponent implements OnInit {
     );
   };
   clickradio = (answer: any) => {
-    // this.Quiz.answer = answer;
     if (this.Quizlist[this.i].answer == answer) {
       this.answerValue = "";
       this.Quizlist[this.i].answer = "";
+      this.next("P");
     } else {
       this.answerValue = answer;
       this.Quizlist[this.i].answer = answer;
+      this.next();
     }
   };
   finishQuiz = () => {
