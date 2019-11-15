@@ -3,7 +3,11 @@ import { Component, OnInit, Renderer2, ViewChild } from "@angular/core";
 import { QuizresolverService } from "./quizresolver.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { StorageService } from "src/app/shared/storage.service";
-import { CountdownComponent, CountdownEvent, CountdownConfig } from "ngx-countdown";
+import {
+  CountdownComponent,
+  CountdownEvent,
+  CountdownConfig
+} from "ngx-countdown";
 import { NgForm } from "@angular/forms";
 import { Location } from "@angular/common";
 @Component({
@@ -24,8 +28,8 @@ export class QuizstComponent implements OnInit {
   i: number = 0;
   duration: any = 0;
   titleInfo: any = {};
-  notify:boolean=false;
-  notifyMSG:any='';
+  notify: boolean = false;
+  notifyMSG: any = "";
   constructor(
     private actRoute: ActivatedRoute,
     private sharedService: CommonService,
@@ -35,29 +39,24 @@ export class QuizstComponent implements OnInit {
   ) {
     let seriesData: any = this.storage.getUserSettings("series");
     this.duration = Number(seriesData.durationInSeconds);
-    
   }
 
   ngOnInit() {
     this.bindQuizList();
-   
   }
- 
-  finishTest(ev:CountdownEvent) {
-  
-  if(ev.action === 'notify'){
-    this.notify=true;
-    this.notifyMSG = ` Please hurry up.${ev.left/1000} seconds are left.`;
-  }else if(ev.action=='done'){
-    this.next("T");
 
-  }else{
-    this.notify=false;
-    return false;
+  finishTest(ev: CountdownEvent) {
+    if (ev.action === "notify") {
+      this.notify = true;
+      this.notifyMSG = ` Please hurry up.${ev.left / 1000} seconds are left.`;
+    } else if (ev.action == "done") {
+      this.next("T");
+    } else {
+      this.notify = false;
+      return false;
+    }
   }
-      }
   next(timeout?) {
-   
     /***************Answer Submittion Begin**********************************/
     let data = {
       sessionID: this.QuizsessionID,
@@ -65,27 +64,24 @@ export class QuizstComponent implements OnInit {
     };
     if (timeout == "T") {
       this.i = this.totalQuestion;
-      this.updateTimeByAnswer(data,'T');
+      this.updateTimeByAnswer(data, "T");
     } else {
-      if(timeout!==undefined && timeout=='F'){
-        this.QuizAnswerSubmit(this.Quiz, data,timeout);
-      }else{
+      if (timeout !== undefined && timeout == "F") {
+        this.QuizAnswerSubmit(this.Quiz, data, timeout);
+      } else {
         this.QuizAnswerSubmit(this.Quiz, data);
       }
-      
     }
     /**************Answer Submition CLose***********************************/
   }
   resetTemplate = (timeout?) => {
     this.mytemplateForm.reset();
-    this.counter.pause();
-    if(timeout==undefined){
 
-      ++this.i;
-      this.Quiz = {};
-      this.Quiz = this.Quizlist[this.i];
-      this.answerValue=this.Quiz.answer;
-    }
+    ++this.i;
+    this.animateDiv();
+    this.Quiz = {};
+    this.Quiz = this.Quizlist[this.i];
+    this.answerValue = this.Quiz.answer;
   };
   secondsToHms = d => {
     d = Number(d);
@@ -107,23 +103,17 @@ export class QuizstComponent implements OnInit {
       .item(0) as HTMLElement;
     loadingContainer.style.display = "none";
     loading.style.display = "block";
-    this.counter.begin();
-   // this.answerValue = null;
     setTimeout(function() {
       loading.style.display = "none";
       loadingContainer.style.display = "block";
-
       /* something else */
     }, 1000);
   };
   pre() {
-   
-   // console.log(this.i);
     --this.i;
-    //console.log(this.i);
     this.Quiz = {};
     this.Quiz = this.Quizlist[this.i];
-    this.answerValue=this.Quiz.answer;
+    this.answerValue = this.Quiz.answer;
     this.animateDiv();
   }
   bindQuizList = () => {
@@ -138,6 +128,7 @@ export class QuizstComponent implements OnInit {
           });
           this.Quizlist = _res;
           this.Quiz = _res[0];
+
           this.totalQuestion = this.Quizlist.length;
           let subjectData = this.storage.getUserSettings("subject");
           let series = this.storage.getUserSettings("series");
@@ -147,11 +138,12 @@ export class QuizstComponent implements OnInit {
             series: series.quizName
           };
           this.titleInfo = info;
+          this.counter.begin();
           this.storage.setSettings("examinfo", info);
         });
     });
   };
-  QuizAnswerSubmit = (question: any, timedata: any,finish?) => {
+  QuizAnswerSubmit = (question: any, timedata: any, finish?) => {
     if (this.answerValue !== "") {
       let questionData = {
         QuizID: question.qa.id,
@@ -159,12 +151,11 @@ export class QuizstComponent implements OnInit {
       };
       this.sharedService.QuestionwiseAnswerSubmit(questionData).subscribe(
         (_res: any) => {
-          if(finish!==undefined){
-            this.updateTimeByAnswer(timedata,finish);
-          }else{
+          if (finish !== undefined) {
+            this.updateTimeByAnswer(timedata, finish);
+          } else {
             this.updateTimeByAnswer(timedata);
           }
-        
         },
         err => {
           console.log(err);
@@ -174,12 +165,12 @@ export class QuizstComponent implements OnInit {
       this.updateTimeByAnswer(timedata);
     }
   };
-  updateTimeByAnswer = (updateTime: any,timeout?) => {
+  updateTimeByAnswer = (updateTime: any, timeout?) => {
     this.sharedService.updateTimebyAnswer(updateTime).subscribe(
       (_res: any) => {
-        this.resetTemplate(timeout);
-
-        if (this.i == this.totalQuestion || timeout=='T' || timeout=='F') {
+        // this.resetTemplate(timeout);
+        this.counter.pause();
+        if (this.i == this.totalQuestion || timeout == "T" || timeout == "F") {
           this.sharedService.completeQuizExam(updateTime).subscribe(
             _res => {
               this.finishQuiz();
@@ -199,16 +190,13 @@ export class QuizstComponent implements OnInit {
   };
   clickradio = (answer: any) => {
     // this.Quiz.answer = answer;
-    if(this.Quizlist[this.i].answer == answer){
-      this.answerValue = '';
-      this.Quizlist[this.i].answer='';
-    
-    }else{
+    if (this.Quizlist[this.i].answer == answer) {
+      this.answerValue = "";
+      this.Quizlist[this.i].answer = "";
+    } else {
       this.answerValue = answer;
       this.Quizlist[this.i].answer = answer;
     }
-    
-   
   };
   finishQuiz = () => {
     let routeUrl: any = `../report/${this.QuizsessionID}`;

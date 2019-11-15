@@ -45,23 +45,19 @@
                             <div class="quiz" id="quiz" data-toggle="buttons">
                                 <label (click)="clickradio('A')" ngDefaultControl [ngModelOptions]="{standalone: true}" [ngClass]="{'this-is-a-class': Quiz?.answer == 'A' }" [(ngModel)]="answerValue" class="element-animation1 btn btn-lg btn-primary btn-block"><span
                                     class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> 
-                                    <!-- <input
-                                    type="radio" name="q_answer" [checked]="Quiz?.answer == 'A'" [(ngModel)]="answerValue" value="A" > -->
+                                    
                                     {{Quiz?.qa?.option1}}</label>
                                 <label (click)="clickradio('B')" ngDefaultControl [ngModelOptions]="{standalone: true}" class="element-animation2 btn btn-lg btn-primary btn-block" [ngClass]="{'this-is-a-class': Quiz?.answer == 'B' }" [(ngModel)]="answerValue">
                                     <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                                     <!-- <input
-                                    type="radio" name="q_answer" [checked]="Quiz?.answer == 'B'" value="B" [(ngModel)]="answerValue"> -->
+                                     
                                     {{Quiz?.qa?.option2}}</label>
                                 <label (click)="clickradio('C')" ngDefaultControl [ngModelOptions]="{standalone: true}" class="element-animation3 btn btn-lg btn-primary btn-block" [ngClass]="{'this-is-a-class': Quiz?.answer == 'C' }" [(ngModel)]="answerValue"><span
                                     class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                                     <!-- <input
-                                    type="radio" name="q_answer" [checked]="Quiz?.answer == 'C'" value="C" [(ngModel)]="answerValue" > -->
+                                    
                                      {{Quiz?.qa?.option3}}</label>
                                 <label (click)="clickradio('D')" ngDefaultControl [ngModelOptions]="{standalone: true}" class="element-animation4 btn btn-lg btn-primary btn-block" [ngClass]="{'this-is-a-class': Quiz?.answer == 'D' }" [(ngModel)]="answerValue"><span
                                     class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                                     <!-- <input
-                                    type="radio" name="q_answer" [checked]="Quiz?.answer == 'D'" value="D" [(ngModel)]="answerValue">  -->
+                                   
                                     {{Quiz?.qa?.option4}}</label>
                             </div>
                         </form>
@@ -69,8 +65,8 @@
                     <div class="modal-footer text-muted">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left" *ngIf="i > 0"><button (click)="pre()" class="btn btn-sm">Pre</button></div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right" *ngIf="(i+1) < totalQuestion"><button (click)="next()" class="btn btn-sm">Next</button></div>
-                            <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right" *ngIf="(i+1) == totalQuestion"><button (click)="next()" class="btn btn-sm btn-success">Finish</button></div> -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right" *ngIf="(i+1) < totalQuestion"><button (click)="resetTemplate()" class="btn btn-sm">Next</button></div>
+
                         </div>
                     </div>
                     <div class="modal-footer text-muted">
