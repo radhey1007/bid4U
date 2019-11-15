@@ -83,14 +83,14 @@ export class DashboardStComponent implements OnInit {
   }
   createchart = (data: any, val: any) => {
     this.chart = new Chart(this.chartRef.nativeElement, {
-      type: "line",
+      type: "bar",
       data: {
         labels: data,
         datasets: [
           {
             data: val,
-            borderColor: "#3cba9f",
-            fill: false
+            fill:false,
+            backgroundColor:"#e04f2869"
           }
         ]
       },
@@ -98,6 +98,10 @@ export class DashboardStComponent implements OnInit {
         legend: {
           display: false
         },
+              title: {
+                display: true,
+                text: 'Student test results in %'
+            },
         scales: {
           xAxes: [
             {
