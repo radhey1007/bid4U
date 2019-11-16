@@ -173,7 +173,7 @@ export class QuizstComponent implements OnInit {
       (_res: any) => {
         // this.resetTemplate(timeout);
         this.counter.resume();
-        if (this.i == this.totalQuestion || timeout == "T" || timeout == "F") {
+        if (timeout == "T") {
           this.sharedService.completeQuizExam(updateTime).subscribe(
             _res => {
               this.finishQuiz();
