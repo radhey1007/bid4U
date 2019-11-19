@@ -545,7 +545,7 @@ Theme Version:	1.0.0
 	}(jQuery);
 
 	/* jQuery ready  */	
-	jQuery(document).ready(function() {BasicFunction.initialHelper();ThemeBuilder.initialHelper();});
+	
 	/* jQuery Window Load */
 	jQuery(window).on("load", function (e) {ThemeBuilder.afterLoadThePage();});
 	/* Screen Resize */
