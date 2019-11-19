@@ -22,6 +22,7 @@
     "angularx-social-login": "^2.1.1",
     "chart.js": "^2.8.0",
     "moment": "^2.24.0",
+    "ng2-ckeditor": "^1.2.6",
     "ngx-countdown": "^8.0.1",
     "ngx-toastr": "^10.2.0",
     "rxjs": "~6.4.0",

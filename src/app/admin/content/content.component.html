@@ -4,7 +4,7 @@
 
     </div>
 
-   
+
 
 
     <form #myForm="ngForm">
@@ -22,9 +22,9 @@
 
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2  col-form-label">Select Subject</label>
-                                        <div class="col-sm-7">
-                                            <select name="pages" class="form-control" #pages="ngModel" [(ngModel)]="model.page" type="text"  required placeholder="Select page..">
+                                        <label class="col-sm-2  col-form-label">Select Page</label>
+                                        <div class="col-sm-10 col-md-10">
+                                            <select name="pages" class="form-control" #pages="ngModel" [(ngModel)]="model.page" type="text" required placeholder="Select page..">
                                                     <option  value="">Please select page</option>  
                                                 <option *ngFor="let subject of subjectList" value="{{subject.contentTypeID}}">{{subject.contentType}}</option>
                                                    
@@ -34,7 +34,7 @@
                                     <div class="form-group row" *ngIf="pages.errors && (pages.dirty || pages.touched)">
                                         <label class="col-sm-2  col-form-label"></label>
 
-                                        <div class="col-sm-7 alert alert-danger">
+                                        <div class="col-sm-10 col-md-10 alert alert-danger">
                                             <strong>Error !</strong> please select page
                                         </div>
                                     </div>
@@ -42,20 +42,23 @@
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Content</label>
-                                        <div class="col-sm-7">
-                                                <textarea rows="2" name="contents" class="form-control" #contents="ngModel" [(ngModel)]="model.content" placeholder="Please enter content." required type="text" ></textarea>
+                                        <div class="col-sm-10 col-md-10">
+                                            <ckeditor [(ngModel)]="model.content" #contents="ngModel" name="contents" required [config]="ckeConfig" debounce="500"></ckeditor>
+
+
+                                            <!-- <textarea rows="2" name="contents" class="form-control" #contents="ngModel" [(ngModel)]="model.content" placeholder="Please enter content." required type="text" ></textarea> -->
                                             <!-- <input class="form-control" pattern="^[A-Za-z -]+$" name="contents" #contents="ngModel" [(ngModel)]="model.content" type="text" value="" required placeholder="Enter content.."> -->
                                         </div>
                                     </div>
-                                    <div class="form-group row" *ngIf="contents.errors && (contents.dirty || contents.touched)">
+                                    <div class="form-group row" *ngIf="contents.invalid &&  contents.touched">
                                         <label class="col-sm-2 col-form-label"></label>
 
-                                        <div class="col-sm-7 alert alert-danger">
-                                            <strong>Error !</strong> Please enter  content
+                                        <div class="col-sm-10 col-md-10 alert alert-danger">
+                                            <strong>Error !</strong> Please enter content
                                         </div>
                                     </div>
-                                   
-                                    
+
+
                                     <div style="text-align:center;"> <button [disabled]="!myForm.valid" type="button" (click)="postcontent()" class="btn btn-block btn-success"><i
                                             class="fa fa-fw fa-plus-circle"></i>Submit</button></div>
 
@@ -74,5 +77,3 @@
     </form>
 
 </div>
-
-

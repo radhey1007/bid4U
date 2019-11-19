@@ -17,10 +17,10 @@ import { QuizresolverService } from "../resolver/quizresolver.service";
 import { SharedmaterialModule } from "src/app/shared/sharedmaterial/sharedmaterial.module";
 import { MaterialListComponent } from "../material-list/material-list.component";
 import { ChangepasswordAComponent } from "../changepassword-a/changepassword-a.component";
-import { SubjectMasterComponent } from '../subject-master/subject-master.component';
-import { SeriesMasterComponent } from '../series-master/series-master.component';
-import { ContentComponent } from '../content/content.component';
-
+import { SubjectMasterComponent } from "../subject-master/subject-master.component";
+import { SeriesMasterComponent } from "../series-master/series-master.component";
+import { ContentComponent } from "../content/content.component";
+import { CKEditorModule } from "ng2-ckeditor";
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -40,7 +40,8 @@ import { ContentComponent } from '../content/content.component';
     RouterModule.forChild(AdminRoute),
     FormsModule,
     SharedmaterialModule,
-    CpasswordmodModule
+    CpasswordmodModule,
+    CKEditorModule
   ],
   providers: [QuizresolverService]
 })
