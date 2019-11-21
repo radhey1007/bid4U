@@ -20,7 +20,9 @@
     <div class="row" *ngIf="Quizlist.length>0">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div *ngIf="notify" class="alert alert-warning text-center">
-                <strong>{{notifyMSG}}</strong>
+                <strong>
+                Please hurry up. <countdown #countdownN [config]="{leftTime: 30}"></countdown> seconds are left .
+                </strong>
             </div>
             <div class="alert alert-success">
                 <strong>Q {{i + 1}}:</strong> {{Quiz?.question}}

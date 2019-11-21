@@ -18,6 +18,7 @@ import { Location } from "@angular/common";
 })
 export class QuizstComponent implements OnInit {
   @ViewChild("countdown", { static: false }) counter: CountdownComponent;
+   @ViewChild("countdownN", { static: false }) counterN: CountdownComponent;
   @ViewChild("userForm", { static: false }) mytemplateForm: NgForm;
   isLodader: Boolean = false;
   answerValue: any = null;
@@ -48,7 +49,7 @@ export class QuizstComponent implements OnInit {
   finishTest(ev: CountdownEvent) {
     if (ev.action === "notify") {
       this.notify = true;
-      this.notifyMSG = ` Please hurry up.${ev.left / 1000} seconds are left.`;
+    //  this.notifyMSG = ` Please hurry up.${ev.left / 1000} seconds are left.`;
     } else if (ev.action == "done") {
       this.next("T");
     } else {
