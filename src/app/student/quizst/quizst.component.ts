@@ -170,6 +170,7 @@ export class QuizstComponent implements OnInit {
     }
   };
   updateTimeByAnswer = (updateTime: any, timeout?) => {
+  
     this.sharedService.updateTimebyAnswer(updateTime).subscribe(
       (_res: any) => {
         // this.resetTemplate(timeout);
