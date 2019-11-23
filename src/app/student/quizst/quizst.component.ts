@@ -49,12 +49,14 @@ export class QuizstComponent implements OnInit {
   finishTest(ev: CountdownEvent) {
     if (ev.action === "notify") {
       this.notify = true;
-    //  this.notifyMSG = ` Please hurry up.${ev.left / 1000} seconds are left.`;
+   
     } else if (ev.action == "done") {
+      this.notify = false;
       this.next("T");
     } else {
       this.notify = false;
       return false;
+
     }
   }
   next(timeout?) {
