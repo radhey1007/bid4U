@@ -9,7 +9,7 @@
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5 float-right">
                 <h4 class="float-left breadcrumb-title"> Left Time:
-                    <countdown #countdown [config]="{leftTime: duration, notify: [30]}" (event)="finishTest($event)"></countdown>
+                    <countdown #countdown [config]="{leftTime: duration, notify: [30,60]}" (event)="finishTest($event)"></countdown>
                 </h4>
                 <h4>Duration: {{secondsToHms(duration)}}</h4>
             </div>

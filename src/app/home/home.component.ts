@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
       
       if (data.routeResolver) {
         let _res: any = data.routeResolver;
-       
         let dataJob = [
           _res.reduce(
             (a, c) => (
@@ -38,27 +37,15 @@ export class HomeComponent implements OnInit {
         ];
         if (dataJob[0][1] !== undefined) {
           this.data.job = dataJob[0][1];
-          this.data.job.sort(function(a, b) {
-            return b.jobID - a.jobID;
-          });
         }
         if (dataJob[0][2] !== undefined) {
           this.data.admit = dataJob[0][2];
-          this.data.admit.sort(function(a, b) {
-            return b.jobID - a.jobID;
-          });
         }
         if (dataJob[0][3] !== undefined) {
           this.data.result = [...dataJob[0][3]];
-          this.data.result.sort(function(a, b) {
-            return b.jobID - a.jobID;
-          });
         }
         if (dataJob[0][4] !== undefined) {
           this.data.result = this.data.result.concat(dataJob[0][4]);
-          this.data.result.sort(function(a, b) {
-            return b.jobID - a.jobID;
-          });
         }
       }
     });

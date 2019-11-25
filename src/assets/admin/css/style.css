@@ -2988,12 +2988,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#391800', end
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
 	background-color: var(--primary);
 }
-.account-container .form-forget{
-	display:flex;
+
+.btn-danger-new {
+    color: #fff;
+    background-color: #f9af0a;
+    border-color: #f0ae19;
+    /* padding: 5px 3px 5px 5px; */
+    border: 1px solid #f0ae19;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+    page: 10px;
 }
-.account-container .form-forget .custom-control-label{
-	font-weight:400;
-}
+
 .account-container .btn.button-md{
 	padding: 12px 40px;
 }

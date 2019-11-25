@@ -49,14 +49,12 @@ export class QuizstComponent implements OnInit {
   finishTest(ev: CountdownEvent) {
     if (ev.action === "notify") {
       this.notify = true;
-   
+    //  this.notifyMSG = ` Please hurry up.${ev.left / 1000} seconds are left.`;
     } else if (ev.action == "done") {
-      this.notify = false;
       this.next("T");
     } else {
       this.notify = false;
       return false;
-
     }
   }
   next(timeout?) {
@@ -150,10 +148,10 @@ export class QuizstComponent implements OnInit {
     });
   };
   QuizAnswerSubmit = (question: any, timedata: any, finish?) => {
-   // if (this.answerValue !== "") {
+    if (this.answerValue !== "") {
       let questionData = {
         QuizID: question.qa.id,
-        answer: this.answerValue == "" ? null : this.answerValue
+        answer: this.answerValue
       };
       this.sharedService.QuestionwiseAnswerSubmit(questionData).subscribe(
         (_res: any) => {
@@ -167,9 +165,9 @@ export class QuizstComponent implements OnInit {
           console.log(err);
         }
       );
-    // } else {
-    //   this.updateTimeByAnswer(timedata);
-    // }
+    } else {
+      this.updateTimeByAnswer(timedata);
+    }
   };
   updateTimeByAnswer = (updateTime: any, timeout?) => {
     this.sharedService.updateTimebyAnswer(updateTime).subscribe(
@@ -199,7 +197,7 @@ export class QuizstComponent implements OnInit {
     if (this.Quizlist[this.i].answer == answer) {
       this.answerValue = "";
       this.Quizlist[this.i].answer = "";
-      this.next();
+      this.next("P");
     } else {
       this.answerValue = answer;
       this.Quizlist[this.i].answer = answer;

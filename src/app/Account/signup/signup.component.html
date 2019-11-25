@@ -49,18 +49,18 @@
 							<div class="form-group">
 							
 									<label>Confirm Password</label>
-									<input name="password" placeholder="Enter confirm password.." [(ngModel)]="signUp.Password" (ngModelChange)="validatePassword()" type="password" class="form-control" required="">
+									<input name="password" placeholder="Enter confirm password..888" [(ngModel)]="signUp.Password" (ngModelChange)="validatePassword()" type="password" class="form-control" required="">
 							
 							</div>
 						</div>
 						<div class="col-lg-12 m-b30">
-							<button name="submit" [disabled]="(isValid.email) && (isValid.password)" (click)="signup()"  value="Submit" class="btn button-md">Sign Up</button>
+							<button name="submit" class="btn-danger-new" [disabled]="(isValid.email) && (isValid.password)" (click)="signup()"  value="Submit" >Sign Up</button>
 						</div>
 						<div class="col-lg-12">
 							<h6>Sign Up with Social media</h6>
 							<div class="d-flex">
-								<a class="btn flex-fill m-r5 facebook" href="#"><i class="fa fa-facebook"></i>Facebook</a>
-								<a class="btn flex-fill m-l5 google-plus" href="#"><i class="fa fa-google-plus"></i>Google Plus</a>
+								<a class="flex-fill m-r5 facebooknew" href="#"><i class="fa fa-facebook"></i> Facebook</a>
+								<a class=" flex-fill m-l5  gmailtlanew" href="#"><i class="fa fa-google-plus"></i> Google Plus</a>
 							</div>
 						</div>
 					</div>
