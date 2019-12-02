@@ -220,6 +220,7 @@ textarea:focus {
     padding: 9px;
    border: 2px solid #fff;
    color:#fff ! important;
+   border-radius: 4px;
 }
 
 .gmailtlanew:hover{
@@ -251,7 +252,7 @@ textarea:focus {
 }
 
 .facebooknew {
-    border-radius:0% ! important;
+    border-radius:4px ! important;
 }
 .account-head{
 	position: relative;
@@ -333,11 +334,11 @@ textarea:focus {
 
 @media (max-width: 767px) {
     .account-form-inner {
-        padding: 21px;
+        padding: 0px;
     }
 }
 .title-head {
-    font-size:29px;
+    font-size:24px;
 }
 
 .collapsible {
@@ -349,7 +350,8 @@ textarea:focus {
   border: none;
   text-align: left;
   outline: none;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 18px;
     border: 3px solid whitesmoke;
 }
 
@@ -360,6 +362,13 @@ textarea:focus {
   font-weight: bold;
   float: right;
   margin-left: 5px;
+}
+.collapsible[aria-expanded="true"]::after{
+	content: '\002D';
+	color: white;
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
 }
 
 .active:after {
@@ -396,6 +405,13 @@ textarea:focus {
 	-webkit-box-shadow: 0 1px 2px #ebebeb;
 	box-shadow: 0 5px 5px rgba(0,0,0,.15);
     transition: all 0.3s;
+}
+
+.navbar-fixed-top{
+	height: 75px;
+	position: sticky;
+	top: 0px;
+	z-index: 1;
 }
 
 .navbar {
@@ -612,7 +628,7 @@ textarea:focus {
 
 .loginln {
     background: linear-gradient(45deg, #d1cbd8 0%, #fb0558 100%);
-    padding: 8px 16px;
+    /*padding: 8px 16px;*/
     border-radius: 6px;
     color: #fff !important;
 }
@@ -1548,7 +1564,8 @@ textarea:focus {
 .onlinesection {
     background-image: linear-gradient(45deg, #ed6262, #2c2ce3) ! important;
     padding-bottom: 48px;
-    padding-top: 48px;
+	padding-top: 48px;
+	text-align: center;
 }
 
 #portfolio .portfolio-thumbnail .caption {
@@ -1915,3 +1932,6 @@ textarea:focus {
 	color: #01b1d7;
 }
 
+#accordionExample .card-body{padding:5px}
+#main-nav .navbar{border:0px;}
+#main-nav .navbar .container{background: #ffffff;}

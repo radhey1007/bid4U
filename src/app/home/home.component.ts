@@ -22,7 +22,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.receiveData();
   }
+
   receiveData = () => {
+    debugger;
     this.actRoute.data.subscribe(data => {
       
       if (data.routeResolver) {
@@ -48,6 +50,12 @@ export class HomeComponent implements OnInit {
           this.data.result = this.data.result.concat(dataJob[0][4]);
         }
       }
+    });
+  };
+
+  //Added by Ashutosh
+  receivedCurrentAffData= () => {
+    this.actRoute.data.subscribe(data => {
     });
   };
 }

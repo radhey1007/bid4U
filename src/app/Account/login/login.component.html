@@ -1,13 +1,19 @@
 <!-- <div class="page-wraper"> -->
 <!--<div id="loading-icon-bx"></div>-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark loginheader">
+        <!-- Brand/logo -->
+        <a [routerLink]="['/']" class="navbar-brand"><img src="/assets/images/logo.png" alt=""></a>
+      
+        
+       
+        
+      </nav>
 <div class="account-form">
-    <div class="account-head" style="background-image:url(assets/images/background/bg2.jpg);">
-        <a [routerLink]="['/']"><img src="/assets/images/logo.png" alt=""></a>
-    </div>
+   
     <div class="account-form-inner">
         <div class="account-container">
             <div class="heading-bx left">
-                <h2 class="title-head">Login to your <span>Account</span></h2>
+                <h4 class="title-head">Login to your <span>Account</span></h4>
                 <p>Don't have an account? <a [routerLink]="['/account/signup']">Create one here</a></p>
             </div>
             <div class="contact-bx">
@@ -17,7 +23,6 @@
 
                             <label for="email">Your Name</label>
                             <input placeholder="Your Email" id="email" [(ngModel)]="credentials.UserName" type="text" class="form-control">
-
                         </div>
                     </div>
                     <div class="col-lg-12">
@@ -30,19 +35,34 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group form-forget">
-                            <div class="custom-control custom-checkbox col-md-6">
+                            <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
+                                <label class="custom-control-label" for="customControlAutosizing"><span style="padding-left: 10px;"> Remember me </span></label>
                             </div> 
-                                <div class="col-md-6" style="text-align: right;">       
-                                <a [routerLink]="['/account/passwordreset']" class="ml-auto">Forgot Password?</a>
-                            </div>
+                                
                            
                         </div>
                     </div>
+                    <div style="margin-left: 4%;"> 
+                            <h4>
+                        <a [routerLink]="['/account/passwordreset']" class="ml-auto">Forgot Password?</a>
+                    </h4>      
+                    </div>
+
+
+                    
                     <div class="col-lg-12 m-b30">
                         <button name="submit" (click)="Login()" class="btn-danger-new">Login</button>
                     </div>
+
+                    <div class="col-lg-12">
+							<h6>Sign Up with Social media</h6>
+							<br>
+							<div class="d-flex">
+								<a class="flex-fill m-r5 facebooknew" href="#"><i class="fa fa-facebook"></i> Facebook</a>
+								<a class=" flex-fill m-l5  gmailtlanew" href="#"><i class="fa fa-google-plus"></i> Google Plus</a>
+							</div>
+						</div>
                 </div>
             </div>
         </div>

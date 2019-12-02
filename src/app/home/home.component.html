@@ -2,24 +2,20 @@
  <!--slider-->
   <div>
 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 65px;" >
     <!-- Indicators -->
-     <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
      
-    </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
+    <div class="carousel-inner" id="homeBanner">
 
       <div class="item active">
-      <img src="assets/images/slider/Banner_tla1.jpg" alt="">
+      <img src="assets/images/slider/Banner_tla1 - Copy.png?v=1" alt="">
         
       </div>
 
       <div class="item">
-      <img src="assets/images/slider/Banner_tla1.jpg" alt="">
+      <img src="assets/images/slider/Banner_tla1 - Copy.png" alt="">
        
       </div>
     
@@ -126,21 +122,18 @@
 					<div class="columns">
   <ul class="price">
     <li class="header">JOB ALERT</li>
-   <li> <i class="fa fa-check-circle"></i> Garden Care &amp; Lawn Moving</li>
-                  <li> <i class="fa fa-check-circle"></i> Forest Planting</li>
-                  <li> <i class="fa fa-check-circle"></i> Free Rubbish Removal</li>
-                  <li> <i class="fa fa-check-circle"></i> 24 Hours Service</li>
-   
+
+    <li *ngFor="let item of data.job | slice:0:5;"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
+                
   </ul>
 </div>
 
 <div class="columns">
   <ul class="price">
     <li class="header">ADMIT CARD</li>
-     <li> <i class="fa fa-check-circle"></i> Garden Care &amp; Lawn Moving</li>
-                  <li> <i class="fa fa-check-circle"></i> Forest Planting</li>
-                  <li> <i class="fa fa-check-circle"></i> Free Rubbish Removal</li>
-                  <li> <i class="fa fa-check-circle"></i> 24 Hours Service</li>
+
+    <li *ngFor="let item of data.admit | slice:0:5;" class="list-group-item"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
+							
   
   </ul>
 </div>
@@ -148,10 +141,9 @@
 <div class="columns">
   <ul class="price">
     <li class="header">RESULT</li>
-    <li> <i class="fa fa-check-circle"></i> Garden Care &amp; Lawn Moving</li>
-                  <li> <i class="fa fa-check-circle"></i> Forest Planting</li>
-                  <li> <i class="fa fa-check-circle"></i> Free Rubbish Removal</li>
-                  <li> <i class="fa fa-check-circle"></i> 24 Hours Service</li>
+
+    <li *ngFor="let item of data.result | slice:0:5;" class="list-group-item"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
+
  
   </ul>
 </div>
@@ -226,67 +218,7 @@
   <div id="onlinecourses" class="onlinesection">
 
    <div>
-	<div class="container padd">
-    <div class="section-content">
-            <div class="row">
-            <div class="col-md-12 text-center">
-              <h2 class="text-uppercase title text-white-f2  jobhed">Online Courses To Learn</h2>
-            
-              <p class="text-uppercase text-white-f2  jobhed">Own Your Feature Learning New Skills Online</p>
-            </div>
-          </div>
-          <div class="row">
-
-            <div class="col-md-12">
-            <form class="cours-search">
-			<div class="form-group" style="margin-bottom: 57px ! important;">
-                                    <div class="col-md-10">
-									<input type="text" class="form-control" placeholder="What do you want to learn today?">
-									</div>
-                                    <div class="col-md-2">
-                                    <div class="input-group-append">
-								   <button class="btn" type="submit">Search</button> 
-									</div>
-                                   </div>
-		</div>
-		</form>
-
-           </div>
-          <div class="col-md-12">
-          <div class="col-xs-12 col-sm-6 col-md-4 mb-md-50">
-           <div class="cours-search-bx m-b30">
-              <div class="funfact text-center">
-                <div  class="counterno ">5,100</div>
-            
-              <h5 class="text-white-f2 text-uppercase mb-0 jobhed">Happy Students</h5>
-              </div>
-             </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 mb-md-50">
-                 <div class="cours-search-bx m-b30">
-              <div class="funfact text-center">
-               <div  class="counterno ">200</div>
-               
-                <h5 class="text-white-f2 text-uppercase mb-0 jobhed">Approved Courses</h5>
-              </div>
-                     </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 mb-md-50">
-                 <div class="cours-search-bx m-b30">
-              <div class="funfact text-center">
-                <div class="counterno ">20</div>
-              
-                <h5 class="text-white-f2 text-uppercase mb-0 jobhed">Certified Teachers</h5>
-              </div>
-            </div>
-            </div>
-
-                 </div>
-
-         
-          </div>
-        </div>
-      </div>
+    <h2 class="text-uppercase title text-white-f2  jobhed">Current Affairs</h2>
      </div>
 
   </div>
@@ -310,25 +242,57 @@
 			
           <div class="row">
             <div class="col-md-12">
-             <div class="col-md-8">
-          <button class="collapsible">Open Collapsible</button>
-<div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-
-<button class="collapsible">Open Section 1</button>
-<div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-<button class="collapsible">Open Section 2</button>
-<div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-<button class="collapsible">Open Section 3</button>
-<div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-            </div>
+              <div class="col-md-8 accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                      <button class="collapsible collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                         Is there any fee for study material?
+                      </button>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                      No,all the content available in TLA is free of cost.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                      <button class="collapsible collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Is there any subscription cost for giving tests? 
+                      </button>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                      No,all the test available in TLA is free of cost
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                      <button class="collapsible collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Is it possible to download study material from TLA?
+                      </button>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Yes, study material can be downloaded from TLA website and application.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingFour">
+                      <button class="collapsible collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Is the job alert will be available for the private jobs also?
+                      </button>
+                  </div>
+                  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div class="card-body">
+                      No,the job alert will be available for government exams only.
+                    </div>
+                  </div>
+                </div>
+              </div>
 
                   <div class="col-md-4"> 
                       <img src="assets/images/slider/2.jpg "/>  
@@ -377,7 +341,7 @@
 										<div class="info-item">
 										 <i class="fa fa-envelope font-36 mb-10 text-theme-colored"></i>
 											<h4>Email</h4>
-											<p>you@yourdomain.com</p>
+											<p>support@thelearningadda.info</p>
 										</div>
 									</div>
 									<div class="col-md-3 col-sm-3 col-xs-12">
@@ -439,11 +403,10 @@
 										</div>
 									</form>									
 								</div>
-                   </div>
-                                
+              </div>                  
 					</div>
 					</div>
-                    </div>
+      </div>
 
   <!--contact-->
 <app-footer-a></app-footer-a>

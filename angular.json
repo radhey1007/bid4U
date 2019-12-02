@@ -32,8 +32,7 @@
               "src/assets/js/contact.js",
               "src/assets/admin/js/admin.js",
               "src/assets/vendors/bootstrap/js/popper.min.js",
-              "src/assets/vendors/bootstrap/js/bootstrap.min.js",
-              "src/assets/js/script.js"
+              "src/assets/vendors/bootstrap/js/bootstrap.min.js"
             ]
           },
           "configurations": {

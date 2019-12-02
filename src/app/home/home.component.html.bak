@@ -1,0 +1,385 @@
+<app-header-a></app-header-a>
+ <!--slider-->
+  <div>
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 75px;" >
+    <!-- Indicators -->
+     <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+     
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+      <img src="assets/images/slider/Banner_tla1.jpg" alt="">
+        
+      </div>
+
+      <div class="item">
+      <img src="assets/images/slider/Banner_tla1.jpg" alt="">
+       
+      </div>
+    
+      
+  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+      
+
+  </div>
+
+
+     <section>
+      <div class="container pb-40">
+        <div class="section-content">
+              <div class="section-title">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h2 class="text-uppercase title">The Learning<span class="text-theme-colored2"> Adda</span></h2>
+              <div class="double-line-bottom-centered-theme-colored-2 mt-20"></div>              
+         
+            </div>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+               <a href="#" class="icon icon-circled icon-lg coursesbac">
+                 
+               <i class="fa fa-graduation-cap coursesicon" aria-hidden="true"></i>
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Popular Courses</a></h4>
+                <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
+               <a href="#" class="redmore">Read More</a>
+              </div>
+            </div>
+            <div class="col-md-3">
+          <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+       <a href="#" class="icon icon-circled icon-lg librarybac">
+                    <i class="fa fa-book libraryicon" aria-hidden="true"></i>
+             
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Book Library</a></h4>
+                <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
+              <a href="#" class="redmore">Read More</a>
+                   </div>
+            </div>
+            <div class="col-md-3">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+                <a href="#" class="icon icon-circled icon-lg teacherbac">
+                    <i class="fa fa-user  teachericon"></i>
+              
+              
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Best Teachers</a></h4>
+                <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
+               <a href="#" class="redmore">Read More</a>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+                <a href="#" class="icon icon-circled icon-lg certificatebac" >
+                    <i class="fa fa-certificate certificateicon" aria-hidden="true"></i>
+                 
+                
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Certification</a></h4>
+                <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
+              <a href="#" class="redmore">Read More</a>
+                   </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!--about-->
+
+   
+    <div id="JobAlert" >
+         <section class="padd">
+   
+    <div class="features-ele">
+						<div class="container">
+							<div class="section-title">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h2 class="text-uppercase title jobhed ">Job Alert</h2>
+              <div class="double-line-bottom-centered-theme-colored-2 mt-20"></div>              
+         
+            </div>
+          </div>
+        </div>
+					<div class="columns">
+  <ul class="price">
+    <li class="header">JOB ALERT</li>
+
+    <li *ngFor="let item of data.job | slice:0:5;"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
+                
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header">ADMIT CARD</li>
+
+    <li *ngFor="let item of data.admit | slice:0:5;" class="list-group-item"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
+							
+  
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header">RESULT</li>
+
+    <li *ngFor="let item of data.result | slice:0:5;" class="list-group-item"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
+
+ 
+  </ul>
+</div>
+						</div>
+					</div>
+        
+    </section>
+     </div>
+        
+
+
+    
+   
+ 
+
+  <!--about bg-->
+
+    <div id="Courses">
+        	<div class="exams-set  padd">
+		<div class="container">
+		<div class="section-title">
+          <div class="row">
+            <div class="col-md-12 text-center">
+            <h2 class="text-uppercase title ">Why choose <span class="text-theme-colored2"> TLA</span></h2>
+           
+            <p class="text-uppercase">Choose Your Desired Course</p>             
+         
+            </div>
+          </div>
+        </div>
+									
+  <div class="row">
+             <div class="col-md-4">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+               <a href="#" class="icon icon-circled icon-lg coursesbac">
+                 
+               <i class="fa fa-graduation-cap coursesicon" aria-hidden="true"></i>
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Popular Courses</a></h4>
+                <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
+               <a href="#" class="redmore">Read More</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+          <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+       <a href="#" class="icon icon-circled icon-lg librarybac">
+                    <i class="fa fa-book libraryicon" aria-hidden="true"></i>
+             
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Book Library</a></h4>
+                <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
+              <a href="#" class="redmore">Read More</a>
+                   </div>
+            </div>
+            <div class="col-md-4">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+                <a href="#" class="icon icon-circled icon-lg teacherbac">
+                    <i class="fa fa-user  teachericon"></i>
+              
+              
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Best Teachers</a></h4>
+                <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
+               <a href="#" class="redmore">Read More</a>
+              </div>
+            </div>
+          </div>
+						</div>
+					</div>
+    </div>
+
+  <div id="onlinecourses" class="onlinesection">
+
+   <div>
+    <h2 class="text-uppercase title text-white-f2  jobhed">Current Affairs</h2>
+     </div>
+
+  </div>
+
+  <!--service-->
+  <div id="Faq" >
+  
+    <!--services wrapper-->
+     <section  class="padd">
+      <div>
+		<div class="container">
+		<div class="section-title">
+          <div class="row">
+            <div class="col-md-12 text-center">
+            <h2 class="text-uppercase title ">Frequently Asked<span class="text-theme-colored2"> Questions</span></h2>
+           
+         
+            </div>
+          </div>
+        </div>
+			
+          <div class="row">
+            <div class="col-md-12">
+             <div class="col-md-8">
+          <button class="collapsible">Open Collapsible</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="collapsible">Open Section 1</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 2</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button class="collapsible">Open Section 3</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+            </div>
+
+                  <div class="col-md-4"> 
+                      <img src="assets/images/slider/2.jpg "/>  
+
+                  </div>
+            </div>
+          </div>
+ 
+	</div>
+	</div>
+    </section>
+
+  
+  </div>
+
+ 
+  
+
+  <!--contact form-->
+    <div id="contact" class="padd exams-set">
+   	<div class="contact">
+						<div class="container">
+							<div class="heading text-center">
+								
+								<h2>Get In Touch</h2>
+								<div class="bor"></div>
+								<p>Get in touch with us for anything and everything</p>
+							</div>
+						</div>
+              <div class="container">
+                     <div class="row">
+                         <div class="col-md-12">
+
+                         </div>
+						
+							<div class="contact-info">
+								<div class="row">
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<div class="info-item">
+											  <i class="fa fa-map-marker font-36 mb-10 text-theme-colored"></i>
+											<h4>Address</h4>
+                                            <p>The Learning Adda (TLA)</p>
+								</div>
+									</div>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<div class="info-item">
+										 <i class="fa fa-envelope font-36 mb-10 text-theme-colored"></i>
+											<h4>Email</h4>
+											<p>support@thelearningadda.info</p>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<div class="info-item">
+											<i class="fa fa-phone"></i>
+											<h4>Call</h4>
+											<p> +91-xxx-xxx-xxxx</p>
+											
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<div class="info-item">
+											<a href="#"><i class="fa fa-question-circle"></i></a>
+											<h4>FAQs</h4>
+											<p>Answers to the most frequently asked questions about Oliveboard</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+
+                             
+                                                         
+								<!-- Contact Contents -->
+				<div class="contact-content" id="contactcontainer">
+									<h5 class="text-center">Send Your Message</h5>
+									<div class="bor"></div>
+									<br />
+								    <p class="text-center">Note: For account activation queries, please drop a mail to support@tla.in</p>
+									<br />
+									<form role="form" id="contactForm" method="post">
+										<div class="row">
+											<div class="col-md-4 col-sm-4">
+                                                <div class="form-group">
+													<input type="text" class="form-control" name="name" placeholder="Enter Name..." value="">
+													<label for="name" class="nameMsg commonMsg"></label>
+												</div>
+
+											</div>
+											<div class="col-md-4 col-sm-4">
+												<div class="form-group">
+													<input type="email" class="form-control"  name="email" placeholder="Enter Email..." value="">
+													<label for="email" class="emailMsg commonMsg"></label>
+												</div>
+											</div>
+											<div class="col-md-4 col-sm-4">
+												<div class="form-group">
+													<input type="text" class="form-control" name="phone" placeholder="Enter Phone..." value="">
+													<label for="phone" class="phoneMsg commonMsg"></label>
+												</div>
+											</div>
+											<div class="col-md-12 col-sm-12">
+												<div class="form-group">
+													<textarea class="form-control" name="message" rows="6" placeholder="Enter Your Message..."></textarea>
+													<label for="subject" class="subjectMsg commonMsg"></label>
+												</div> 
+												<a href="#"  name="submit" class="btn btn-theme">Send Message</a>
+											</div>
+										</div>
+									</form>									
+								</div>
+                   </div>
+                                
+					</div>
+					</div>
+                    </div>
+
+  <!--contact-->
+<app-footer-a></app-footer-a>
