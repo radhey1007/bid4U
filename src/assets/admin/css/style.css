@@ -2117,7 +2117,8 @@ button.back-to-top {
 }
 .heading-bx.left p{
 	max-width:500px;
-	margin-bottom:0;
+	margin-bottom: 18px;
+	font-size: 16px;
 }
 .title-head span{
 	font-weight:400;
@@ -2138,6 +2139,14 @@ button.back-to-top {
 .section-sp4{
 	padding-top:50px;
 	padding-bottom:50px;
+}
+
+.loginheader{
+	background-color: #fff;
+    border-bottom: 1px solid #dedada ! important;
+	box-shadow: 1px 2px 3px 3px #dcdbdb ! important;
+	padding-bottom: 40px ! important;
+
 }
 /*   */
 .ovpr-dark:after{
@@ -2988,12 +2997,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#391800', end
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
 	background-color: var(--primary);
 }
-.account-container .form-forget{
-	display:flex;
+
+.btn-danger-new {
+    color: #fff;
+    background-color: #f9af0a;
+    border-color: #f0ae19;
+    /* padding: 5px 3px 5px 5px; */
+    border: 1px solid #f0ae19;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+	padding: 12px 40px;
 }
-.account-container .form-forget .custom-control-label{
-	font-weight:400;
-}
+
 .account-container .btn.button-md{
 	padding: 12px 40px;
 }
@@ -3112,7 +3130,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#391800', end
 	.account-head {
 		width: 100%;
 		min-width: 100%;
-		height: 200px;
+		height: 92px;
+		position: inherit;
 	}
 	.account-form {
 		display: block;

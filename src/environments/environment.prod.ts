@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  apiurl: "http://ec2-18-218-16-167.us-east-2.compute.amazonaws.com/TLA/api/",
-  docUrl: "http://ec2-18-218-16-167.us-east-2.compute.amazonaws.com/TLA/",
+  apiurl: "http://103.133.215.247/TLA/api/",
+  docUrl: "http://103.133.215.247/TLA/",
   loggeduser: [],
   token: []
 };

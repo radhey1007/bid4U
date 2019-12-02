@@ -36,7 +36,8 @@ label.btn:hover {
 
 label.btn-block {
     text-align: left;
-    position: relative
+    position: relative;
+    border: 1px solid #3046e0;
 }
 
 label .btn-label {
