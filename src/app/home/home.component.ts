@@ -18,17 +18,16 @@ export class HomeComponent implements OnInit {
     job: [],
     admit: [],
     result: [],
-    currentAffairs:[]
+    currentAffairs: []
   };
   ngOnInit() {
     this.receiveData();
   }
 
   receiveData = () => {
-   
-    this.actRoute.data.subscribe(data => {     
-    
-this.data.currentAffairs=data.routeResolver[1];
+    this.actRoute.data.subscribe(data => {
+      this.data.currentAffairs = data.routeResolver[1];
+      console.log(this.data.currentAffairs);
       if (data.routeResolver[0]) {
         let _res: any = data.routeResolver[0];
         let dataJob = [
