@@ -17,18 +17,19 @@ export class HomeComponent implements OnInit {
   data = {
     job: [],
     admit: [],
-    result: []
+    result: [],
+    currentAffairs: []
   };
   ngOnInit() {
     this.receiveData();
   }
 
   receiveData = () => {
-    debugger;
     this.actRoute.data.subscribe(data => {
-      
-      if (data.routeResolver) {
-        let _res: any = data.routeResolver;
+      this.data.currentAffairs = data.routeResolver[1];
+      console.log(this.data.currentAffairs);
+      if (data.routeResolver[0]) {
+        let _res: any = data.routeResolver[0];
         let dataJob = [
           _res.reduce(
             (a, c) => (
@@ -54,8 +55,7 @@ export class HomeComponent implements OnInit {
   };
 
   //Added by Ashutosh
-  receivedCurrentAffData= () => {
-    this.actRoute.data.subscribe(data => {
-    });
+  receivedCurrentAffData = () => {
+    this.actRoute.data.subscribe(data => {});
   };
 }

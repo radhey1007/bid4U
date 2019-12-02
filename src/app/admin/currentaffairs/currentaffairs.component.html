@@ -21,36 +21,37 @@
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Title</label>
-                                        <div class="col-sm-7">
-                                            <input class="form-control"  pattern="^[A-Z a-z 0-9 _ @ , . = '' $ # ! % ( ) + ;{ } \-]+$" name="title" #title="ngModel" [(ngModel)]="gk.title" type="text" value="" required placeholder="Enter title..">
+                                        <div class="col-sm-10">
+                                            <input class="form-control" pattern="^[A-Z a-z 0-9 _ @ , . = '' $ # ! % ( ) + ;{ } \-]+$" name="title" #title="ngModel" [(ngModel)]="gk.title" type="text" value="" required placeholder="Enter title..">
                                         </div>
                                     </div>
                                     <div class="form-group row" *ngIf="title.errors && (title.dirty || title.touched)">
                                         <label class="col-sm-2 col-form-label"></label>
 
-                                        <div class="col-sm-7 alert alert-danger">
+                                        <div class="col-sm-10 alert alert-danger">
                                             <strong>Error !</strong> Please enter valid title
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Description</label>
-                                        <div class="col-sm-7">
-                                            <textarea rows="2" name="des" class="form-control" #des="ngModel" [(ngModel)]="gk.des" placeholder="Please enter Description. Max 200 char allow" required type="text" maxlength="200"></textarea>
-                                           
+                                        <div class="col-sm-10">
+                                            <!-- <textarea rows="2" name="des" class="form-control" #des="ngModel" [(ngModel)]="gk.des" placeholder="Please enter Description. Max 200 char allow" required type="text" maxlength="200"></textarea> -->
+                                            <ckeditor [(ngModel)]="gk.des" #des="ngModel" name="contents" required [config]="ckeConfig" debounce="500"></ckeditor>
+
                                         </div>
-                                       
+
                                     </div>
                                     <div class="form-group row" *ngIf="gk.des.length!==200">
                                         <label class="col-sm-2 col-form-label"></label>
 
-                                        <div class="col-sm-7 alert alert-warning">
+                                        <div class="col-sm-10 alert alert-warning">
                                             <strong>Note:-</strong> <b>Total left char {{200 - gk.des.length}}</b>
                                         </div>
                                     </div>
                                     <div class="form-group row" *ngIf="des.errors && (des.dirty || des.touched)">
                                         <label class="col-sm-2 col-form-label"></label>
 
-                                        <div class="col-sm-7 alert alert-danger">
+                                        <div class="col-sm-10 alert alert-danger">
                                             <strong>Error !</strong> Please Enter content description
                                         </div>
                                     </div>
@@ -58,14 +59,14 @@
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Content Published</label>
-                                        <div class="col-sm-7">
+                                        <div class="col-sm-10">
                                             <input name="cdate" class="form-control" #cdate="ngModel" [(ngModel)]="gk.cdate" placeholder="Please enter Content Date.." required type="date">
                                         </div>
                                     </div>
                                     <div class="form-group row" *ngIf="cdate.errors && (cdate.dirty || cdate.touched)">
                                         <label class="col-sm-2 col-form-label"></label>
 
-                                        <div class="col-sm-7 alert alert-danger">
+                                        <div class="col-sm-10 alert alert-danger">
                                             <strong>Error !</strong> Please Enter content date
                                         </div>
                                     </div>

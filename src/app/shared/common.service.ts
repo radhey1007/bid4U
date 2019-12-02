@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, forkJoin } from "rxjs";
 import { user } from "../Model/user.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "src/environments/environment";
@@ -53,6 +53,16 @@ export class CommonService {
   getJobData = () => {
     return this.http.get(this.url + `Jobs`);
   };
+  getCurrentAffairs = () => {
+    return this.http.get(this.url + `CurrentAffairs/LatestCurrentAffairs`);
+  };
+
+  MultipleResourceJoin = () : Observable<any> => {
+    const response1 = this.getJobData();
+    const response2 = this.getCurrentAffairs();
+    return forkJoin([response1, response2]);
+  };
+
   getQuizList = data => {
     return this.http.post(this.url + `ParticipateQuiz/StartQuiz`, data);
   };
