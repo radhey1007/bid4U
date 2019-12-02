@@ -1,13 +1,13 @@
 <app-header-a></app-header-a>
  <!--slider-->
   <div>
-
+    <section>
   <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 65px;" >
     <!-- Indicators -->
      
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" id="homeBanner">
+    <div class="carousel-inner" >
 
       <div class="item active">
       <img src="assets/images/slider/Banner_tla1 - Copy.png?v=1" alt="">
@@ -33,6 +33,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+  </section>
       
 
   </div>
@@ -120,8 +121,11 @@
           </div>
         </div>
 					<div class="columns">
-  <ul class="price">
-    <li class="header">JOB ALERT</li>
+            <ul class="price">
+                <li class="header">JOB ALERT</li>
+            </ul>
+  <ul class="price" style="height: 247px; overflow-y: scroll;">
+    
 
     <li *ngFor="let item of data.job | slice:0:5;"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
                 
@@ -129,18 +133,24 @@
 </div>
 
 <div class="columns">
-  <ul class="price">
-    <li class="header">ADMIT CARD</li>
-
+    <ul class="price">
+        <li class="header">ADMIT CARD</li>
+    </ul>
+  <ul class="price" style="height: 247px; overflow-y: scroll;">
+    
+      
     <li *ngFor="let item of data.admit | slice:0:5;" class="list-group-item"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
-							
+ 	
   
   </ul>
 </div>
 
 <div class="columns">
   <ul class="price">
-    <li class="header">RESULT</li>
+      <li class="header">RESULT</li>
+  </ul>
+  <ul class="price" style="height: 247px; overflow-y: scroll;">
+    
 
     <li *ngFor="let item of data.result | slice:0:5;" class="list-group-item"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
 
@@ -356,7 +366,7 @@
 										<div class="info-item">
 											<a href="#"><i class="fa fa-question-circle"></i></a>
 											<h4>FAQs</h4>
-											<p>Answers to the most frequently asked questions about Oliveboard</p>
+											<p>Answers to the most frequently asked questions about TLA</p>
 										</div>
 									</div>
 								</div>
@@ -397,8 +407,10 @@
 												<div class="form-group">
 													<textarea class="form-control" name="message" rows="6" placeholder="Enter Your Message..."></textarea>
 													<label for="subject" class="subjectMsg commonMsg"></label>
-												</div> 
-												<a href="#"  name="submit" class="btn btn-theme">Send Message</a>
+                        </div> 
+                        <div style="margin-bottom: 20px;">
+                        <a href="#"  name="submit" class="redmore" >Send Message</a>
+                      </div>
 											</div>
 										</div>
 									</form>									
