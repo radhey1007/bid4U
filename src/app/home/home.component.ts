@@ -44,12 +44,18 @@ export class HomeComponent implements OnInit {
         if (dataJob[0][2] !== undefined) {
           this.data.admit = dataJob[0][2];
         }
-        if (dataJob[0][3] !== undefined) {
+
+        if (dataJob[0][3] !== undefined || dataJob[0][4] !== undefined) {
           this.data.result = [...dataJob[0][3]];
-        }
-        if (dataJob[0][4] !== undefined) {
+     
           this.data.result = this.data.result.concat(dataJob[0][4]);
         }
+        // if (dataJob[0][3] !== undefined) {
+        //   this.data.result = [...dataJob[0][3]];
+        // }
+        // if (dataJob[0][4] !== undefined) {
+        //   this.data.result = this.data.result.concat(dataJob[0][4]);
+        // }
       }
     });
   };

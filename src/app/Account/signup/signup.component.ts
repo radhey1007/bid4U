@@ -4,6 +4,7 @@ import { CommonService } from "src/app/shared/common.service";
 import { ToastrService } from "ngx-toastr";
 import { slideInAnimation } from "src/app/animation";
 import { NgForm } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-signup",
@@ -20,7 +21,8 @@ export class SignupComponent implements OnInit {
     email: true,
     password: true
   };
-  constructor(private api: CommonService, private toastr: ToastrService) {}
+  constructor(private api: CommonService, private toastr: ToastrService,public route: Router,    private actRoute: ActivatedRoute,
+    ) {}
 
   ngOnInit() {}
 
@@ -38,6 +40,12 @@ export class SignupComponent implements OnInit {
             if (res.succeeded) {
               this.mytemplateForm.reset();
               this.toastr.success("Success!", "Register Successfully.!");
+              //this._router.navigate(['dashboard']);
+              let routeUrl: any = `../login`;
+
+              this.route.navigate([routeUrl], {
+                relativeTo: this.actRoute
+              });
             } else {
               this.toastr.error("Error!", res.errors[0].description);
             }

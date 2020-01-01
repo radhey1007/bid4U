@@ -58,9 +58,15 @@
 
                             <i class="fa fa-graduation-cap coursesicon" aria-hidden="true"></i>
                         </a>
-                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Popular Courses</a></h4>
-                        <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
-                        <a href="#" class="redmore">Read More</a>
+                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15" style="text-transform: none;"><a href="#">Jobe Alert</a></h4>
+                        <div>
+                            <input type="checkbox" class="read-more-state" id="post-1" />
+                        
+                        <p class="read-more-wrap">Here  at TLA one can find all government exams notification, link to download admit card & results. 
+                            <span class="read-more-target">TLA is one stop solution to all your queries regarding government exams search.</span></p>
+                            <label for="post-1" class="read-more-trigger redmore"></label>
+                        </div>
+                       
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -69,9 +75,14 @@
                             <i class="fa fa-book libraryicon" aria-hidden="true"></i>
 
                         </a>
-                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Book Library</a></h4>
-                        <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
-                        <a href="#" class="redmore">Read More</a>
+                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15" style="text-transform: none;"><a href="#">e-Library</a></h4>
+                        <div>
+                      <input type="checkbox" class="read-more-state" id="post-2" />
+                        <p class="read-more-wrap">Download significant current affairs & static material to boost up your preparation from TLA's well customized <span class="read-more-target"> e- Library section.
+   </span></p>
+   <label for="post-2" class="read-more-trigger"></label>
+                       </div>
+                       
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -81,9 +92,13 @@
 
 
                         </a>
-                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Best Teachers</a></h4>
-                        <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
-                        <a href="#" class="redmore">Read More</a>
+                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15" style="text-transform: none;"><a href="#">Current Affairs</a></h4>
+                        
+                        <div>
+                            <input type="checkbox" class="read-more-state" id="post-3" />
+                        <p class="read-more-wrap">TLA current affairs are based on various national & international news published on leading newspapers.<span class="read-more-target"> Team TLA is committed to prepare comprehensive current affairs on daily basis for you considering requirements of various government exams.</span></p>
+                        <label for="post-3" class="read-more-trigger"></label>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -93,9 +108,14 @@
 
 
                         </a>
-                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Certification</a></h4>
-                        <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
-                        <a href="#" class="redmore">Read More</a>
+                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15" style="text-transform: none;"><a href="#">Quiz</a></h4>
+                        <div>
+                            <input type="checkbox" class="read-more-state" id="post-4" />
+                        
+                        <p class="read-more-wrap">TLA Quizzes are based on daily current affairs and relevant static material. It is our effort to leave no stone unturned to cover as many <span class="read-more-target"> areas as possible.</span></p> 
+                        
+                        <label for="post-4" class="read-more-trigger"></label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -127,7 +147,7 @@
   <ul class="price" style="height: 247px; overflow-y: scroll;">
     
 
-                        <li *ngFor="let item of data.job | slice:0:5;"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}" target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
+                        <li *ngFor="let item of data.job | slice:0:50;"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}" target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
 
                     </ul>
                 </div>
@@ -139,7 +159,7 @@
   <ul class="price" style="height: 247px; overflow-y: scroll;">
     
       
-    <li *ngFor="let item of data.admit | slice:0:5;" class="list-group-item"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
+    <li *ngFor="let item of data.admit | slice:0:50;" class="list-group-item"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
  	
   
   </ul>
@@ -152,7 +172,7 @@
   <ul class="price" style="height: 247px; overflow-y: scroll;">
     
 
-    <li *ngFor="let item of data.result | slice:0:5;" class="list-group-item"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
+    <li *ngFor="let item of data.result | slice:0:50;" class="list-group-item"><i class="fa fa-check-circle"></i><a href="{{item.jobUrl}}"  target="_blank" style="margin-left: 5px;">{{item.jobtitle}}</a></li>
 
 
                     </ul>
@@ -177,7 +197,7 @@
             <div class="section-title">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h2 class="text-uppercase title ">Why choose <span class="text-theme-colored2"> TLA</span></h2>
+                        <h2 class="text-uppercase title " style="margin-bottom: 20px;">Why choose <span class="text-theme-colored2"> TLA</span></h2>
 
                         <p class="text-uppercase">Choose Your Desired Course</p>
 
@@ -192,9 +212,16 @@
 
                             <i class="fa fa-graduation-cap coursesicon" aria-hidden="true"></i>
                         </a>
-                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Popular Courses</a></h4>
-                        <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
-                        <a href="#" class="redmore">Read More</a>
+                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15" style="text-transform: none;"><a href="#">Job Alert</a></h4>
+                        <div>
+                            <input type="checkbox" class="read-more-state" id="post-5" />
+                        
+                        <p class="read-more-wrap">
+                            Here  at TLA one can find all government exams notification, link to download admit card & results. <span class="read-more-target">  TLA is one stop solution to all your queries regarding government exams search.
+                                </span>
+                        </p>
+                        <label for="post-5" class="read-more-trigger"></label>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -203,9 +230,14 @@
                             <i class="fa fa-book libraryicon" aria-hidden="true"></i>
 
                         </a>
-                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Book Library</a></h4>
-                        <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
-                        <a href="#" class="redmore">Read More</a>
+                        <h4 class="icon-box-title letter-space-1 font-20 mt-15" style="text-transform: none;"><a href="#">e-Library</a></h4>
+                        <div>
+                            <input type="checkbox" class="read-more-state" id="post-6" />
+                        <p class="read-more-wrap">
+                            Download significant current affairs & static material to boost up your preparation from TLA's well  <span class="read-more-target"> customized e- Library section.</span>
+                        </p>
+                        <label for="post-6" class="read-more-trigger"></label>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -215,16 +247,22 @@
 
 
                         </a>
-                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">Best Teachers</a></h4>
-                        <p class="">Lorem ipsum dolor sit ametconsect etur adipisicing elit. Numquam modi consequuntur maxime voluptates earum illo sunt</p>
-                        <a href="#" class="redmore">Read More</a>
+                        <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15" style="text-transform: none;"><a href="#">Quiz</a></h4>
+                      
+                        <div>
+                            <input type="checkbox" class="read-more-state" id="post-7" />
+                        <p class="read-more-wrap">
+                            TLA Quizzes are based on daily current affairs and relevant static material. It is our effort to leave no stone <span class="read-more-target">  unturned to cover as many areas as possible.</span> 
+                        </p>
+                        <label for="post-7" class="read-more-trigger"></label>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<!-- 
 <div id="onlinecourses" class="onlinesection">
 
     <div>
@@ -236,7 +274,258 @@
 
   </i></li>
     </ul>
+</div> -->
+
+<section>
+    <div class="container pb-40">
+      <div class="section-content">
+            <div class="section-title">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 class="text-uppercase title">Current<span class="text-theme-colored2"> Affairs</span></h2>
+            <div class="double-line-bottom-centered-theme-colored-2 mt-20"></div>              
+       
+          </div>
+        </div>
+      </div>
+   <div class="row">
+  <div class="col-md-12">
+    <div class="carousel carousel-showsixmoveone slide" id="carousel123">
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+              
+<div class="card" >
+    <div class="col-md-6 ltacuurentbor">
+ <img src="assets/images/courses/pic3.jpg" alt="img" style="width:100%">
 </div>
+
+<div class="col-md-6 ltacuurentbor">
+<div class="listname">
+<ul class="listitem">
+ 
+
+    <li>25GB Storage</li>
+    <li>25 Emails</li>
+    <li>25 Domains</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+ 
+</ul>
+</div>
+</div>
+
+
+</div>
+
+</div>
+        </div>
+<div class="item">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+              
+        <div class="card">
+            <div class="col-md-6 ltacuurentbor">
+              
+
+<img src="assets/images/courses/pic6.jpg" alt="img" style="width:100%">
+</div>
+<div class="col-md-6 ltacuurentbor">
+<div class="listname">
+<ul class="listitem">
+ 
+
+    <li>25GB Storage</li>
+    <li>25 Emails</li>
+    <li>25 Domains</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+ 
+</ul>
+</div>
+</div>
+</div>
+
+</div>          
+</div>
+<div class="item">
+<div class="col-xs-12 col-sm-12 col-md-12">
+              
+           <div class="card">
+               <div class="col-md-6 ltacuurentbor">
+ <img src="assets/images/courses/pic7.jpg" alt="img" style="width:100%">
+</div>
+<div class="col-md-6 ltacuurentbor">
+<div class="listname">
+<ul class="listitem">
+ 
+
+    <li>25GB Storage</li>
+    <li>25 Emails</li>
+    <li>25 Domains</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+ 
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>          </div>          
+        <div class="item">
+<div class="col-xs-12 col-sm-12 col-md-12">
+              
+           <div class="card">
+               <div class="col-md-6 ltacuurentbor">
+ <img src="assets/images/courses/pic8.jpg" alt="img" style="width:100%">
+</div>
+<div class="col-md-6 ltacuurentbor">
+<div class="listname">
+<ul class="listitem">
+ 
+
+    <li>25GB Storage</li>
+    <li>25 Emails</li>
+    <li>25 Domains</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+ 
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>          </div>
+        <div class="item">
+<div class="col-xs-12 col-sm-12 col-md-12">
+              
+           <div class="card">
+               <div class="col-md-6 ltacuurentbor">
+ <img src="assets/images/courses/pic9.jpg" alt="img" style="width:100%">
+</div>
+<div class="col-md-6 ltacuurentbor">
+<div class="listname">
+<ul class="listitem">
+ 
+
+    <li>25GB Storage</li>
+    <li>25 Emails</li>
+    <li>25 Domains</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+ 
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>          </div>
+        <div class="item">
+<div class="col-xs-12 col-sm-12 col-md-12">
+              
+           <div class="card">
+               <div class="col-md-6 ltacuurentbor">
+<img src="assets/images/courses/pic2.jpg" alt="img" style="width:100%">
+</div>
+<div class="col-md-6 ltacuurentbor">
+<div class="listname">
+<ul class="listitem">
+ 
+
+    <li>25GB Storage</li>
+    <li>25 Emails</li>
+    <li>25 Domains</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+      
+ 
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>          </div>
+        <div class="item">
+<div class="col-xs-12 col-sm-12 col-md-12">
+              
+           <div class="card">
+               <div class="col-md-6 ltacuurentbor">
+<img src="assets/images/courses/pic4.jpg" alt="img" style="width:100%">
+</div>
+<div class="col-md-6 ltacuurentbor">
+<div class="listname">
+<ul class="listitem">
+ 
+
+    <li>25GB Storage</li>
+    <li>25 Emails</li>
+    <li>25 Domains</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+ 
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>          </div>
+        <div class="item">
+<div class="col-xs-12 col-sm-12 col-md-12">
+              
+           <div class="card">
+               <div class="col-md-6 ltacuurentbor">
+ <img src="assets/images/courses/pic3.jpg" alt="img" style="width:100%">
+</div>
+<div class="col-md-6 ltacuurentbor">
+<div class="listname">
+<ul class="listitem">
+ 
+
+    <li>25GB Storage</li>
+    <li>25 Emails</li>
+    <li>25 Domains</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+    <li>2GB Bandwidth</li>
+      
+ 
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>          
+
+        </div>
+      </div>
+      <a class="left carousel-control arrowdes" href="#carousel123" data-slide="prev" > <i class="fa fa-angle-left"></i></a>
+      <a class="right carousel-control arrowdes" href="#carousel123" data-slide="next" ><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+</div>
+          </div>
+        </div>
+  </section>
 
 <!--service-->
 <div id="Faq">
@@ -363,7 +652,7 @@
 										<div class="info-item">
 											<i class="fa fa-phone"></i>
 											<h4>Call</h4>
-											<p> +91-xxx-xxx-xxxx</p>
+											<p> +91-768-784-1755</p>
 											
 										</div>
 									</div>

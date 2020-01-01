@@ -1,22 +1,5 @@
 $(document).ready(function() {
-
-	//Smooth Scroll
-	$(function() {
-		$('a[href*="#"]:not([href="#"])').click(function() {
-			if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-				var target = $(this.hash);
-				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-				if (target.length) {
-					$('html, body').animate({
-						scrollTop: target.offset().top
-					}, 1000);
-					return false;
-				}
-			}
-		});
-	});
-
-
+	debugger;
 	// Main Menu
 	$('#main-nav').affix({
 		offset: {
@@ -27,46 +10,55 @@ $(document).ready(function() {
 	$(".navbar-collapse a").on('click', function() {
 		$(".navbar-collapse.collapse").removeClass('in');
 	});
+	$('#carousel123').carousel({ interval: 6000 });
+	$('#carouselABC').carousel({ interval: 5000 });
+	$('.carousel-showsixmoveone .item').each(function () {
+		var itemToClone = $(this);
 
-	// Top Search
-	$("#ss").click(function(e) {
-		e.preventDefault();
-		$(this).toggleClass('current');
-		$(".search-form").toggleClass('visible');
-	});
+		for (var i = 1; i < 1; i++) {
+			itemToClone = itemToClone.next();
 
+			// wrap around if at end of item collection
+			if (!itemToClone.length) {
+				itemToClone = $(this).siblings(':first');
+			}
 
-	//Slider
-	$('.flexslider').flexslider({
-		animation: "fade",
-		directionNav: false,
-		pauseOnAction: false,
-	});
-
-	var containerPosition = $('.container').offset();
-	var positionPad = containerPosition.left + 15;
-
-	$('#slider').find('.caption').css({
-		left: positionPad + 'px',
-		marginTop: '-' + $('.caption').height() / 2 + 'px'
-	});
-
-
-	// number effect
-	$('.about-bg-heading').one('inview', function(event, visible) {
-		if (visible == true) {
-			$('.count').each(function() {
-				$(this).prop('Counter', 0).animate({
-					Counter: $(this).text()
-				}, {
-					duration: 5000,
-					easing: 'swing',
-					step: function(now) {
-						$(this).text(Math.ceil(now));
-					}
-				});
-			});
+			// grab item, clone, add marker class, add to collection
+			itemToClone.children(':first-child').clone()
+			  .addClass("cloneditem-" + (i))
+			  .appendTo($(this));
 		}
 	});
+
+    (function () {
+        // setup your carousels as you normally would using JS
+        // or via data attributes according to the documentation
+		// https://getbootstrap.com/javascript/#carousel
+		
+        $('#carousel123').carousel({ interval: 6000 });
+        $('#carouselABC').carousel({ interval: 5000 });
+    }());
+  
+    (function () {
+        $('.carousel-showsixmoveone .item').each(function () {
+            var itemToClone = $(this);
+
+            for (var i = 1; i < 4; i++) {
+                itemToClone = itemToClone.next();
+
+                // wrap around if at end of item collection
+                if (!itemToClone.length) {
+                    itemToClone = $(this).siblings(':first');
+                }
+
+                // grab item, clone, add marker class, add to collection
+                itemToClone.children(':first-child').clone()
+                  .addClass("cloneditem-" + (i))
+                  .appendTo($(this));
+            }
+        });
+    }());
+
+	
 
 });

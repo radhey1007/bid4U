@@ -12,7 +12,7 @@
 	font-weight: 400;
 
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff8814+0,db4b24+100 */
-	background: linear-gradient(to right, #151413 0%,#6b6462 100%);
+	background: #eaeaea;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8814', endColorstr='#db4b24',GradientType=1 ); /* IE6-9 */
 
 	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2);
@@ -35,7 +35,7 @@
 	height: 60px;
 	text-align: center;
 	cursor: pointer;
-	color: #FFF;
+	color:#36383F;
 	background-color: rgba(255,255,255,0.1);
 	float: left;
 }
@@ -115,7 +115,7 @@
 	vertical-align: middle;
 	height: 60px;
 	line-height: normal;
-	color: #FFF;
+	color: #36383F;
 	font-weight: 600;
 	padding: 0 15px;
 	text-decoration: none;
@@ -407,6 +407,7 @@
 	overflow-y: auto;
 	padding-bottom: 0;
 	padding-top: 60px;
+	background-color: #d3c7f7;
 }
 .ttr-sidebar-wrapper::-webkit-scrollbar {
     width: 6px;
@@ -420,7 +421,7 @@
 .ttr-sidebar-logo{
 	width: 100%;
 	height: 60px;
-	border-bottom: solid 1px #cfd8dc;
+	border-bottom: solid 1px #eaeaea;
 }
 .ttr-sidebar-logo a{
 	display: inline-block;
@@ -482,20 +483,22 @@
 	margin: 2px 0;
 	display: block;
 	width: 100%;
+	background-color: #1c1b1a;
 }
 .ttr-sidebar-navi a{
 	line-height: 50px;
 	text-decoration: none;
 	height: 50px;
 	padding: 0 20px;
-	color: #333;
+	color: #36383F;
 	white-space: nowrap;
 	display: table;
 	width: 100%;
-    font-size: 14px;
+	font-size: 14px;
+	background: #eaeaea;
 }
 .ttr-sidebar-navi a:hover{
-	background-color: #EEE;
+	background-color: #87cefa;	
 }
 .ttr-sidebar-navi a > span{
 	display: table-cell; 
@@ -543,10 +546,10 @@
     transform-origin: 50% 50%;
 }
 .ttr-sidebar-navi ul li.show > a{
-	background-color: #EEEEEE;
+	background-color: #d3c7f7;
 }
 .ttr-sidebar-navi>ul>li>ul>li.show > a{
-	background-color: #f4f4f4;
+	background-color: #d3c7f7;
 }
 .ttr-sidebar-navi ul li.show > a{
 	color: var(--primary);

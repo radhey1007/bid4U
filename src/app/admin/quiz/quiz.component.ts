@@ -10,6 +10,7 @@ import { ToastrService } from "ngx-toastr";
 })
 export class QuizComponent implements OnInit {
   subjectList: any = [];
+  ckeConfigQuiz: any;
   quetsionsArray: any = [];
   quiz = {
     answerE: "",
@@ -32,6 +33,58 @@ export class QuizComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.ckeConfigQuiz ={
+      allowedContent: false,
+      extraPlugins: "divarea",
+      forcePasteAsPlainText: true,
+      toolbar: [
+        "/",
+        {
+          name: "basicstyles",
+          groups: ["basicstyles", "cleanup"],
+          items: [
+            "Bold",
+            "Italic",
+            "Underline",
+            "Strike",
+            "Subscript",
+            "Superscript",
+            "-",
+            "CopyFormatting",
+            "RemoveFormat"
+          ]
+        },
+        {
+          name: "paragraph",
+          groups: ["list", "indent", "blocks", "align", "bidi"],
+          items: [
+            "NumberedList",
+            "BulletedList",
+            "-",
+            "Outdent",
+            "Indent",
+            "-",
+            "Blockquote",
+            "CreateDiv",
+            "-",
+            "JustifyLeft",
+            "JustifyCenter",
+            "JustifyRight",
+            "JustifyBlock",
+            "-",
+            "BidiLtr",
+            "BidiRtl",
+            "Language"
+          ]
+        },
+        { name: "links", items: ["Link", "Unlink", "Anchor"] },
+
+        { name: "styles", items: ["Styles", "Format", "Font", "FontSize"] },
+        { name: "colors", items: ["TextColor", "BGColor"] },
+        { name: "tools", items: ["Maximize", "ShowBlocks"] },
+        { name: "others", items: ["-"] }
+      ]
+    };
     this.actRoute.data.subscribe(data => {
       if (data.routeResolver) {
         this.subjectList = data.routeResolver;

@@ -1,17 +1,23 @@
 <div class="container-fluid">
     <div class="db-breadcrumb">
         <div class="row" style="width:100% !important">
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <h4 class="float-left breadcrumb-title">[{{titleInfo?.subject}}-{{titleInfo?.series}}] Exam</h4>
+            <div class="col-lg-4 col-md-4 col-sm-4" style="width:50% !important">
+                <h6 class="float-left breadcrumb-title">[{{titleInfo?.subject}}-{{titleInfo?.series}}] Exam</h6>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 ">
-                <h4 class="float-left breadcrumb-title"> Questins {{ i==totalQuestion ? i : i+1 }} of {{ totalQuestion }}</h4>
+            <div class="col-lg-3 col-md-3 col-sm-3 " style="width:20% !important">
+                <h6 class="float-left breadcrumb-title"> Questins {{ i==totalQuestion ? i : i+1 }} of {{ totalQuestion }}</h6>
             </div>
-            <div class="col-lg-5 col-md-5 col-sm-5 float-right">
-                <h4 class="float-left breadcrumb-title"> Left Time:
+            <div class="col-lg-5 col-md-5 col-sm-5 float-right" style="width:30% !important">
+                <h6 class="float-left breadcrumb-title">
+                    <span>
+                    Time Left:
                     <countdown #countdown [config]="{leftTime: duration, notify: [30]}" (event)="finishTest($event)"></countdown>
-                </h4>
-                <h4>Duration: {{secondsToHms(duration)}}</h4>
+                </span><span>/</span> {{secondsToHms(duration)}}                 
+
+                
+                </h6>
+               
+               
             </div>
         </div>
 
@@ -24,8 +30,8 @@
                 Please hurry up. <countdown #countdownN [config]="{leftTime: 30}"></countdown> seconds are left .
                 </strong>
             </div>
-            <div class="alert alert-success">
-                <strong>Q {{i + 1}}:</strong> {{Quiz?.question}}
+            <div class="alert alert-success" style="background-color: white;color: black;border-color: blue;">
+                <p style="display: ruby;">Q {{i + 1}}: <span innerHTML="{{Quiz?.question}}" style="display: ruby;"> </span></p>
             </div>
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -67,14 +73,15 @@
                     <div class="modal-footer text-muted">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left" *ngIf="i > 0"><button (click)="pre()" class="btn btn-sm">Pre</button></div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right" *ngIf="(i+1) < totalQuestion"><button (click)="resetTemplate()" class="btn btn-sm">Next</button></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right" *ngIf="(i+1) < totalQuestion"><button (click)="resetTemplate()" class="btn btn-danger">Next</button></div>
 
                         </div>
                     </div>
                     <div class="modal-footer text-muted">
                         <div class="row">
 
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right"><button (click)="next('T')" class="btn btn-sm btn-success">Finish</button></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+                                <button (click)="next('T')" class="btn btn-sm btn-success">Finish</button></div>
                         </div>
                     </div>
                 </div>
