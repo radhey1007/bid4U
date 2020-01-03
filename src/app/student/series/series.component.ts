@@ -34,16 +34,17 @@ export class SeriesComponent implements OnInit {
         this.totalSeries.forEach(el => {
           el.color = this.getRandomColor();
         });
-        this.seriesList = this.totalSeries.slice(0, this.limitto);
-        if (this.totalSeries.length > 0) {
-          this.showMore = true;
-          if (
-            this.limitto > this.totalSeries.length ||
-            this.limitto == this.totalSeries.length
-          ) {
-            this.showMore = false;
-          }
-        }
+        this.seriesList = this.totalSeries;
+        // this.seriesList = this.totalSeries.slice(0, this.limitto);
+        // if (this.totalSeries.length > 0) {
+        //   this.showMore = true;
+        //   if (
+        //     this.limitto > this.totalSeries.length ||
+        //     this.limitto == this.totalSeries.length
+        //   ) {
+        //     this.showMore = false;
+        //   }
+        // }
         let subjectData = this.storage.getUserSettings("subject");
         if (subjectData) {
           this.subjectInfo = subjectData == undefined ? {} : subjectData;
