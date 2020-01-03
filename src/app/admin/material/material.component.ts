@@ -26,10 +26,10 @@ export class MaterialComponent implements OnInit {
   onFileChange(event) {
     this.clearFile();
     if (event.target.files && event.target.files.length > 0) {
-      if (event.target.files[0].size / 1024 / 1024 > 5) {
-        this.errMSG = "file is bigger than 5MB;Upto 5MB file size allow.";
-        return false;
-      }
+      // if (event.target.files[0].size / 1024 / 1024 > 5) {
+      //   this.errMSG = "file is bigger than 5MB;Upto 5MB file size allow.";
+      //   return false;
+      // }
       let fileData: File = event.target.files[0];
       let sizedata = Math.round(fileData.size / 1024);
       this.file.push({

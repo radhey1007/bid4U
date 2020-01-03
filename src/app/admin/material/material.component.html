@@ -47,9 +47,9 @@
                                     </div>
                                     <div class="form-group row" *ngIf="errMSG!=='' || !fileInput.valid">
                                         <label class="col-sm-2 col-form-label"></label>
-                                        <div *ngIf="errMSG!==''" class="col-sm-7 alert alert-danger">
+                                        <!-- <div *ngIf="errMSG!==''" class="col-sm-7 alert alert-danger">
                                             <strong>Error !</strong> {{errMSG}}
-                                        </div>
+                                        </div> -->
                                         <div *ngIf="fileInput.errors && (fileInput.dirty || fileInput.touched)" class="col-sm-7 alert alert-danger">
                                             <strong>Error !</strong> Please select file to upload
                                         </div>
