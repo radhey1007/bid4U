@@ -21,6 +21,8 @@ import { SubjectMasterComponent } from "../subject-master/subject-master.compone
 import { SeriesMasterComponent } from "../series-master/series-master.component";
 import { ContentComponent } from "../content/content.component";
 import { CKEditorModule } from "ng2-ckeditor";
+import { ProductComponent } from '../product/product.component';
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -33,7 +35,12 @@ import { CKEditorModule } from "ng2-ckeditor";
     ChangepasswordAComponent,
     SubjectMasterComponent,
     SeriesMasterComponent,
-    ContentComponent
+    ContentComponent,
+
+    
+
+    ProductComponent
+
   ],
   imports: [
     CommonModule,

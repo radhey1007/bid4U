@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	debugger;
 	// Main Menu
 	$('#main-nav').affix({
 		offset: {

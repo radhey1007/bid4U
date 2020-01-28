@@ -11,6 +11,7 @@ import { SubjectMasterComponent } from './subject-master/subject-master.componen
 import { SeriesMasterComponent } from './series-master/series-master.component';
 import { ContentComponent } from './content/content.component';
 import { ContentresolverService } from './content/contentresolver.service';
+import { ProductComponent } from './product/product.component';
 
 export const AdminRoute = [
   { path: "", component: DashboardComponent, pathMatch: "full" },
@@ -47,5 +48,9 @@ export const AdminRoute = [
   {
     path: "series",
     component: SeriesMasterComponent
+  },
+  {
+    path: "product",
+    component: ProductComponent
   }
 ];

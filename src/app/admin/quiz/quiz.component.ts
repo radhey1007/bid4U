@@ -93,7 +93,6 @@ export class QuizComponent implements OnInit {
   }
 
   postQuiz = () => {
-    debugger;
     if (this.quiz.answerE !== "") {
       const quiz = {
         subjectID: this.quiz.subject,

@@ -90,6 +90,24 @@
 
 
                 <li class="ttr-seperate"></li>
+                <li>
+                    <a href="javascript:void(0)"  class="ttr-material-button">
+                        <span class="ttr-icon"><i class="ti-book"></i></span>
+                        <span class="ttr-label">Product Master</span>
+                        <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" [routerLink]="['./product']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="ttr-material-button a"><span
+                                    class="ttr-label">Add Product</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" [routerLink]="['./series']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="ttr-material-button a"><span
+                                    class="ttr-label">View Product</span></a>
+                        </li>                     
+                    </ul>
+
+                </li>
             </ul>
             <!-- sidebar menu end -->
         </nav>
