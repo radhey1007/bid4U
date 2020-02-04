@@ -22,6 +22,10 @@ import { SeriesMasterComponent } from "../series-master/series-master.component"
 import { ContentComponent } from "../content/content.component";
 import { CKEditorModule } from "ng2-ckeditor";
 import { ProductComponent } from '../product/product.component';
+import { ProductsService } from '../../services/product/products.service';
+import { PrdoctListComponent } from '../prdoct-list/prdoct-list.component';
+
+
 
 @NgModule({
   declarations: [
@@ -37,10 +41,8 @@ import { ProductComponent } from '../product/product.component';
     SeriesMasterComponent,
     ContentComponent,
 
-    
-
-    ProductComponent
-
+    ProductComponent,
+    PrdoctListComponent
   ],
   imports: [
     CommonModule,
@@ -50,6 +52,6 @@ import { ProductComponent } from '../product/product.component';
     CpasswordmodModule,
     CKEditorModule
   ],
-  providers: [QuizresolverService]
+  providers: [QuizresolverService , ProductsService]
 })
 export class AdminsModule {}

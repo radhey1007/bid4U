@@ -8,7 +8,7 @@ import { CommonService } from "./shared/common.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = "The learning adda";
+  title = "Bid4u";
   original: any = document.title;
 
   constructor(public sharedService: CommonService) {}
@@ -20,6 +20,6 @@ export class AppComponent {
 
   @HostListener("window:blur", ["$event"])
   public onBlur(): void {
-    document.title = "We are misssing you :).";
+    document.title = "We are misssing you :)";
   }
 }

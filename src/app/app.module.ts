@@ -18,9 +18,9 @@ import {
   FacebookLoginProvider,
   GoogleLoginProvider
 } from "angularx-social-login";
-import { SubjectMasterComponent } from './admin/subject-master/subject-master.component';
-import { SeriesMasterComponent } from './admin/series-master/series-master.component';
-import { ContentComponent } from './admin/content/content.component';
+
+
+import {CdkTableModule} from '@angular/cdk/table';
 
 
 const config = new AuthServiceConfig([
@@ -49,7 +49,8 @@ export function provideConfig() {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CountdownModule
+    CountdownModule,
+    CdkTableModule
   ],
   providers: [
     {

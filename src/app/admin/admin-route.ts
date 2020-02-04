@@ -12,6 +12,7 @@ import { SeriesMasterComponent } from './series-master/series-master.component';
 import { ContentComponent } from './content/content.component';
 import { ContentresolverService } from './content/contentresolver.service';
 import { ProductComponent } from './product/product.component';
+import { PrdoctListComponent } from './prdoct-list/prdoct-list.component';
 
 export const AdminRoute = [
   { path: "", component: DashboardComponent, pathMatch: "full" },
@@ -52,5 +53,9 @@ export const AdminRoute = [
   {
     path: "product",
     component: ProductComponent
-  }
+  },
+  {
+    path: "product-list",
+    component: PrdoctListComponent
+  },
 ];

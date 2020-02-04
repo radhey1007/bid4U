@@ -70,6 +70,19 @@
                                         <strong>Error !</strong> Please enter product name
                                     </div>
                                 </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Quanity</label>
+                                    <div class="col-sm-7">
+                                        <input class="form-control" #productQuantity="ngModel" required [(ngModel)]="productModel.productQuantity" name="productQuantity" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row" *ngIf="productQuantity.errors && (productQuantity.dirty || productQuantity.touched)">
+                                    <label class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-7 alert alert-danger">
+                                        <strong>Error !</strong> Please enter Qunatity!
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Price</label>
                                     <div class="col-sm-7">
@@ -82,7 +95,72 @@
                                         <strong>Error !</strong> Please enter price!
                                     </div>
                                 </div>
-                                <div style="text-align:center;"> <button [disabled]="myForm.invalid" (click)="postProduct()" type="button" class="btn btn-block btn-success"><i
+
+
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Product Image</label>
+                                    <div class="col-sm-5 custom-file">
+                                      <input required class="form-control"
+                                        accept=".jpg,.jpeg,.png," (change)="onFileChange($event)"
+                                        #FileInput="ngModel" [(ngModel)]="productModel.productImage" name="event" placeholder="Please choose file.."
+                                        name="productImage" required type="file">
+                                    </div>
+                                    <div class="col-sm-4">
+                                      <div class="form-group" *ngIf="imageUrl">
+                                        <img src="{{imageUrl}}" height="100" width="100">
+                                      </div>
+                                    </div>
+                                  </div>                            
+                            
+                                  <div class="form-group row" *ngIf="errMSG!=='' || !FileInput.valid">
+                                    <label class="col-sm-2 col-form-label"></label>
+                                    <div *ngIf="FileInput.errors && (FileInput.dirty || FileInput.touched)"
+                                      class="col-sm-7 alert alert-danger">
+                                      <strong>Error !</strong> Please select file to upload
+                                    </div>
+                                  </div>
+
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">SKU</label>
+                                    <div class="col-sm-7">
+                                        <input class="form-control" #productSku="ngModel" required [(ngModel)]="productModel.productSku" name="productSku" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row" *ngIf="productSku.errors && (productSku.dirty || productSku.touched)">
+                                    <label class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-7 alert alert-danger">
+                                        <strong>Error !</strong> Please enter SKU!
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Visibility</label>
+                                    <div class="col-sm-7">
+                                        <input class="form-control" #productVisibility="ngModel" required [(ngModel)]="productModel.productVisibility" name="productVisibility" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row" *ngIf="productVisibility.errors && (productVisibility.dirty || productVisibility.touched)">
+                                    <label class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-7 alert alert-danger">
+                                        <strong>Error !</strong> Please enter Visibility!
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Stock_status</label>
+                                    <div class="col-sm-7">
+                                        <input class="form-control" #productStock_status="ngModel" required [(ngModel)]="productModel.productStock_status" name="productStock_status" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row" *ngIf="productStock_status.errors && (productStock_status.dirty || productStock_status.touched)">
+                                    <label class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-7 alert alert-danger">
+                                        <strong>Error !</strong> Please enter Stock_status!
+                                    </div>
+                                </div>
+
+                                <div style="text-align:center;"> <button [disabled]="myForm.invalid" (click)="addProduct()" type="button" class="btn btn-block btn-success"><i
                                                 class="fa fa-fw fa-plus-circle"></i>Submit</button></div>
 
                             </div>
