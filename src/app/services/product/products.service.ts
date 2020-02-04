@@ -13,12 +13,11 @@ export class ProductsService {
     public http: HttpClient
   ) { }
 
-addProducts = (data: any) => {
-    var headers = new HttpHeaders()
-    .set("Content-Type", 'application/json')
-    .set("Access-Control-Allow-Origin", '*');
-    var url = this.baseUrl;
-    console.log(url);
-    return this.http.post(url , data, {headers});
+  addProducts = (data: any) => {
+    return this.http.post(this.baseUrl, data, {});
   };
+
+  getProduct = (data) => {
+    return this.http.post(this.baseUrl, data, {});
+  }
 }

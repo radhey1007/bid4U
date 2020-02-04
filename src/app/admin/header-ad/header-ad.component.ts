@@ -14,7 +14,7 @@ export class HeaderAdComponent implements OnInit {
   constructor(public route: Router, public storage: StorageService) {
     let userData=this.storage.getUserSettings('user');
     
-    this.user=this.jsUcfirst(userData.userName);
+    this.user=this.jsUcfirst(userData.userName) || '';
   }
 
   ngOnInit() {

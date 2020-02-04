@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { CommonService } from "src/app/shared/common.service";
@@ -7,7 +8,7 @@ import { NgForm } from "@angular/forms";
 import { ProductsService } from '../../services/product/products.service';
 
 
-
+ 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -17,22 +18,25 @@ export class ProductComponent implements OnInit {
   
   @ViewChild("myForm", { static: false }) productForm: NgForm;
   productModel = {
-    productName: "",
-    productPrice: "",
-    productImage:"",
-    productSku:"",
-    productVisibility:"",
-    productQuantity:"",
-    productStock_status:""
+    name: "",
+    price: "",
+    image:"",
+    sku:"",
+    visibility:"",
+    quantity:"",
+    stock_status:""
   };
 
   imageUrl:string='';
   errMSG: string;
+
   constructor(
     public sharedService: CommonService,
     public http: HttpClient,
     private toastr: ToastrService,
-    private productService:ProductsService
+    private productService:ProductsService,
+    private router:Router
+
   )
   { }
 
@@ -41,13 +45,13 @@ export class ProductComponent implements OnInit {
 
   validateJobModel = (): boolean => {
     if (
-      this.productModel.productName !== "" &&
-      this.productModel.productPrice !== "" &&
-      this.productModel.productImage !== "" &&
-      this.productModel.productSku !== "" &&
-      this.productModel.productVisibility !== "" &&
-      this.productModel.productQuantity !== "" &&
-      this.productModel.productStock_status !== ""
+      this.productModel.name !== "" &&
+      this.productModel.price !== "" &&
+      this.productModel.image !== "" &&
+      this.productModel.sku !== "" &&
+      this.productModel.visibility !== "" &&
+      this.productModel.quantity !== "" &&
+      this.productModel.stock_status !== ""
 
     ) {
       return true;
@@ -55,8 +59,6 @@ export class ProductComponent implements OnInit {
       return false;
     }
   };
-
-
   onFileChange(event) {
     // this.clearFile();
     if (event.target.files && event.target.files[0]) {
@@ -67,7 +69,7 @@ export class ProductComponent implements OnInit {
       console.log(event.target.files)
       var reader = new FileReader();
       reader.onload = (event: any) => {
-      //  console.log(event.target.result);
+      this.productModel.image = 'test.jpg';
       this.imageUrl  = event.target.result;
       }
       reader.readAsDataURL(event.target.files[0]);
@@ -78,29 +80,26 @@ export class ProductComponent implements OnInit {
   addProduct = () => {
     
     console.log(this.productModel)
-      if (this.validateJobModel()) {
-        const productData = {
-          name: this.productModel.productName,
-          price: this.productModel.productPrice,        
-          image: this.imageUrl,
-          sku: this.productModel.productSku,
-          visibility: this.productModel.productVisibility,
-          quantity: this.productModel.productQuantity,
-          stock_status: this.productModel.productStock_status
-        };
-        console.log(productData , 'postData')
-       
-        var query = {
-          query:`mutation{addProduct(${productData})}{
-            name
-            price 
-            created_at
-          }}`
-        }
-
-        var data = JSON.stringify(query);
-       
-
+       if (this.validateJobModel()) {
+        console.log(this.productModel , 'postData')
+        const {name,price,image,quantity,sku,visibility} =this.productModel;
+        const data = {       
+          query:`mutation {              
+            addProduct(
+                name:"${name}",
+                price:${price},
+                image:"${image}",
+                quantity:${quantity},
+                sku:"${sku}",
+                stock_status:1,
+                visibility:${visibility}
+              )
+              {
+                price 
+                created_at
+              }
+            }`
+        }    
         this.productService.addProducts(data).subscribe(
           (_res: any) => {
             this.productForm.reset();
@@ -126,5 +125,10 @@ export class ProductComponent implements OnInit {
     }
     
   };
+
+  // goToProductList = () => {
+  //   this.router.navigate(['admin/dashborad/product-list']);
+  // }
+
 
 }

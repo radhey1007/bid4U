@@ -176,11 +176,11 @@ export class AdminComponent implements OnInit, AfterViewInit {
         if (!checkSelectorExistence(".content-scroll")) {
           return;
         }
-        $(".content-scroll").mCustomScrollbar({
-          setWidth: false,
-          setHeight: false,
-          axis: "y"
-        });
+        // $(".content-scroll").mCustomScrollbar({
+        //   setWidth: false,
+        //   setHeight: false,
+        //   axis: "y"
+        // });
       };
 
       /* jQuery ready  */

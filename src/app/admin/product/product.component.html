@@ -1,9 +1,7 @@
 <div class="container-fluid">
     <div class="db-breadcrumb">
         <h4 class="breadcrumb-title">Admin-Product Master</h4>
-
     </div>
-
     <div class="row"> 
         <div class="col-md-6 col-lg-6 col-xl-6 col-sm-6 col-12">
             <div class="widget-card widget-bg1" [ngClass]="{'this-is-a-class': id === 1 }" (click)="addClass(id=1)">
@@ -15,13 +13,15 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-6 col-xl-6 col-sm-6 col-12">
-            <div class="widget-card widget-bg2" [ngClass]="{'this-is-a-class': id === 2 }" (click)="addClass(id=2)">
+            <a routerLink="/admin/dashboard/product-list">
+            <div class="widget-card widget-bg2" [ngClass]="{'this-is-a-class': id === 2 }">
                 <div class="wc-item">
                     <h4 class="wc-title">
                         View Product
                     </h4>
                 </div>
             </div>
+            </a>
         </div>
         <!-- <div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
             <div class="widget-card widget-bg3" [ngClass]="{'this-is-a-class': id === 3 }" (click)="addClass(id=3)">
@@ -60,10 +60,10 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Product Name</label>
                                     <div class="col-sm-7">
-                                        <input class="form-control" #productName="ngModel" [(ngModel)]="productModel.productName" name="productName" type="text" required>
+                                        <input class="form-control" #name="ngModel" [(ngModel)]="productModel.name" name="name" type="text" required>
                                     </div>
                                 </div>
-                                <div class="form-group row" *ngIf="productName.errors && (productName.dirty || productName.touched)">
+                                <div class="form-group row" *ngIf="name.errors && (name.dirty || name.touched)">
                                     <label class="col-sm-2 col-form-label"></label>
 
                                     <div class="col-sm-7 alert alert-danger">
@@ -74,10 +74,10 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Quanity</label>
                                     <div class="col-sm-7">
-                                        <input class="form-control" #productQuantity="ngModel" required [(ngModel)]="productModel.productQuantity" name="productQuantity" type="text">
+                                        <input class="form-control" #quantity="ngModel" required [(ngModel)]="productModel.quantity" name="quantity" type="text">
                                     </div>
                                 </div>
-                                <div class="form-group row" *ngIf="productQuantity.errors && (productQuantity.dirty || productQuantity.touched)">
+                                <div class="form-group row" *ngIf="quantity.errors && (quantity.dirty || quantity.touched)">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-7 alert alert-danger">
                                         <strong>Error !</strong> Please enter Qunatity!
@@ -86,10 +86,10 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Price</label>
                                     <div class="col-sm-7">
-                                        <input class="form-control" #productPrice="ngModel" required [(ngModel)]="productModel.productPrice" name="productPrice" type="text">
+                                        <input class="form-control" #price="ngModel" required [(ngModel)]="productModel.price" name="price" type="text">
                                     </div>
                                 </div>
-                                <div class="form-group row" *ngIf="productPrice.errors && (productPrice.dirty || productPrice.touched)">
+                                <div class="form-group row" *ngIf="price.errors && (price.dirty || price.touched)">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-7 alert alert-danger">
                                         <strong>Error !</strong> Please enter price!
@@ -102,8 +102,8 @@
                                     <div class="col-sm-5 custom-file">
                                       <input required class="form-control"
                                         accept=".jpg,.jpeg,.png," (change)="onFileChange($event)"
-                                        #FileInput="ngModel" [(ngModel)]="productModel.productImage" name="event" placeholder="Please choose file.."
-                                        name="productImage" required type="file">
+                                        #FileInput="ngModel" [(ngModel)]="image" name="event" placeholder="Please choose file.."
+                                        name="image" required type="file">
                                     </div>
                                     <div class="col-sm-4">
                                       <div class="form-group" *ngIf="imageUrl">
@@ -124,10 +124,10 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">SKU</label>
                                     <div class="col-sm-7">
-                                        <input class="form-control" #productSku="ngModel" required [(ngModel)]="productModel.productSku" name="productSku" type="text">
+                                        <input class="form-control" #sku="ngModel" required [(ngModel)]="productModel.sku" name="sku" type="text">
                                     </div>
                                 </div>
-                                <div class="form-group row" *ngIf="productSku.errors && (productSku.dirty || productSku.touched)">
+                                <div class="form-group row" *ngIf="sku.errors && (sku.dirty || sku.touched)">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-7 alert alert-danger">
                                         <strong>Error !</strong> Please enter SKU!
@@ -137,10 +137,10 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Visibility</label>
                                     <div class="col-sm-7">
-                                        <input class="form-control" #productVisibility="ngModel" required [(ngModel)]="productModel.productVisibility" name="productVisibility" type="text">
+                                        <input class="form-control" #visibility="ngModel" required [(ngModel)]="productModel.visibility" name="productVisibility" type="text">
                                     </div>
                                 </div>
-                                <div class="form-group row" *ngIf="productVisibility.errors && (productVisibility.dirty || productVisibility.touched)">
+                                <div class="form-group row" *ngIf="visibility.errors && (visibility.dirty || visibility.touched)">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-7 alert alert-danger">
                                         <strong>Error !</strong> Please enter Visibility!
@@ -150,10 +150,10 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Stock_status</label>
                                     <div class="col-sm-7">
-                                        <input class="form-control" #productStock_status="ngModel" required [(ngModel)]="productModel.productStock_status" name="productStock_status" type="text">
+                                        <input class="form-control" #stock_status="ngModel" required [(ngModel)]="productModel.stock_status" name="stock_status" type="text">
                                     </div>
                                 </div>
-                                <div class="form-group row" *ngIf="productStock_status.errors && (productStock_status.dirty || productStock_status.touched)">
+                                <div class="form-group row" *ngIf="stock_status.errors && (stock_status.dirty || stock_status.touched)">
                                     <label class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-7 alert alert-danger">
                                         <strong>Error !</strong> Please enter Stock_status!
